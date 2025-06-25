@@ -17,7 +17,9 @@ const resources = {
                 Cat: 'Cat',
                 Dog: 'Dog',
                 Dragon: 'Dragon',
+                Fox: 'Fox',
                 Furry: 'Furry',
+                Tiger: 'Tiger',
                 Wolf: 'Wolf'
             },
         }
@@ -36,7 +38,9 @@ const resources = {
                 Cat: '猫',
                 Dog: '狗',
                 Dragon: '龍',
+                Fox: '狐狸',
                 Furry: '獸人',
+                Tiger: '老虎',
                 Wolf: '狼'
             },
         }
