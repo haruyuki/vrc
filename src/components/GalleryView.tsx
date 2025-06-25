@@ -1,5 +1,4 @@
 import React from 'react';
-import { ExternalLink } from 'lucide-react';
 import { TextureModel } from '../data/models';
 import CommissionCard from './CommissionCard';
 
