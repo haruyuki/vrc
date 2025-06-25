@@ -4,16 +4,20 @@ export const availableTags = [
     "Cat",
     "Dog",
     "Dragon",
+    "Fox",
     "Furry",
+    "Tiger",
     "Wolf",
 ];
 
 export const tagColors: Record<string, string> = {
-    "All": "#8B4513",
-    "Featured": "#F7931E",
-    "Cat": "#F4A460",
-    "Dog": "#B8860B",
-    "Dragon": "#8B0000",
-    "Furry": "#228B22",
-    "Wolf": "#708090",
+    "All": "#A569BD",
+    "Featured": "#48C9B0",
+    "Cat": "#F7CA18",
+    "Dog": "#E67E22",
+    "Dragon": "#E74C3C",
+    "Fox": "#5DADE2",
+    "Furry": "#58D68D",
+    "Tiger": "#F4D03F",
+    "Wolf": "#85929E",
 };
