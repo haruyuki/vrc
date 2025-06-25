@@ -7,6 +7,15 @@ import Kankitsu from "./models/Kankitsu.ts";
 import Nyaruku from "./models/Nyaruku.ts";
 import Rigaro from "./models/Rigaro.ts";
 import SharatNEW from "./models/SharatNEW.ts";
+import ZiziV2 from "./models/ZiziV2.ts";
+import Lars from "./models/Lars.ts";
+import ChibiNovabeast from "./models/ChibiNovabeast.ts";
+import Kokotora from "./models/Kokotora.ts";
+import Jiro from "./models/Jiro.ts";
+import Lana from "./models/Lana.ts";
+import Wako from "./models/Wako.ts";
+import Alums from "./models/Alums.ts";
+import Espo from "./models/Espo.ts";
 
 export interface Commission {
     id: string;
@@ -28,11 +37,20 @@ export interface TextureModel {
 export const textureModels: TextureModel[] = [
     Akami,
     Alfie,
+    Alums,
     Asty,
+    ChibiNovabeast,
     Crook,
+    Espo,
+    Jiro,
     Kankitsu,
+    Kokotora,
+    Lana,
+    Lars,
     Nyaruku,
     Regulus2,
     Rigaro,
     SharatNEW,
+    Wako,
+    ZiziV2
 ];
