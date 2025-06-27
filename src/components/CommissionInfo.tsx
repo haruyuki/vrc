@@ -16,7 +16,7 @@ const CommissionInfo: React.FC = () => {
               style={{ maxHeight: 400 }}
           />
       </div>
-      <section className="bg-amber-50 dark:bg-amber-900 rounded-xl shadow-md p-6 mb-10 max-w-3xl mx-auto border border-amber-200 dark:border-amber-700">
+      <section className="bg-white/80 dark:bg-gray-900/80 rounded-xl shadow-md p-6 mb-10 max-w-3xl mx-auto border border-amber-200 dark:border-gray-800">
         <div className="text-center text-lg font-semibold text-amber-800 dark:text-amber-200 mb-4">
           {t('commission_info.base_price')}
         </div>
