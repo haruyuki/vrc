@@ -5,8 +5,8 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 const resources = {
     en: {
         translation: {
-            texture_library: 'Haru VRChat Commission Gallery',
-            description_text: 'This site contains commissioned work made by Haru for VRChat. For more information, please refer to this post and the image below.',
+            completed_works_title: 'Completed Works',
+            completed_works_description: 'These are the commissions for models I have completed.',
             book: {
                 clickToOpen: 'Click to open',
                 officialLink: 'Official Link'
@@ -26,16 +26,16 @@ const resources = {
     },
     zh: {
         translation: {
-            texture_library: '哈魯VRChat委托画廊',
-            description_text: '這個網站是來展示Haru被委託上色VRChat模型。點上任意模型可瀏覽委託作品。更多資訊請參閱本帖和下方圖片。',
+            completed_works_title: '已完成作品',
+            completed_works_description: '這裡展示的是我已完成的模型委託作品。',
             book: {
-                clickToOpen: '點開',
+                clickToOpen: '點擊開啟',
                 officialLink: '官方連結'
             },
             tags: {
                 All: '全部',
                 Featured: '精選',
-                Cat: '猫',
+                Cat: '貓',
                 Dog: '狗',
                 Dragon: '龍',
                 Fox: '狐狸',

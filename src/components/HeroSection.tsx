@@ -11,10 +11,10 @@ const HeroSection: React.FC = () => {
       className="text-center mb-12"
     >
       <h2 className="text-4xl md:text-6xl font-bold text-amber-900 dark:text-amber-100 mb-4">
-        {t('texture_library')}
+        {t('completed_works_title')}
       </h2>
       <p className="text-xl text-amber-700 dark:text-amber-300 max-w-3xl mx-auto">
-        {t('description_text')}
+        {t('completed_works_description')}
       </p>
     </motion.div>
   );

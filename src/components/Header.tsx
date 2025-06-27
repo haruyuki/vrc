@@ -22,8 +22,8 @@ const Header: React.FC<HeaderProps> = ({ onToggleLanguage, currentLanguage, onTo
             <Palette className="h-8 w-8 text-white" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold text-amber-900 dark:text-amber-100">VRChat Texture Portfolio</h1>
-            <p className="text-amber-700 dark:text-amber-300">Discover beautiful custom textures for your favorite avatars</p>
+            <h1 className="text-3xl font-bold text-amber-900 dark:text-amber-100">Haru's VRChat Model Texturing Gallery</h1>
+            <p className="text-amber-700 dark:text-amber-300">A site to showcase completed works by Haru</p>
           </div>
         </div>
         <div className="flex items-center gap-4">
