@@ -40,9 +40,6 @@ const resources = {
                 payment_after: 'Payment after completion (model cost must be paid upfront if included).',
                 payment_methods: 'Methods: Paypal (+4% fee), Taiwan bank remittance.',
                 contact_title: 'Contact:',
-                telegram: 'Telegram: t.me/blumewmew',
-                discord: 'Discord: @blumewmew',
-                facebook: 'Facebook: fb.me/blumewmew',
                 request_button: 'Request a Commission',
             },
             footer: {
@@ -88,9 +85,6 @@ const resources = {
                 payment_after: '完成後付款，若需代購模型，模型費用需提前支付',
                 payment_methods: '付款方式：PayPal（+4%手續費）、台灣銀行匯款',
                 contact_title: '聯絡方式',
-                telegram: 'Telegram: t.me/blumewmew',
-                discord: 'Discord: @blumewmew',
-                facebook: 'Facebook: fb.me/blumewmew',
                 request_button: '填寫委託表單',
             },
             footer: {

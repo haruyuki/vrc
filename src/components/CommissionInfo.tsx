@@ -40,23 +40,14 @@ const CommissionInfo: React.FC = () => {
             <li>{t('commission_info.payment_methods')}</li>
           </ul>
         </div>
-        <div className="mb-4">
-          <span className="font-semibold text-amber-900 dark:text-amber-100">{t('commission_info.contact_title')}</span>
-          <ul className="list-disc list-inside ml-5 text-amber-800 dark:text-amber-200">
-            <li>{t('commission_info.telegram')}</li>
-            <li>{t('commission_info.discord')}</li>
-            <li>{t('commission_info.facebook')}</li>
-          </ul>
-        </div>
         <div className="text-center mt-4">
-          <a
-            href="https://YOUR_GOOGLE_FORM_LINK_HERE"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-6 rounded-lg shadow transition"
+          <button
+            disabled
+            className="inline-block bg-gray-400 text-white font-bold py-2 px-6 rounded-lg shadow transition opacity-60 cursor-not-allowed"
+            title="Commission form not available yet"
           >
             {t('commission_info.request_button')}
-          </a>
+          </button>
         </div>
       </section>
     </>
