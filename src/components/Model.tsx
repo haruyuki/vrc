@@ -42,7 +42,7 @@ export const Model: React.FC<ModelProps> = ({ model }) => {
         {isOpen && (
           <motion.div
             key="overlay"
-            className="fixed inset-0 z-40 bg-black bg-opacity-50"
+            className="fixed inset-0 z-40 bg-black/50"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -96,7 +96,7 @@ export const Model: React.FC<ModelProps> = ({ model }) => {
                       href={model.officialLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1 hover:text-amber-200 transition-colors bg-black bg-opacity-20 px-2 py-1 rounded-full text-xs text-white"
+                      className="flex items-center gap-1 hover:text-amber-200 transition-colors bg-black/20 px-2 py-1 rounded-full text-xs text-white"
                       aria-label={`View ${model.modelName} official page`}
                       onClick={e => e.stopPropagation()}
                     >
@@ -108,7 +108,7 @@ export const Model: React.FC<ModelProps> = ({ model }) => {
                     {model.categories.slice(0, 2).map((category) => (
                       <span
                         key={category}
-                        className="px-2 py-1 text-xs bg-white bg-opacity-20 text-white rounded-full dark:bg-gray-700 dark:text-amber-100"
+                        className="px-2 py-1 text-xs bg-white/20 text-white rounded-full dark:bg-gray-700/20 dark:text-amber-100"
                       >
                         {t(`tags.${category}`, category)}
                       </span>
@@ -116,7 +116,7 @@ export const Model: React.FC<ModelProps> = ({ model }) => {
                   </div>
                 </div>
               </div>
-              <div className="absolute bottom-2 right-2 text-white text-opacity-70 text-xs z-20">
+              <div className="absolute bottom-2 right-2 text-white/70 text-xs z-20">
                 {t('book.clickToOpen', 'Click to open')}
               </div>
             </div>
@@ -140,7 +140,7 @@ export const Model: React.FC<ModelProps> = ({ model }) => {
             >
               <button
                 onClick={handleClose}
-                className="absolute top-4 right-4 z-10 bg-white dark:bg-gray-900 bg-opacity-80 dark:bg-opacity-90 hover:bg-opacity-100 rounded-full p-2 transition-all duration-200"
+                className="absolute top-4 right-4 z-10 bg-white/80 dark:bg-gray-900/90 hover:bg-opacity-100 rounded-full p-2 transition-all duration-200"
                 aria-label="Close gallery"
               >
                 <X className="w-6 h-6 text-amber-900 dark:text-amber-100" />

@@ -9,6 +9,7 @@ import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import Footer from './components/Footer';
 import CommissionInfo from './components/CommissionInfo';
+import {Analytics} from "@vercel/analytics/react";
 
 function App() {
   const { i18n } = useTranslation();
@@ -133,6 +134,7 @@ function App() {
         {/* Footer */}
         <Footer />
       </div>
+      <Analytics />
     </div>
   );
 }
