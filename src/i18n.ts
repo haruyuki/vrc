@@ -44,7 +44,11 @@ const resources = {
                 discord: 'Discord: @blumewmew',
                 facebook: 'Facebook: fb.me/blumewmew',
                 request_button: 'Request a Commission',
-            }
+            },
+            footer: {
+                rights: 'All base model images and commissioned model images belong to their respective owners.'
+            },
+            footer_label: '© 2025 HaruStar. All rights reserved.',
         }
     },
     zh: {
@@ -88,7 +92,11 @@ const resources = {
                 discord: 'Discord: @blumewmew',
                 facebook: 'Facebook: fb.me/blumewmew',
                 request_button: '填寫委託表單',
-            }
+            },
+            footer: {
+                rights: '所有基礎模型圖片及委託模型圖片之版權皆屬於各自擁有者。'
+            },
+            footer_label: '© 2025 HaruStar. All rights reserved.',
         }
     }
 };
