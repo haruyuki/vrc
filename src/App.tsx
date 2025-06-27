@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import Footer from './components/Footer';
+import CommissionInfo from './components/CommissionInfo';
 
 function App() {
   const { i18n } = useTranslation();
@@ -91,6 +92,8 @@ function App() {
 
         {/* Main Content */}
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          {/* Commission Info Section */}
+          <CommissionInfo />
           {/* Hero Section */}
           <HeroSection />
 
