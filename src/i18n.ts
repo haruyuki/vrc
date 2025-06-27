@@ -52,9 +52,15 @@ i18n
     .use(initReactI18next)
     .init({
         resources,
-        fallbackLng: 'en',
+        lng: 'zh', // Set Chinese as the default language
+        fallbackLng: 'zh',
         interpolation: {
             escapeValue: false,
+        },
+        detection: {
+            // Always use Chinese as default unless user has a preference
+            order: ['localStorage', 'navigator'],
+            caches: ['localStorage'],
         },
     });
 

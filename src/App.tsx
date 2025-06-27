@@ -14,13 +14,13 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTags, setSelectedTags] = useState<string[]>(['All']);
   const [isDarkMode, setIsDarkMode] = useState(() => {
-    // Check localStorage or system preference
     if (typeof window !== 'undefined') {
       const stored = localStorage.getItem('theme');
       if (stored) return stored === 'dark';
-      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+      localStorage.setItem('theme', 'dark');
+      return true;
     }
-    return false;
+    return true;
   });
 
   useEffect(() => {
