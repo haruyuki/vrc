@@ -18,8 +18,14 @@ export const Model: React.FC<ModelProps> = ({ model }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation();
 
-  const handleBookClick = useCallback(() => setIsOpen(true), []);
-  const handleClose = useCallback(() => setIsOpen(false), []);
+  const handleBookClick = useCallback(() => {
+    document.body.style.overflow = 'hidden';
+    setIsOpen(true);
+  }, []);
+  const handleClose = useCallback(() => {
+    document.body.style.overflow = '';
+    setIsOpen(false);
+  }, []);
 
   const handleKeyDown = useCallback((event: React.KeyboardEvent) => {
     if (event.key === 'Enter' || event.key === ' ') {
