@@ -13,8 +13,8 @@ const CarouselComponent: React.FC<Carousel> = ({ models }) => {
     return (
       <div className="text-center py-16">
         <div className="text-6xl mb-4">📚</div>
-        <h3 className="text-xl font-semibold text-amber-800 mb-2">No models found</h3>
-        <p className="text-amber-600">Try adjusting your search or filter criteria</p>
+        <h3 className="text-xl font-semibold text-amber-800 dark:text-amber-100 mb-2">No models found</h3>
+        <p className="text-amber-600 dark:text-amber-300">Try adjusting your search or filter criteria</p>
       </div>
     );
   }

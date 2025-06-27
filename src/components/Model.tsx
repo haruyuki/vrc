@@ -59,7 +59,7 @@ export const Model: React.FC<ModelProps> = ({ model }) => {
             aria-label={`View ${model.modelName} texture portfolio`}
             style={{ zIndex: 1 }}
           >
-            <div className="relative w-full h-full rounded-lg shadow-lg group-hover:shadow-xl transition-shadow duration-300 overflow-hidden bg-white flex">
+            <div className="relative w-full h-full rounded-lg shadow-lg group-hover:shadow-xl transition-shadow duration-300 overflow-hidden bg-white dark:bg-gray-900 flex">
               <div
                 className="h-full"
                 style={{ width: '12px', minWidth: '12px', backgroundColor: model.spineColor }}
@@ -70,7 +70,7 @@ export const Model: React.FC<ModelProps> = ({ model }) => {
                     <Star className="w-6 h-6 text-yellow-400 fill-current" />
                   </div>
                 )}
-                <div className="flex-1 mb-0 overflow-hidden shadow-md aspect-square bg-white">
+                <div className="flex-1 mb-0 overflow-hidden shadow-md aspect-square bg-white dark:bg-gray-800">
                   <img
                     src={model.coverImage}
                     alt={`${model.modelName} texture preview`}
@@ -102,7 +102,7 @@ export const Model: React.FC<ModelProps> = ({ model }) => {
                     {model.categories.slice(0, 2).map((category) => (
                       <span
                         key={category}
-                        className="px-2 py-1 text-xs bg-white bg-opacity-20 text-white rounded-full"
+                        className="px-2 py-1 text-xs bg-white bg-opacity-20 text-white rounded-full dark:bg-gray-700 dark:text-amber-100"
                       >
                         {t(`tags.${category}`, category)}
                       </span>
@@ -123,7 +123,7 @@ export const Model: React.FC<ModelProps> = ({ model }) => {
             style={{ pointerEvents: 'none' }}
           >
             <motion.div
-              className="relative w-full max-w-6xl h-full max-h-[90vh] bg-gradient-to-br from-amber-50 to-orange-50 rounded-lg overflow-hidden"
+              className="relative w-full max-w-6xl h-full max-h-[90vh] bg-gradient-to-br from-amber-50 to-orange-50 dark:from-gray-900 dark:to-gray-800 rounded-lg overflow-hidden"
               layoutId={`book-${model.modelName}`}
               variants={fullScreenVariants}
               initial="hidden"
@@ -134,10 +134,10 @@ export const Model: React.FC<ModelProps> = ({ model }) => {
             >
               <button
                 onClick={handleClose}
-                className="absolute top-4 right-4 z-10 bg-white bg-opacity-80 hover:bg-opacity-100 rounded-full p-2 transition-all duration-200"
+                className="absolute top-4 right-4 z-10 bg-white dark:bg-gray-900 bg-opacity-80 dark:bg-opacity-90 hover:bg-opacity-100 rounded-full p-2 transition-all duration-200"
                 aria-label="Close gallery"
               >
-                <X className="w-6 h-6 text-amber-900" />
+                <X className="w-6 h-6 text-amber-900 dark:text-amber-100" />
               </button>
               <Suspense fallback={<div className="flex items-center justify-center h-full">Loading...</div>}>
                 <GalleryView model={model} isVisible={isOpen} />

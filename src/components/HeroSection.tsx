@@ -10,10 +10,10 @@ const HeroSection: React.FC = () => {
       transition={{ duration: 0.6, delay: 0.2 }}
       className="text-center mb-12"
     >
-      <h2 className="text-4xl md:text-6xl font-bold text-amber-900 mb-4">
+      <h2 className="text-4xl md:text-6xl font-bold text-amber-900 dark:text-amber-100 mb-4">
         {t('texture_library')}
       </h2>
-      <p className="text-xl text-amber-700 max-w-3xl mx-auto">
+      <p className="text-xl text-amber-700 dark:text-amber-300 max-w-3xl mx-auto">
         {t('description_text')}
       </p>
     </motion.div>
@@ -21,4 +21,3 @@ const HeroSection: React.FC = () => {
 };
 
 export default HeroSection;
-

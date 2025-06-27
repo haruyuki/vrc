@@ -30,7 +30,7 @@ const CommissionCard: React.FC<CommissionCardProps> = ({ commission, index }) =>
       initial="hidden"
       animate="visible"
       transition={{ delay: index * 0.1 }}
-      className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
+      className="bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-amber-100 dark:border-gray-800"
     >
       <div
         className="aspect-[16/9] overflow-hidden relative"
@@ -38,9 +38,9 @@ const CommissionCard: React.FC<CommissionCardProps> = ({ commission, index }) =>
         onMouseLeave={() => setIsHovered(false)}
       >
         {commission.images.length === 0 ? (
-          <div className="w-full h-full flex flex-col items-center justify-center bg-amber-50 text-amber-300 absolute top-0 left-0">
+          <div className="w-full h-full flex flex-col items-center justify-center bg-amber-50 dark:bg-gray-800 text-amber-300 dark:text-amber-500 absolute top-0 left-0">
             <ImageOff className="w-12 h-12 mb-2" />
-            <span className="text-xs text-amber-400">No image available</span>
+            <span className="text-xs text-amber-400 dark:text-amber-500">No image available</span>
           </div>
         ) : (
           commission.images.map((img, imgIdx) => (
@@ -56,11 +56,11 @@ const CommissionCard: React.FC<CommissionCardProps> = ({ commission, index }) =>
         )}
       </div>
       <div className="p-4">
-        <div className="flex items-center gap-2 text-sm text-amber-600 mb-2">
+        <div className="flex items-center gap-2 text-sm text-amber-600 dark:text-amber-200 mb-2">
           <User className="w-4 h-4" />
           <span>{commission.commissioner}</span>
         </div>
-        <div className="flex items-center gap-1 text-xs text-amber-500">
+        <div className="flex items-center gap-1 text-xs text-amber-500 dark:text-amber-300">
           <Calendar className="w-3 h-3" />
           <span>{new Date(commission.date).toLocaleDateString()}</span>
         </div>
