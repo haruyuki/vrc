@@ -14,6 +14,7 @@ const resources = {
             tags: {
                 All: 'All',
                 Featured: 'Featured',
+                Bunny: 'Bunny',
                 Cat: 'Cat',
                 Dog: 'Dog',
                 Dragon: 'Dragon',
@@ -59,6 +60,7 @@ const resources = {
             tags: {
                 All: '全部',
                 Featured: '精選',
+                Bunny: '兔子',
                 Cat: '貓',
                 Dog: '狗',
                 Dragon: '龍',
