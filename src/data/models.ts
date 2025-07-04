@@ -16,6 +16,7 @@ import Lana from "./models/Lana.ts";
 import Wako from "./models/Wako.ts";
 import Alums from "./models/Alums.ts";
 import Espo from "./models/Espo.ts";
+import Foshunia from "./models/Foshunia.ts";
 
 export interface Commission {
     id: string;
@@ -42,6 +43,7 @@ export const textureModels: TextureModel[] = [
     ChibiNovabeast,
     Crook,
     Espo,
+    Foshunia,
     Jiro,
     Kankitsu,
     Kokotora,
