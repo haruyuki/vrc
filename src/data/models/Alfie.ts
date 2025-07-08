@@ -6,7 +6,7 @@ const Alfie: TextureModel = {
     spineColor: "#a1a09e",
     officialLink: "https://mofumofumotimoti.booth.pm/items/2900085",
     categories: ["Furry", "Wolf"],
-    featured: false,
+    featured: true,
     commissions: [
         {
             id: "c1",

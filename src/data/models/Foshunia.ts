@@ -6,7 +6,7 @@ const Foshunia: TextureModel = {
     spineColor: "#a49d94",
     officialLink: "https://disshimu.booth.pm/items/4580093",
     categories: ["Dragon", "Furry"],
-    featured: false,
+    featured: true,
     commissions: [
         {
             id: "c1",
