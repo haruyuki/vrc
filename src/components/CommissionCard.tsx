@@ -54,6 +54,18 @@ const CommissionCard: React.FC<CommissionCardProps> = ({ commission, index }) =>
             />
           ))
         )}
+        {commission.images.length > 1 && (
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-20 flex gap-1.5">
+            {commission.images.slice(0, 4).map((_, imgIdx) => (
+              <div
+                key={imgIdx}
+                className={`w-5 h-2 rounded-full transition-colors duration-300 ${
+                  imgIdx === currentImgIdx ? 'bg-white/80' : 'bg-black/40'
+                }`}
+              />
+            ))}
+          </div>
+        )}
       </div>
       <div className="p-4">
         <div className="flex items-center gap-2 text-sm text-amber-600 dark:text-amber-200 mb-2">
