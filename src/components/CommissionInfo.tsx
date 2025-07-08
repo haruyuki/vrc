@@ -5,7 +5,7 @@ const CommissionInfo: React.FC = () => {
   const { t } = useTranslation();
   return (
     <>
-      <h2 className="text-4xl md:text-6xl font-bold text-amber-900 dark:text-amber-100 mb-6 text-center">
+      <h2 id="commission-title" className="text-4xl md:text-6xl font-bold text-amber-900 dark:text-amber-100 mb-6 text-center">
         {t('vrc_commissions_title')}
       </h2>
       <div className="flex justify-center">
@@ -16,7 +16,7 @@ const CommissionInfo: React.FC = () => {
               style={{ maxHeight: 400 }}
           />
       </div>
-      <section className="bg-white/80 dark:bg-gray-900/80 rounded-xl shadow-md p-6 mb-10 max-w-3xl mx-auto border border-amber-200 dark:border-gray-800">
+      <section aria-labelledby="commission-title" className="bg-white/80 dark:bg-gray-900/80 rounded-xl shadow-md p-6 mb-10 max-w-3xl mx-auto border border-amber-200 dark:border-gray-800">
         <div className="text-center text-lg font-semibold text-amber-800 dark:text-amber-200 mb-4">
           {t('commission_info.base_price')}
         </div>
@@ -43,6 +43,7 @@ const CommissionInfo: React.FC = () => {
         <div className="text-center mt-4">
           <button
             disabled
+            aria-disabled="true"
             className="inline-block bg-gray-400 text-white font-bold py-2 px-6 rounded-lg shadow transition opacity-60 cursor-not-allowed"
             title="Commission form not available yet"
           >
