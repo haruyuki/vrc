@@ -28,6 +28,8 @@ const resources = {
                 rights: 'All base model images and commissioned model images belong to their respective owners.'
             },
             footer_label: '© 2025 HaruStar. All rights reserved.',
+            search_placeholder: "Search texture models...",
+            search_aria: "Search texture models"
         }
     },
     zh: {
@@ -55,6 +57,8 @@ const resources = {
                 rights: '所有基礎模型圖片及委託模型圖片之版權皆屬於各自擁有者。'
             },
             footer_label: '© 2025 HaruStar. All rights reserved.',
+            search_placeholder: "搜尋紋理模型...",
+            search_aria: "搜尋紋理模型"
         }
     }
 };
