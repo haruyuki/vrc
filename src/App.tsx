@@ -6,7 +6,6 @@ import { FilterTags } from './components/FilterTags';
 import { textureModels } from './data/models';
 import { useTranslation } from 'react-i18next';
 import Header from './components/Header';
-import HeroSection from './components/HeroSection';
 import Footer from './components/Footer';
 import CommissionInfo from './components/CommissionInfo';
 import {Analytics} from "@vercel/analytics/react";
@@ -94,8 +93,6 @@ function App() {
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           {/* Commission Info Section */}
           <CommissionInfo />
-          {/* Hero Section */}
-          <HeroSection />
 
           {/* Search and Filters */}
           <motion.div
