@@ -24,7 +24,7 @@ const CarouselComponent: React.FC<Carousel> = ({ models }) => {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+      className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
     >
       {models.map((model) => (
         <motion.div
