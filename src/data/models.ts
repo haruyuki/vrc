@@ -17,6 +17,7 @@ import Wako from "./models/Wako.ts";
 import Alums from "./models/Alums.ts";
 import Espo from "./models/Espo.ts";
 import Foshunia from "./models/Foshunia.ts";
+import JinxedFox from "./models/JinxedFox.ts";
 
 export interface Commission {
     id: string;
@@ -44,6 +45,7 @@ export const textureModels: TextureModel[] = [
     Crook,
     Espo,
     Foshunia,
+    JinxedFox,
     Jiro,
     Kankitsu,
     Kokotora,
