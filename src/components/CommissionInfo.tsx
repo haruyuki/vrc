@@ -22,7 +22,7 @@ const CommissionInfo: React.FC = () => {
         </p>
         <div className="flex justify-center">
           <a
-            href="https://forms.gle/6Qw2Qw2Qw2Qw2Qw2A" // Replace with your actual form link
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdG4RnM_IKW4ypVTuZ2wuQz3JLqcnBIbTUSAGZATHdbzm1B5Q/viewform?usp=header"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-6 rounded-lg shadow transition dark:bg-amber-800 dark:hover:bg-amber-900"
