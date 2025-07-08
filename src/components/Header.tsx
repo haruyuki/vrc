@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Palette, Sun, Moon } from 'lucide-react';
+import {t} from "i18next";
 
 interface HeaderProps {
   onToggleLanguage: () => void;
@@ -15,15 +16,14 @@ const Header: React.FC<HeaderProps> = ({ onToggleLanguage, currentLanguage, onTo
     transition={{ duration: 0.6 }}
     className="bg-white dark:bg-gray-900 backdrop-blur-sm shadow-sm border-b border-amber-200 dark:border-gray-700"
   >
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 md:py-3">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-3">
           <div className="bg-gradient-to-br from-amber-600 to-orange-600 dark:from-gray-800 dark:to-gray-700 p-3 rounded-xl shadow-lg">
             <Palette className="h-8 w-8 text-white" />
           </div>
           <div>
-            <h1 className="text-3xl font-bold text-amber-900 dark:text-amber-100">Haru's VRChat Model Texturing Gallery</h1>
-            <p className="text-amber-700 dark:text-amber-300">A site to showcase completed works by Haru</p>
+            <h1 className="text-3xl font-bold text-amber-900 dark:text-amber-100">{t('vrc_commissions_title')}</h1>
           </div>
         </div>
         <div className="flex items-center gap-4">
