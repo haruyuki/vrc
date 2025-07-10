@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { User, Calendar, ImageOff } from 'lucide-react';
 import { Commission } from '../data/models';
-import { cardVariants } from '../styles/animations';
+import { AnimatedItem } from './animations/AnimationComponents';
 
 interface CommissionCardProps {
   commission: Commission;
@@ -23,13 +22,9 @@ export const CommissionCard: React.FC<CommissionCardProps> = ({ commission, inde
     }, 1200);
     return () => clearInterval(interval);
   }, [isHovered, commission.images.length]);
+
   return (
-    <motion.div
-      key={commission.id}
-      variants={cardVariants}
-      initial="hidden"
-      animate="visible"
-      transition={{ delay: index * 0.1 }}
+    <AnimatedItem
       className="bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-amber-100 dark:border-gray-800"
     >
       <div
@@ -77,6 +72,6 @@ export const CommissionCard: React.FC<CommissionCardProps> = ({ commission, inde
           <span>{new Date(commission.date).toLocaleDateString()}</span>
         </div>
       </div>
-    </motion.div>
+    </AnimatedItem>
   );
 };

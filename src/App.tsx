@@ -1,5 +1,4 @@
 import { useState, useMemo, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { Carousel } from './components/ModelGallery.tsx';
 import { SearchBar } from './components/SearchBar';
 import { FilterTags } from './components/FilterTags';
@@ -12,6 +11,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { darkBackground, lightBackground } from './styles/backgrounds';
 import { LayoutGrid, List } from 'lucide-react';
 import { useViewMode } from './hooks/useViewMode';
+import { FadeIn, ScaleOnHover } from './components/animations/AnimationComponents';
 
 export const App: React.FC = () => {
   const { i18n, t } = useTranslation();
@@ -98,41 +98,32 @@ export const App: React.FC = () => {
           <CommissionInfo />
 
           {/* Search and Filters */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
+          <FadeIn delay={0.4}>
             <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} />
             <FilterTags
               selectedTags={selectedTags}
               onTagToggle={handleTagToggle}
               viewToggleButton={
-                <motion.button
-                  onClick={toggleViewMode}
-                  className="p-2 rounded-md focus:outline-none focus:ring-0 active:outline-none outline-none"
-                  aria-label={`Switch to ${viewMode === 'grid' ? 'list' : 'grid'} view`}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  style={{ WebkitTapHighlightColor: 'transparent' }}
-                >
-                  {viewMode === 'grid' ? (
-                    <List className="h-5 w-5 text-amber-700 dark:text-amber-400" />
-                  ) : (
-                    <LayoutGrid className="h-5 w-5 text-amber-700 dark:text-amber-400" />
-                  )}
-                </motion.button>
+                <ScaleOnHover>
+                  <button
+                    onClick={toggleViewMode}
+                    className="p-2 rounded-md focus:outline-none focus:ring-0 active:outline-none outline-none"
+                    aria-label={`Switch to ${viewMode === 'grid' ? 'list' : 'grid'} view`}
+                    style={{ WebkitTapHighlightColor: 'transparent' }}
+                  >
+                    {viewMode === 'grid' ? (
+                      <List className="h-5 w-5 text-amber-700 dark:text-amber-400" />
+                    ) : (
+                      <LayoutGrid className="h-5 w-5 text-amber-700 dark:text-amber-400" />
+                    )}
+                  </button>
+                </ScaleOnHover>
               }
             />
-          </motion.div>
+          </FadeIn>
 
           {/* Results Counter */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.6 }}
-            className="text-center mb-8"
-          >
+          <FadeIn delay={0.6} className="text-center mb-8">
             <p className="text-amber-700 dark:text-amber-400">
               {t('results.showing')} <span className="font-semibold">{filteredModels.length}</span>
               {' '}
@@ -140,16 +131,12 @@ export const App: React.FC = () => {
                 ? t('results.model')
                 : t('results.models')}
             </p>
-          </motion.div>
+          </FadeIn>
 
           {/* Carousel */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-          >
+          <FadeIn delay={0.8} y={20}>
             <Carousel models={filteredModels} viewMode={viewMode} />
-          </motion.div>
+          </FadeIn>
         </main>
 
         {/* Footer */}

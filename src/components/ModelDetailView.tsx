@@ -1,6 +1,7 @@
 import React from 'react';
 import { TextureModel } from '../data/models';
 import { CommissionCard } from './CommissionCard';
+import { AnimatedContainer } from './animations/AnimationComponents';
 
 interface GalleryViewProps {
   model: TextureModel;
@@ -37,11 +38,11 @@ export const ModelDetailView: React.FC<GalleryViewProps> = ({ model, isVisible }
           <h3 className="text-lg font-semibold text-amber-900 dark:text-amber-100 mb-4">
             Commission Gallery ({model.commissions.length})
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <AnimatedContainer className="grid grid-cols-1 md:grid-cols-2 gap-4" staggerChildren={0.05}>
             {model.commissions.map((commission, index) => (
               <CommissionCard commission={commission} index={index} key={commission.id} />
             ))}
-          </div>
+          </AnimatedContainer>
         </div>
       </div>
     </div>

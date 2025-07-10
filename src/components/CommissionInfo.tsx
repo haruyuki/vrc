@@ -1,10 +1,11 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { FadeIn } from './animations/AnimationComponents';
 
 export const CommissionInfo: React.FC = () => {
   const { t } = useTranslation();
   return (
-    <>
+    <FadeIn>
       <h2 id="commission-title" className="text-4xl md:text-6xl font-bold text-amber-900 dark:text-amber-100 mb-6 text-center">
         {t('vrc_commissions_title')}
       </h2>
@@ -31,6 +32,6 @@ export const CommissionInfo: React.FC = () => {
           </a>
         </div>
       </section>
-    </>
+    </FadeIn>
   );
 };

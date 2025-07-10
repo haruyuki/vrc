@@ -1,13 +1,11 @@
-import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { FadeIn } from './animations/AnimationComponents';
 
 export const Footer: React.FC = () => {
   const { t } = useTranslation();
   return (
-    <motion.footer
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.6, delay: 1 }}
+    <FadeIn
+      delay={1}
       className="bg-white dark:bg-gray-900 border-t border-amber-200 dark:border-gray-700 mt-16 backdrop-blur-sm"
       role="contentinfo"
       aria-label={t('footer_label', 'Site Footer')}
@@ -22,6 +20,6 @@ export const Footer: React.FC = () => {
           </p>
         </div>
       </div>
-    </motion.footer>
+    </FadeIn>
   );
 };
