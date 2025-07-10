@@ -6,10 +6,9 @@ import { useTranslation } from '../hooks/useTranslation';
 
 interface CommissionCardProps {
   commission: Commission;
-  index: number;
 }
 
-export const CommissionCard: React.FC<CommissionCardProps> = ({ commission, index }) => {
+export const CommissionCard: React.FC<CommissionCardProps> = ({ commission }) => {
   const [currentImgIdx, setCurrentImgIdx] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const { t } = useTranslation();
