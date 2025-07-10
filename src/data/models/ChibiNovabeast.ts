@@ -11,10 +11,10 @@ const ChibiNovabeast: TextureModel = {
         {
             id: "c1",
             images: [
-                "assets/images/commissions/ChibiNovabeast/c1-1.png",
-                "assets/images/commissions/ChibiNovabeast/c1-2.png",
-                "assets/images/commissions/ChibiNovabeast/c1-3.png",
-                "assets/images/commissions/ChibiNovabeast/c1-4.png"
+                "assets/images/commissions/ChibiNovabeast/c1-1.webp",
+                "assets/images/commissions/ChibiNovabeast/c1-2.webp",
+                "assets/images/commissions/ChibiNovabeast/c1-3.webp",
+                "assets/images/commissions/ChibiNovabeast/c1-4.webp"
             ],
             commissioner: "Kota",
             date: "2025-03-07"

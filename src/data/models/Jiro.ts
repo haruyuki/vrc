@@ -11,10 +11,10 @@ const Jiro: TextureModel = {
         {
             id: "c1",
             images: [
-                "assets/images/commissions/Jiro/c1-1.png",
-                "assets/images/commissions/Jiro/c1-2.png",
-                "assets/images/commissions/Jiro/c1-3.png",
-                "assets/images/commissions/Jiro/c1-4.png"
+                "assets/images/commissions/Jiro/c1-1.webp",
+                "assets/images/commissions/Jiro/c1-2.webp",
+                "assets/images/commissions/Jiro/c1-3.webp",
+                "assets/images/commissions/Jiro/c1-4.webp"
             ],
             commissioner: "Kota",
             date: "2025-06-07"
@@ -22,10 +22,10 @@ const Jiro: TextureModel = {
         {
             id: "c2",
             images: [
-                "assets/images/commissions/Jiro/c2-1.png",
-                "assets/images/commissions/Jiro/c2-2.png",
-                "assets/images/commissions/Jiro/c2-3.png",
-                "assets/images/commissions/Jiro/c2-4.png"
+                "assets/images/commissions/Jiro/c2-1.webp",
+                "assets/images/commissions/Jiro/c2-2.webp",
+                "assets/images/commissions/Jiro/c2-3.webp",
+                "assets/images/commissions/Jiro/c2-4.webp"
             ],
             commissioner: "Lilnore 利諾",
             date: "2025-06-20"

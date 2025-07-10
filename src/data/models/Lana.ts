@@ -11,7 +11,7 @@ const Lana: TextureModel = {
         {
             id: "c1",
             images: [
-                "assets/images/commissions/Lana/c1-1.png",
+                "assets/images/commissions/Lana/c1-1.webp",
             ],
             commissioner: "Ryoutai 稜太",
             date: "2022-04-25"

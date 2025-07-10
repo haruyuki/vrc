@@ -17,10 +17,10 @@ const Nyaruku: TextureModel = {
         {
             id: "c2",
             images: [
-                "/assets/images/commissions/Nyaruku/c2-1.png",
-                "/assets/images/commissions/Nyaruku/c2-2.png",
-                "/assets/images/commissions/Nyaruku/c2-3.png",
-                "/assets/images/commissions/Nyaruku/c2-4.png",
+                "/assets/images/commissions/Nyaruku/c2-1.webp",
+                "/assets/images/commissions/Nyaruku/c2-2.webp",
+                "/assets/images/commissions/Nyaruku/c2-3.webp",
+                "/assets/images/commissions/Nyaruku/c2-4.webp",
             ],
             commissioner: "Ryoutai 稜太",
             date: "2023-12-12"

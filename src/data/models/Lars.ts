@@ -11,10 +11,10 @@ const Lars: TextureModel = {
         {
             id: "c1",
             images: [
-                "assets/images/commissions/Lars/c1-1.png",
-                "assets/images/commissions/Lars/c1-2.png",
-                "assets/images/commissions/Lars/c1-3.png",
-                "assets/images/commissions/Lars/c1-4.png"
+                "assets/images/commissions/Lars/c1-1.webp",
+                "assets/images/commissions/Lars/c1-2.webp",
+                "assets/images/commissions/Lars/c1-3.webp",
+                "assets/images/commissions/Lars/c1-4.webp"
             ],
             commissioner: "Haru",
             date: "2024-02-21"

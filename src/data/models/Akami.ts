@@ -17,10 +17,10 @@ const Akami: TextureModel = {
         {
             id: "c2",
             images: [
-                "assets/images/commissions/Akami/c2-1.png",
-                "assets/images/commissions/Akami/c2-2.png",
-                "assets/images/commissions/Akami/c2-3.png",
-                "assets/images/commissions/Akami/c2-4.png"
+                "assets/images/commissions/Akami/c2-1.webp",
+                "assets/images/commissions/Akami/c2-2.webp",
+                "assets/images/commissions/Akami/c2-3.webp",
+                "assets/images/commissions/Akami/c2-4.webp"
             ],
             commissioner: "妖狐耕太",
             date: "2025-02-20"

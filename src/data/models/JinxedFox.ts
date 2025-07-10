@@ -11,10 +11,10 @@ const JinxedFox: TextureModel = {
         {
             id: "c1",
             images: [
-                "assets/images/commissions/JinxedFox/c1-1.png",
-                "assets/images/commissions/JinxedFox/c1-2.png",
-                "assets/images/commissions/JinxedFox/c1-3.png",
-                "assets/images/commissions/JinxedFox/c1-4.png"
+                "assets/images/commissions/JinxedFox/c1-1.webp",
+                "assets/images/commissions/JinxedFox/c1-2.webp",
+                "assets/images/commissions/JinxedFox/c1-3.webp",
+                "assets/images/commissions/JinxedFox/c1-4.webp"
             ],
             commissioner: "Scarf the Fox",
             date: "2025-05-23"

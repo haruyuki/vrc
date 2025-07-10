@@ -10,7 +10,7 @@ const CommissionInfo: React.FC = () => {
       </h2>
       <div className="flex justify-center">
           <img
-              src="/assets/images/commissions/showcase.png"
+              src="/assets/images/commissions/showcase.webp"
               alt="Showcase of completed models"
               className="w-full h-auto max-w-3xl"
               style={{ maxHeight: 400 }}

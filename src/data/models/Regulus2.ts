@@ -11,10 +11,10 @@ const Regulus2: TextureModel = {
         {
             id: "c1",
             images: [
-                "assets/images/commissions/Regulus2/c1-1.png",
-                "assets/images/commissions/Regulus2/c1-2.png",
-                "assets/images/commissions/Regulus2/c1-3.png",
-                "assets/images/commissions/Regulus2/c1-4.png"
+                "assets/images/commissions/Regulus2/c1-1.webp",
+                "assets/images/commissions/Regulus2/c1-2.webp",
+                "assets/images/commissions/Regulus2/c1-3.webp",
+                "assets/images/commissions/Regulus2/c1-4.webp"
             ],
             commissioner: "DEVIL_CROCODILE",
             date: "2025-03-15"

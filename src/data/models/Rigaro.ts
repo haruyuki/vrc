@@ -23,7 +23,7 @@ const Rigaro: TextureModel = {
         {
             id: "c3",
             images: [
-                "assets/images/commissions/Rigaro/c3-1.png"
+                "assets/images/commissions/Rigaro/c3-1.webp"
             ],
             commissioner: "Eyam",
             date: "2022-01-14"
@@ -31,10 +31,10 @@ const Rigaro: TextureModel = {
         {
             id: "c4",
             images: [
-                "assets/images/commissions/Rigaro/c4-1.png",
-                "assets/images/commissions/Rigaro/c4-2.png",
-                "assets/images/commissions/Rigaro/c4-3.png",
-                "assets/images/commissions/Rigaro/c4-4.png"
+                "assets/images/commissions/Rigaro/c4-1.webp",
+                "assets/images/commissions/Rigaro/c4-2.webp",
+                "assets/images/commissions/Rigaro/c4-3.webp",
+                "assets/images/commissions/Rigaro/c4-4.webp"
             ],
             commissioner: "Obscuron",
             date: "2025-05-30"

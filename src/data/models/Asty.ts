@@ -11,7 +11,7 @@ const Asty: TextureModel = {
         {
             id: "c1",
             images: [
-                "assets/images/commissions/Asty/c1-1.png",
+                "assets/images/commissions/Asty/c1-1.webp",
             ],
             commissioner: "Eyam",
             date: "2022-01-06"
