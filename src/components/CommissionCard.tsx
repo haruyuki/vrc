@@ -33,7 +33,7 @@ const CommissionCard: React.FC<CommissionCardProps> = ({ commission, index }) =>
       className="bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-amber-100 dark:border-gray-800"
     >
       <div
-        className="aspect-[16/9] overflow-hidden relative"
+        className="aspect-[4/3] overflow-hidden relative"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
