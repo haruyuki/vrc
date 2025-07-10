@@ -10,7 +10,12 @@ const Regulus2: TextureModel = {
     commissions: [
         {
             id: "c1",
-            images: [],
+            images: [
+                "assets/images/commissions/Regulus2/c1-1.jpg",
+                "assets/images/commissions/Regulus2/c1-2.jpg",
+                "assets/images/commissions/Regulus2/c1-3.jpg",
+                "assets/images/commissions/Regulus2/c1-4.jpg"
+            ],
             commissioner: "DEVIL_CROCODILE",
             date: "2025-03-15"
         }
