@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Carousel } from './components/ModelGallery.tsx';
 import { SearchBar } from './components/SearchBar';
 import { FilterTags } from './components/FilterTags';
@@ -74,7 +74,7 @@ export const App: React.FC = () => {
 
   // Language toggle handler
   const toggleLanguage = () => {
-    i18n.changeLanguage(i18n.language === 'en' ? 'zh' : 'en');
+    i18n.changeLanguage(i18n.language === 'en' ? 'zh' : 'en').catch(() => {});
   };
 
   const handleDarkModeToggle = () => setIsDarkMode((prev) => !prev);
