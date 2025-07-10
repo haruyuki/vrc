@@ -9,7 +9,7 @@ interface CommissionCardProps {
   index: number;
 }
 
-const CommissionCard: React.FC<CommissionCardProps> = ({ commission, index }) => {
+export const CommissionCard: React.FC<CommissionCardProps> = ({ commission, index }) => {
   const [currentImgIdx, setCurrentImgIdx] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   React.useEffect(() => {
@@ -80,5 +80,3 @@ const CommissionCard: React.FC<CommissionCardProps> = ({ commission, index }) =>
     </motion.div>
   );
 };
-
-export default CommissionCard;

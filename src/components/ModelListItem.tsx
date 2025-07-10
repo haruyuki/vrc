@@ -4,7 +4,7 @@ import { Star, ExternalLink } from 'lucide-react';
 import { TextureModel } from '../data/models';
 import { bookVariants } from '../styles/animations';
 import { useTranslation } from 'react-i18next';
-import { ModelBase } from './ModelBase';
+import { ModelModalWrapper } from './ModelModalWrapper.tsx';
 
 interface ModelListItemProps {
   model: TextureModel;
@@ -14,7 +14,7 @@ export const ModelListItem: React.FC<ModelListItemProps> = ({ model }) => {
   const { t } = useTranslation();
 
   return (
-    <ModelBase
+    <ModelModalWrapper
       model={model}
       renderContent={(_isOpen, handleItemClick, handleKeyDown) => (
         <motion.div

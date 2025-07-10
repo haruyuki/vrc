@@ -1,13 +1,13 @@
 import React from 'react';
 import { TextureModel } from '../data/models';
-import CommissionCard from './CommissionCard';
+import { CommissionCard } from './CommissionCard';
 
 interface GalleryViewProps {
   model: TextureModel;
   isVisible: boolean;
 }
 
-const GalleryView: React.FC<GalleryViewProps> = ({ model, isVisible }) => {
+export const ModelDetailView: React.FC<GalleryViewProps> = ({ model, isVisible }) => {
   if (!isVisible) return null;
 
   return (
@@ -47,5 +47,3 @@ const GalleryView: React.FC<GalleryViewProps> = ({ model, isVisible }) => {
     </div>
   );
 };
-
-export default GalleryView;

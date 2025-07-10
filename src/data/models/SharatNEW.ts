@@ -1,6 +1,6 @@
 import {TextureModel} from '../models';
 
-const SharatNEW: TextureModel = {
+export const SharatNEW: TextureModel = {
     modelName: "Sharat NEW",
     coverImage: "https://booth.pximg.net/93c14c27-9f45-42bc-be3c-e9954068f328/i/5377771/0ad06c24-6e78-466e-a210-bc2a872f2abb.png",
     spineColor: "#2b2724",
@@ -18,5 +18,3 @@ const SharatNEW: TextureModel = {
         }
     ]
 };
-
-export default SharatNEW;

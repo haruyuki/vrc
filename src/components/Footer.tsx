@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
-const Footer: React.FC = () => {
+export const Footer: React.FC = () => {
   const { t } = useTranslation();
   return (
     <motion.footer
@@ -25,5 +25,3 @@ const Footer: React.FC = () => {
     </motion.footer>
   );
 };
-
-export default Footer;

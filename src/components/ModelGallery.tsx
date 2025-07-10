@@ -1,16 +1,16 @@
 import React, { memo } from 'react';
 import { motion } from 'framer-motion';
-import { ModelGrid } from './ModelGrid.tsx';
+import { ModelGridItem } from './ModelGridItem.tsx';
 import { ModelListItem } from './ModelListItem.tsx';
 import { TextureModel } from '../data/models';
 import { containerVariants, cardVariants } from '../styles/animations';
 
-interface Carousel {
+interface ModelGallery {
   models: TextureModel[];
   viewMode: 'grid' | 'list';
 }
 
-const CarouselComponent: React.FC<Carousel> = ({ models, viewMode }) => {
+const CarouselComponent: React.FC<ModelGallery> = ({ models, viewMode }) => {
   if (models.length === 0) {
     return (
       <div className="text-center py-16">
@@ -34,7 +34,7 @@ const CarouselComponent: React.FC<Carousel> = ({ models, viewMode }) => {
           variants={cardVariants}
           className="flex justify-center"
         >
-          <ModelGrid model={model} />
+          <ModelGridItem model={model} />
         </motion.div>
       ))}
     </motion.div>

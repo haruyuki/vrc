@@ -1,6 +1,6 @@
 import {TextureModel} from '../models';
 
-const JinxedFox: TextureModel = {
+export const JinxedFox: TextureModel = {
     modelName: "Jinxed Fox",
     coverImage: "https://public-files.gumroad.com/mq79u6i7rtftq9txj88tuyq95irv",
     spineColor: "#fc7930",
@@ -21,5 +21,3 @@ const JinxedFox: TextureModel = {
         }
     ]
 };
-
-export default JinxedFox;

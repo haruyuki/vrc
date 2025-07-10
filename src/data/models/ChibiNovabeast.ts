@@ -1,6 +1,6 @@
 import {TextureModel} from '../models';
 
-const ChibiNovabeast: TextureModel = {
+export const ChibiNovabeast: TextureModel = {
     modelName: "Chibi Novabeast",
     coverImage: "https://public-files.gumroad.com/vcsnmteu174m7exq87xkjfqrm4f1",
     spineColor: "#123956",
@@ -21,5 +21,3 @@ const ChibiNovabeast: TextureModel = {
         }
     ]
 };
-
-export default ChibiNovabeast;

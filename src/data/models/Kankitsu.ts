@@ -1,6 +1,6 @@
 import {TextureModel} from '../models';
 
-const Kankitsu: TextureModel = {
+export const Kankitsu: TextureModel = {
     modelName: "Kankitsu",
     coverImage: "https://booth.pximg.net/24f3a55c-8c17-4ba5-869e-6c9ceb12302c/i/4366283/2d68221d-bb71-4235-8635-8e06c16b2135.png",
     spineColor: "#ffda70",
@@ -21,5 +21,3 @@ const Kankitsu: TextureModel = {
         }
     ]
 };
-
-export default Kankitsu;

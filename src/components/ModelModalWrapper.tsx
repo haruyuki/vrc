@@ -2,15 +2,16 @@ import React, { useState, lazy, Suspense, useCallback, ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import { TextureModel } from '../data/models';
-const GalleryView = lazy(() => import('./GalleryView'));
 import { fullScreenVariants } from '../styles/animations';
+
+const GalleryView = lazy(() => import('./ModelDetailView.tsx').then(module => ({ default: module.ModelDetailView })));
 
 interface ModelBaseProps {
   model: TextureModel;
   renderContent: (isOpen: boolean, handleClick: () => void, handleKeyDown: (event: React.KeyboardEvent) => void) => ReactNode;
 }
 
-export const ModelBase: React.FC<ModelBaseProps> = ({ model, renderContent }) => {
+export const ModelModalWrapper: React.FC<ModelBaseProps> = ({ model, renderContent }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleItemClick = useCallback(() => {

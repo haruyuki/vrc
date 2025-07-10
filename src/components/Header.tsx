@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Palette, Sun, Moon } from 'lucide-react';
-import {t} from "i18next";
+import { t } from "i18next";
 
 interface HeaderProps {
   onToggleLanguage: () => void;
@@ -9,7 +9,7 @@ interface HeaderProps {
   isDarkMode?: boolean;
 }
 
-const Header: React.FC<HeaderProps> = ({ onToggleLanguage, currentLanguage, onToggleDarkMode, isDarkMode }) => (
+export const Header: React.FC<HeaderProps> = ({ onToggleLanguage, currentLanguage, onToggleDarkMode, isDarkMode }) => (
   <motion.header
     initial={{ opacity: 0, y: -20 }}
     animate={{ opacity: 1, y: 0 }}
@@ -82,5 +82,3 @@ const Header: React.FC<HeaderProps> = ({ onToggleLanguage, currentLanguage, onTo
     </div>
   </motion.header>
 );
-
-export default Header;

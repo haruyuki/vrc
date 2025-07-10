@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-const CommissionInfo: React.FC = () => {
+export const CommissionInfo: React.FC = () => {
   const { t } = useTranslation();
   return (
     <>
@@ -34,5 +34,3 @@ const CommissionInfo: React.FC = () => {
     </>
   );
 };
-
-export default CommissionInfo;

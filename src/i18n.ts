@@ -28,7 +28,7 @@ const resources = {
                 model: 'model',
                 models: 'models'
             },
-            vrc_commissions_title: "Haru VRC ModelGrid Texture Commissions",
+            vrc_commissions_title: "Haru VRC Model Texture Commissions",
             commission_info: "This site showcases my completed VRC commission works of various models. You can click into each model to view the commissioned retexture work that was done. If you are interested in commissioning, please click the button below and fill out the form.",
             request_commission: "Fill out the form here",
             footer: {

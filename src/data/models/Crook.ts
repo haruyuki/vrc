@@ -1,6 +1,6 @@
 import {TextureModel} from '../models';
 
-const Crook: TextureModel = {
+export const Crook: TextureModel = {
     modelName: "Crook",
     coverImage: "https://public-files.gumroad.com/2gicf78l1c2p8bnug3olqb71elvu",
     spineColor: "#273842",
@@ -16,5 +16,3 @@ const Crook: TextureModel = {
         }
     ]
 };
-
-export default Crook;
