@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Palette, Sun, Moon } from 'lucide-react';
-import { t } from "i18next";
+import { useTranslation } from '../hooks/useTranslation';
 import { FadeIn } from './animations/AnimationComponents';
 
 interface HeaderProps {
@@ -11,6 +11,8 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ onToggleLanguage, currentLanguage, onToggleDarkMode, isDarkMode }) => {
+  const { t } = useTranslation();
+
   return (
     <FadeIn y={-20} className="bg-white dark:bg-gray-900 backdrop-blur-sm shadow-sm border-b border-amber-200 dark:border-gray-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 md:py-3">

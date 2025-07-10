@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Star, ExternalLink } from 'lucide-react';
 import { TextureModel } from '../data/models';
 import { bookVariants } from '../styles/animations';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../hooks/useTranslation';
 import { ModelModalWrapper } from './ModelModalWrapper.tsx';
 
 interface ModelListItemProps {

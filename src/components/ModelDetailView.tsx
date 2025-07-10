@@ -1,6 +1,7 @@
 import React from 'react';
 import { TextureModel } from '../data/models';
 import { CommissionCard } from './CommissionCard';
+import { useTranslation } from '../hooks/useTranslation';
 import { AnimatedContainer } from './animations/AnimationComponents';
 
 interface GalleryViewProps {
@@ -9,6 +10,8 @@ interface GalleryViewProps {
 }
 
 export const ModelDetailView: React.FC<GalleryViewProps> = ({ model, isVisible }) => {
+  const { t } = useTranslation();
+
   if (!isVisible) return null;
 
   return (
@@ -28,7 +31,7 @@ export const ModelDetailView: React.FC<GalleryViewProps> = ({ model, isVisible }
               key={category}
               className="px-3 py-1 text-sm bg-amber-200 text-amber-800 rounded-full dark:bg-gray-800 dark:text-amber-100"
             >
-              {category}
+              {t(`tags.${category}`, category)}
             </span>
           ))}
         </div>
@@ -36,7 +39,7 @@ export const ModelDetailView: React.FC<GalleryViewProps> = ({ model, isVisible }
         {/* Commissions Grid */}
         <div>
           <h3 className="text-lg font-semibold text-amber-900 dark:text-amber-100 mb-4">
-            Commission Gallery ({model.commissions.length})
+            {t('commissions.gallery', 'Commission Gallery')} ({model.commissions.length})
           </h3>
           <AnimatedContainer className="grid grid-cols-1 md:grid-cols-2 gap-4" staggerChildren={0.05}>
             {model.commissions.map((commission, index) => (

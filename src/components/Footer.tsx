@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../hooks/useTranslation';
 import { FadeIn } from './animations/AnimationComponents';
 
 export const Footer: React.FC = () => {

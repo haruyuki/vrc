@@ -3,7 +3,7 @@ import { Carousel } from './components/ModelGallery.tsx';
 import { SearchBar } from './components/SearchBar';
 import { FilterTags } from './components/FilterTags';
 import { textureModels } from './data/models';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from './hooks/useTranslation';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { CommissionInfo } from './components/CommissionInfo';
