@@ -58,8 +58,8 @@ export const ModelListItem: React.FC<ModelListItemProps> = ({ model }) => {
                 <div className="flex items-center gap-2">
                   <span className="text-xs text-amber-600 dark:text-amber-400">
                     {model.commissions.length} {model.commissions.length === 1
-                      ? t('book.commission', 'commission')
-                      : t('book.commissions', 'commissions')}
+                      ? t('book.commission')
+                      : t('book.commissions')}
                   </span>
                   <a
                     href={model.officialLink}
@@ -70,7 +70,7 @@ export const ModelListItem: React.FC<ModelListItemProps> = ({ model }) => {
                     onClick={e => e.stopPropagation()}
                   >
                     <ExternalLink className="w-3 h-3" />
-                    {t('book.officialLink', 'Official Link')}
+                    {t('book.officialLink')}
                   </a>
                 </div>
               </div>
@@ -82,7 +82,7 @@ export const ModelListItem: React.FC<ModelListItemProps> = ({ model }) => {
                       key={category}
                       className="px-2 py-0.5 text-xs bg-amber-100 text-amber-800 rounded-full dark:bg-gray-800 dark:text-amber-100"
                     >
-                      {t(`tags.${category}`, category)}
+                      {t(`tags.${category}`)}
                     </span>
                   ))}
                 </div>
@@ -90,7 +90,7 @@ export const ModelListItem: React.FC<ModelListItemProps> = ({ model }) => {
             </div>
 
             <div className="absolute right-2 bottom-1 text-amber-500/70 dark:text-amber-400/70 text-xs z-20">
-              {t('book.clickToOpen', 'Click to open')}
+              {t('book.clickToOpen')}
             </div>
           </div>
         </motion.div>

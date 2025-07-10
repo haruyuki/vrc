@@ -5,8 +5,8 @@ export function useTranslation() {
   const { t: originalT, i18n } = useI18nTranslation();
 
   // Create a typed version of the t function
-  const t = (key: TranslationKey, defaultValue?: string) => {
-    return originalT(key, defaultValue);
+  const t = (key: TranslationKey, options?: never) => {
+    return originalT(key as never, options);
   };
 
   return { t, i18n };

@@ -37,14 +37,14 @@ export const CommissionCard: React.FC<CommissionCardProps> = ({ commission }) =>
         {commission.images.length === 0 ? (
           <div className="w-full h-full flex flex-col items-center justify-center bg-amber-50 dark:bg-gray-800 text-amber-300 dark:text-amber-500 absolute top-0 left-0">
             <ImageOff className="w-12 h-12 mb-2" />
-            <span className="text-xs text-amber-400 dark:text-amber-500">{t('commissions.noImage', 'No image available')}</span>
+            <span className="text-xs text-amber-400 dark:text-amber-500">{t('commissions.noImage')}</span>
           </div>
         ) : (
           commission.images.map((img, imgIdx) => (
             <img
               key={img}
               src={img}
-              alt={`${t('commissions.by', 'Commission by')} ${commission.commissioner}`}
+              alt={`${t('commissions.by')} ${commission.commissioner}`}
               className={`w-full h-full object-cover absolute top-0 left-0 transition-opacity duration-700 ${imgIdx === currentImgIdx ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
               loading="lazy"
               style={{ pointerEvents: 'none' }}

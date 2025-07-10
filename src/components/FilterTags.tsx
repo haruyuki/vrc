@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../hooks/useTranslation';
 import { availableTags, tagColors } from '../data/tags';
 
 interface FilterTagsProps {
