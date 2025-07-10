@@ -11,7 +11,7 @@ const SharatNEW: TextureModel = {
         {
             id: "c1",
             images: [
-                "assets/images/commissions/SharatNEW/c1-1.jpg"
+                "assets/images/commissions/SharatNEW/c1-1.png"
             ],
             commissioner: "Eyam",
             date: "2024-02-07"

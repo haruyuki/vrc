@@ -11,8 +11,8 @@ const Espo: TextureModel = {
         {
             id: "c1",
             images: [
-                "assets/images/commissions/Espo/c1-1.jpg",
-                "assets/images/commissions/Espo/c1-2.jpg",
+                "assets/images/commissions/Espo/c1-1.png",
+                "assets/images/commissions/Espo/c1-2.png",
             ],
             commissioner: "Zug 嚕谷",
             date: "2021-09-11"

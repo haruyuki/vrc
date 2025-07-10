@@ -12,9 +12,9 @@ const Alfie: TextureModel = {
             id: "c1",
             images: [
                 "/assets/images/commissions/Alfie/c1-1.png",
-                "/assets/images/commissions/Alfie/c1-2.jpg",
-                "/assets/images/commissions/Alfie/c1-3.jpg",
-                "/assets/images/commissions/Alfie/c1-4.jpg"
+                "/assets/images/commissions/Alfie/c1-2.png",
+                "/assets/images/commissions/Alfie/c1-3.png",
+                "/assets/images/commissions/Alfie/c1-4.png"
             ],
             commissioner: "Haru",
             date: "2021-04-25"
@@ -28,7 +28,7 @@ const Alfie: TextureModel = {
         {
             id: "c3",
             images: [
-                "/assets/images/commissions/Alfie/c3-1.jpg"
+                "/assets/images/commissions/Alfie/c3-1.png"
             ],
             commissioner: "Naz 納茲",
             date: "2022-09-10"
@@ -85,10 +85,10 @@ const Alfie: TextureModel = {
         {
             id: "c9",
             images: [
-                "/assets/images/commissions/Alfie/c9-1.jpg",
-                "/assets/images/commissions/Alfie/c9-2.jpg",
-                "/assets/images/commissions/Alfie/c9-3.jpg",
-                "/assets/images/commissions/Alfie/c9-4.jpg"
+                "/assets/images/commissions/Alfie/c9-1.png",
+                "/assets/images/commissions/Alfie/c9-2.png",
+                "/assets/images/commissions/Alfie/c9-3.png",
+                "/assets/images/commissions/Alfie/c9-4.png"
             ],
             commissioner: "Wind Blade 風刃",
             date: "2024-06-24"
@@ -96,10 +96,10 @@ const Alfie: TextureModel = {
         {
             id: "c10",
             images: [
-                "/assets/images/commissions/Alfie/c10-1.jpg",
-                "/assets/images/commissions/Alfie/c10-2.jpg",
-                "/assets/images/commissions/Alfie/c10-3.jpg",
-                "/assets/images/commissions/Alfie/c10-4.jpg"
+                "/assets/images/commissions/Alfie/c10-1.png",
+                "/assets/images/commissions/Alfie/c10-2.png",
+                "/assets/images/commissions/Alfie/c10-3.png",
+                "/assets/images/commissions/Alfie/c10-4.png"
             ],
             commissioner: "Youlan 攸嵐",
             date: "2024-07-17"

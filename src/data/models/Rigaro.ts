@@ -23,7 +23,7 @@ const Rigaro: TextureModel = {
         {
             id: "c3",
             images: [
-                "assets/images/commissions/Rigaro/c3-1.jpg"
+                "assets/images/commissions/Rigaro/c3-1.png"
             ],
             commissioner: "Eyam",
             date: "2022-01-14"
