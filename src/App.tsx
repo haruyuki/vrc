@@ -10,11 +10,13 @@ import Footer from './components/Footer';
 import CommissionInfo from './components/CommissionInfo';
 import {Analytics} from "@vercel/analytics/react";
 import { darkBackground, lightBackground } from './styles/backgrounds';
+import { LayoutGrid, List } from 'lucide-react';
 
 function App() {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTags, setSelectedTags] = useState<string[]>(['All']);
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [isDarkMode, setIsDarkMode] = useState(() => {
     if (typeof window !== 'undefined') {
       const stored = localStorage.getItem('theme');
@@ -76,6 +78,10 @@ function App() {
 
   const handleDarkModeToggle = () => setIsDarkMode((prev) => !prev);
 
+  const handleViewModeToggle = () => {
+    setViewMode((prev) => (prev === 'grid' ? 'list' : 'grid'));
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-800">
       {/* Background Texture */}
@@ -101,7 +107,25 @@ function App() {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} />
-            <FilterTags selectedTags={selectedTags} onTagToggle={handleTagToggle} />
+            <FilterTags
+              selectedTags={selectedTags}
+              onTagToggle={handleTagToggle}
+              viewToggleButton={
+                <motion.button
+                  onClick={handleViewModeToggle}
+                  className="p-2 rounded-md focus:outline-none focus:ring-0 active:outline-none outline-none WebkitTapHighlightColor-transparent"
+                  aria-label={`Switch to ${viewMode === 'grid' ? 'list' : 'grid'} view`}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {viewMode === 'grid' ? (
+                    <List className="h-5 w-5 text-amber-700 dark:text-amber-400" />
+                  ) : (
+                    <LayoutGrid className="h-5 w-5 text-amber-700 dark:text-amber-400" />
+                  )}
+                </motion.button>
+              }
+            />
           </motion.div>
 
           {/* Results Counter */}
@@ -111,9 +135,12 @@ function App() {
             transition={{ duration: 0.4, delay: 0.6 }}
             className="text-center mb-8"
           >
-            <p className="text-amber-700">
-              Showing <span className="font-semibold">{filteredModels.length}</span> 
-              {filteredModels.length === 1 ? ' model' : ' models'}
+            <p className="text-amber-700 dark:text-amber-400">
+              {t('results.showing')} <span className="font-semibold">{filteredModels.length}</span>
+              {' '}
+              {filteredModels.length === 1
+                ? t('results.model')
+                : t('results.models')}
             </p>
           </motion.div>
 
@@ -123,7 +150,7 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
-            <Carousel models={filteredModels} />
+            <Carousel models={filteredModels} viewMode={viewMode} />
           </motion.div>
         </main>
 

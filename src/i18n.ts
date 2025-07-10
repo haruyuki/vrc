@@ -7,7 +7,9 @@ const resources = {
         translation: {
             book: {
                 clickToOpen: 'Click to open',
-                officialLink: 'Official Link'
+                officialLink: 'Official Link',
+                commission: 'commission',
+                commissions: 'commissions'
             },
             tags: {
                 All: 'All',
@@ -21,7 +23,12 @@ const resources = {
                 Tiger: 'Tiger',
                 Wolf: 'Wolf'
             },
-            vrc_commissions_title: "Haru VRC Model Texture Commissions",
+            results: {
+                showing: 'Showing',
+                model: 'model',
+                models: 'models'
+            },
+            vrc_commissions_title: "Haru VRC ModelGrid Texture Commissions",
             commission_info: "This site showcases my completed VRC commission works of various models. You can click into each model to view the commissioned retexture work that was done. If you are interested in commissioning, please click the button below and fill out the form.",
             request_commission: "Fill out the form here",
             footer: {
@@ -36,7 +43,9 @@ const resources = {
         translation: {
             book: {
                 clickToOpen: '點擊開啟',
-                officialLink: '官方連結'
+                officialLink: '官方連結',
+                commission: '委託',
+                commissions: '委託'
             },
             tags: {
                 All: '全部',
@@ -49,6 +58,11 @@ const resources = {
                 Furry: '獸人',
                 Tiger: '老虎',
                 Wolf: '狼'
+            },
+            results: {
+                showing: '顯示',
+                model: '模型',
+                models: '模型'
             },
             vrc_commissions_title: "哈魯VRC模型上色委託單",
             commission_info: "本網站展示了我已完成的各種VRC模型委託作品。您可以點擊每個模型，查看已完成的上色委託成果。如果您有興趣委託，請點擊下方按鈕並填寫表單。",

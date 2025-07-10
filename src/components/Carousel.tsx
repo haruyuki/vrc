@@ -1,14 +1,16 @@
 import React, { memo } from 'react';
 import { motion } from 'framer-motion';
-import { Model } from './Model.tsx';
+import { ModelGrid } from './ModelGrid.tsx';
+import { ModelListItem } from './ModelListItem.tsx';
 import { TextureModel } from '../data/models';
 import { containerVariants, cardVariants } from '../styles/animations';
 
 interface Carousel {
   models: TextureModel[];
+  viewMode: 'grid' | 'list';
 }
 
-const CarouselComponent: React.FC<Carousel> = ({ models }) => {
+const CarouselComponent: React.FC<Carousel> = ({ models, viewMode }) => {
   if (models.length === 0) {
     return (
       <div className="text-center py-16">
@@ -19,7 +21,7 @@ const CarouselComponent: React.FC<Carousel> = ({ models }) => {
     );
   }
 
-  return (
+  return viewMode === 'grid' ? (
     <motion.div
       variants={containerVariants}
       initial="hidden"
@@ -32,7 +34,24 @@ const CarouselComponent: React.FC<Carousel> = ({ models }) => {
           variants={cardVariants}
           className="flex justify-center"
         >
-          <Model model={model} />
+          <ModelGrid model={model} />
+        </motion.div>
+      ))}
+    </motion.div>
+  ) : (
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      className="flex flex-col gap-3"
+    >
+      {models.map((model) => (
+        <motion.div
+          key={model.modelName}
+          variants={cardVariants}
+          className="w-full"
+        >
+          <ModelListItem model={model} />
         </motion.div>
       ))}
     </motion.div>
