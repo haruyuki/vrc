@@ -7,6 +7,8 @@ interface FadeInProps extends MotionProps {
   duration?: number;
   className?: string;
   y?: number;
+  role?: string;
+  'aria-label'?: string;
 }
 
 export const FadeIn: React.FC<FadeInProps> = ({
