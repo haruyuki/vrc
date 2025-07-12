@@ -14,11 +14,21 @@ interface GalleryViewProps {
 export const ModelDetailView: React.FC<GalleryViewProps> = ({ model, isVisible }) => {
   const { t } = useTranslation();
   const [commissions, setCommissions] = React.useState<Commission[]>([]);
-// Fetch commissions for this specific model
+  const [isLoading, setIsLoading] = React.useState(false);
+
+  // Fetch commissions for this specific model
   React.useEffect(() => {
+    let isMounted = true;
     if (isVisible && model) {
-      setCommissions(getCommissionsForModel(model.modelName));
+      setIsLoading(true);
+      Promise.resolve(getCommissionsForModel(model.modelName)).then((data) => {
+        if (isMounted) {
+          setCommissions(data);
+          setIsLoading(false);
+        }
+      });
     }
+    return () => { isMounted = false; };
   }, [isVisible, model]);
 
   if (!isVisible) return null;
@@ -50,7 +60,11 @@ export const ModelDetailView: React.FC<GalleryViewProps> = ({ model, isVisible }
           <h3 className="text-lg font-semibold text-amber-900 dark:text-amber-100 mb-4">
             {t('gallery_title')} ({commissions.length})
           </h3>
-          {commissions.length > 0 ? (
+          {isLoading ? (
+            <div className="flex items-center justify-center py-12 text-amber-700 dark:text-amber-400">
+              {t('loading')}
+            </div>
+          ) : commissions.length > 0 ? (
             <AnimatedContainer className="grid grid-cols-1 md:grid-cols-2 gap-4" staggerChildren={0.05}>
               {commissions.map((commission) => (
                 <CommissionCard commission={commission} key={commission.id} />

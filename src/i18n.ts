@@ -43,6 +43,7 @@ export const resources = {
             search_placeholder: "Search texture models...",
             search_aria: "Search texture models",
             no_commissions: "No commissions available for this model.",
+            loading: "Loading...",
         }
     },
     zh: {
@@ -85,6 +86,7 @@ export const resources = {
             search_placeholder: "搜尋紋理模型...",
             search_aria: "搜尋紋理模型",
             no_commissions: "這模型沒有的委託作品。",
+            loading: "載入中...",
         }
     }
 };
