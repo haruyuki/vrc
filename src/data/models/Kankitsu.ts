@@ -7,17 +7,4 @@ export const Kankitsu: TextureModel = {
     officialLink: "https://kuronya.booth.pm/items/4366283",
     categories: ["Dragon", "Furry"],
     featured: false,
-    commissions: [
-        {
-            id: "c1",
-            images: [
-                "assets/images/commissions/Kankitsu/c1-1.webp",
-                "assets/images/commissions/Kankitsu/c1-2.webp",
-                "assets/images/commissions/Kankitsu/c1-3.webp",
-                "assets/images/commissions/Kankitsu/c1-4.webp"
-            ],
-            commissioner: "Eyam",
-            date: "2024-03-17"
-        }
-    ]
 };

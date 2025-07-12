@@ -7,17 +7,4 @@ export const Foshunia: TextureModel = {
     officialLink: "https://disshimu.booth.pm/items/4580093",
     categories: ["Dragon", "Furry"],
     featured: true,
-    commissions: [
-        {
-            id: "c1",
-            images: [
-                "assets/images/commissions/Foshunia/c1-1.webp",
-                "assets/images/commissions/Foshunia/c1-2.webp",
-                "assets/images/commissions/Foshunia/c1-3.webp",
-                "assets/images/commissions/Foshunia/c1-4.webp"
-            ],
-            commissioner: "貢丸",
-            date: "2025-07-04",
-        }
-    ]
 };

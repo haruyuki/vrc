@@ -7,17 +7,4 @@ export const Regulus2: TextureModel = {
     officialLink: "https://gigasuke-shokai.booth.pm/items/2365403",
     categories: ["Dog", "Furry"],
     featured: false,
-    commissions: [
-        {
-            id: "c1",
-            images: [
-                "assets/images/commissions/Regulus2/c1-1.webp",
-                "assets/images/commissions/Regulus2/c1-2.webp",
-                "assets/images/commissions/Regulus2/c1-3.webp",
-                "assets/images/commissions/Regulus2/c1-4.webp"
-            ],
-            commissioner: "DEVIL_CROCODILE",
-            date: "2025-03-15"
-        }
-    ]
 };

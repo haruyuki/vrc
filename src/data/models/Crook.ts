@@ -7,12 +7,4 @@ export const Crook: TextureModel = {
     officialLink: "https://jzody.gumroad.com/l/crook-vrchat",
     categories: ["Furry"],
     featured: false,
-    commissions: [
-        {
-            id: "c1",
-            images: [],
-            commissioner: "Eyam",
-            date: "2024-03-23"
-        }
-    ]
 };

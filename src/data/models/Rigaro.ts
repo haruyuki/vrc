@@ -7,37 +7,4 @@ export const Rigaro: TextureModel = {
     officialLink: "https://milkpot1001.booth.pm/items/2656425",
     categories: ["Dragon", "Furry"],
     featured: false,
-    commissions: [
-        {
-            id: "c1",
-            images: [],
-            commissioner: "Rinroku 麟緑",
-            date: "2021-01-11"
-        },
-        {
-            id: "c2",
-            images: [],
-            commissioner: "Weed",
-            date: "2021-07-03"
-        },
-        {
-            id: "c3",
-            images: [
-                "assets/images/commissions/Rigaro/c3-1.webp"
-            ],
-            commissioner: "Eyam",
-            date: "2022-01-14"
-        },
-        {
-            id: "c4",
-            images: [
-                "assets/images/commissions/Rigaro/c4-1.webp",
-                "assets/images/commissions/Rigaro/c4-2.webp",
-                "assets/images/commissions/Rigaro/c4-3.webp",
-                "assets/images/commissions/Rigaro/c4-4.webp"
-            ],
-            commissioner: "Obscuron",
-            date: "2025-05-30"
-        }
-    ]
 };

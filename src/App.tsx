@@ -12,6 +12,7 @@ import { darkBackground, lightBackground } from './styles/backgrounds';
 import { LayoutGrid, List } from 'lucide-react';
 import { useViewMode } from './hooks/useViewMode';
 import { FadeIn, ScaleOnHover } from './components/animations/AnimationComponents';
+import { initializeCommissions } from './services/googleSheets';
 
 export const App: React.FC = () => {
   const { i18n, t } = useTranslation();
@@ -27,6 +28,24 @@ export const App: React.FC = () => {
     }
     return true;
   });
+  const [, setIsLoadingCommissions] = useState(true);
+
+  // Fetch commission data from Google Sheets when the app loads
+  useEffect(() => {
+    const loadCommissionData = async () => {
+      try {
+        setIsLoadingCommissions(true);
+        await initializeCommissions();
+        console.log('Commission data loaded successfully');
+      } catch (error) {
+        console.error('Error loading commission data:', error);
+      } finally {
+        setIsLoadingCommissions(false);
+      }
+    };
+
+    loadCommissionData().catch(() => {});
+  }, []);
 
   useEffect(() => {
     if (isDarkMode) {

@@ -7,17 +7,4 @@ export const Kokotora: TextureModel = {
     officialLink: "https://therpgslayer.gumroad.com/l/kokotora",
     categories: ["Furry", "Tiger"],
     featured: false,
-    commissions: [
-        {
-            id: "c1",
-            images: [
-                "assets/images/commissions/Kokotora/c1-1.webp",
-                "assets/images/commissions/Kokotora/c1-2.webp",
-                "assets/images/commissions/Kokotora/c1-3.webp",
-                "assets/images/commissions/Kokotora/c1-4.webp"
-            ],
-            commissioner: "Kota",
-            date: "2025-02-27"
-        }
-    ]
 };

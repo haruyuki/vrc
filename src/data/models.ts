@@ -32,9 +32,9 @@ export interface TextureModel {
     spineColor: string;
     officialLink: string;
     categories: string[];
-    commissions: Commission[];
     featured: boolean;
 }
+
 
 export const textureModels: TextureModel[] = [
     Akami,

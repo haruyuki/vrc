@@ -7,23 +7,4 @@ export const Nyaruku: TextureModel = {
     officialLink: "https://aoikarasu.booth.pm/items/4888105",
     categories: ["Cat", "Furry"],
     featured: false,
-    commissions: [
-        {
-            id: "c1",
-            images: [],
-            commissioner: "Eyam",
-            date: "2023-06-28"
-        },
-        {
-            id: "c2",
-            images: [
-                "/assets/images/commissions/Nyaruku/c2-1.webp",
-                "/assets/images/commissions/Nyaruku/c2-2.webp",
-                "/assets/images/commissions/Nyaruku/c2-3.webp",
-                "/assets/images/commissions/Nyaruku/c2-4.webp",
-            ],
-            commissioner: "Ryoutai 稜太",
-            date: "2023-12-12"
-        }
-    ]
 };

@@ -1,8 +1,10 @@
 import React from 'react';
 import { TextureModel } from '../data/models';
+import { getCommissionsForModel } from '../services/googleSheets';
 import { CommissionCard } from './CommissionCard';
 import { useTranslation } from '../hooks/useTranslation';
 import { AnimatedContainer } from './animations/AnimationComponents';
+import { Commission } from '../data/models';
 
 interface GalleryViewProps {
   model: TextureModel;
@@ -11,6 +13,13 @@ interface GalleryViewProps {
 
 export const ModelDetailView: React.FC<GalleryViewProps> = ({ model, isVisible }) => {
   const { t } = useTranslation();
+  const [commissions, setCommissions] = React.useState<Commission[]>([]);
+// Fetch commissions for this specific model
+  React.useEffect(() => {
+    if (isVisible && model) {
+      setCommissions(getCommissionsForModel(model.modelName));
+    }
+  }, [isVisible, model]);
 
   if (!isVisible) return null;
 
@@ -39,13 +48,17 @@ export const ModelDetailView: React.FC<GalleryViewProps> = ({ model, isVisible }
         {/* Commissions Grid */}
         <div>
           <h3 className="text-lg font-semibold text-amber-900 dark:text-amber-100 mb-4">
-            {t('gallery_title')} ({model.commissions.length})
+            {t('gallery_title')} ({commissions.length})
           </h3>
-          <AnimatedContainer className="grid grid-cols-1 md:grid-cols-2 gap-4" staggerChildren={0.05}>
-            {model.commissions.map((commission) => (
-              <CommissionCard commission={commission} key={commission.id} />
-            ))}
-          </AnimatedContainer>
+          {commissions.length > 0 ? (
+            <AnimatedContainer className="grid grid-cols-1 md:grid-cols-2 gap-4" staggerChildren={0.05}>
+              {commissions.map((commission) => (
+                <CommissionCard commission={commission} key={commission.id} />
+              ))}
+            </AnimatedContainer>
+          ) : (
+            <p className="text-amber-700 dark:text-amber-400">{t('no_commissions')}</p>
+          )}
         </div>
       </div>
     </div>

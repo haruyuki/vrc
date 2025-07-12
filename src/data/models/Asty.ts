@@ -7,14 +7,4 @@ export const Asty: TextureModel = {
     officialLink: "https://dracofenrir.booth.pm/items/3559375",
     categories: ["Dragon", "Furry"],
     featured: false,
-    commissions: [
-        {
-            id: "c1",
-            images: [
-                "assets/images/commissions/Asty/c1-1.webp",
-            ],
-            commissioner: "Eyam",
-            date: "2022-01-06"
-        }
-    ]
 };

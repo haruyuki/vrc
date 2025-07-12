@@ -7,14 +7,4 @@ export const SharatNEW: TextureModel = {
     officialLink: "https://anaguraworks.booth.pm/items/5377771",
     categories: ["Dragon", "Furry"],
     featured: false,
-    commissions: [
-        {
-            id: "c1",
-            images: [
-                "assets/images/commissions/SharatNEW/c1-1.webp"
-            ],
-            commissioner: "Eyam",
-            date: "2024-02-07"
-        }
-    ]
 };

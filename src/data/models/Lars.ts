@@ -7,17 +7,4 @@ export const Lars: TextureModel = {
     officialLink: "https://dracofenrir.booth.pm/items/4698854",
     categories: ["Fox", "Furry"],
     featured: false,
-    commissions: [
-        {
-            id: "c1",
-            images: [
-                "assets/images/commissions/Lars/c1-1.webp",
-                "assets/images/commissions/Lars/c1-2.webp",
-                "assets/images/commissions/Lars/c1-3.webp",
-                "assets/images/commissions/Lars/c1-4.webp"
-            ],
-            commissioner: "Haru",
-            date: "2024-02-21"
-        }
-    ]
 };

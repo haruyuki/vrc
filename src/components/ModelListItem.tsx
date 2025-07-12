@@ -5,6 +5,7 @@ import { TextureModel } from '../data/models';
 import { bookVariants } from '../styles/animations';
 import { useTranslation } from '../hooks/useTranslation';
 import { ModelModalWrapper } from './ModelModalWrapper.tsx';
+import { getCommissionsForModel } from '../services/googleSheets';
 
 interface ModelListItemProps {
   model: TextureModel;
@@ -12,6 +13,7 @@ interface ModelListItemProps {
 
 export const ModelListItem: React.FC<ModelListItemProps> = ({ model }) => {
   const { t } = useTranslation();
+  const commissions = getCommissionsForModel(model.modelName);
 
   return (
     <ModelModalWrapper
@@ -57,7 +59,7 @@ export const ModelListItem: React.FC<ModelListItemProps> = ({ model }) => {
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-xs text-amber-600 dark:text-amber-400">
-                    {model.commissions.length} {model.commissions.length === 1
+                    {commissions.length} {commissions.length === 1
                       ? t('book.commission')
                       : t('book.commissions')}
                   </span>

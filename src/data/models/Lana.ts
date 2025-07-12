@@ -7,14 +7,4 @@ export const Lana: TextureModel = {
     officialLink: "https://milkpot1001.booth.pm/items/2422017",
     categories: ["Cat", "Furry"],
     featured: false,
-    commissions: [
-        {
-            id: "c1",
-            images: [
-                "assets/images/commissions/Lana/c1-1.webp",
-            ],
-            commissioner: "Ryoutai 稜太",
-            date: "2022-04-25"
-        }
-    ]
 };

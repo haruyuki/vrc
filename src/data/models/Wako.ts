@@ -7,12 +7,4 @@ export const Wako: TextureModel = {
     officialLink: "https://milkpot1001.booth.pm/items/2421969",
     categories: ["Dog", "Fox", "Furry"],
     featured: false,
-    commissions: [
-        {
-            id: "c1",
-            images: [],
-            commissioner: "SmallHa 小哈",
-            date: "2021-08-21"
-        }
-    ]
 };

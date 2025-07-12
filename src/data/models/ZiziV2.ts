@@ -7,17 +7,4 @@ export const ZiziV2: TextureModel = {
     officialLink: "https://aoikarasu.booth.pm/items/5654791",
     categories: ["Cat", "Furry"],
     featured: false,
-    commissions: [
-        {
-            id: "c1",
-            images: [
-                "assets/images/commissions/ZiziV2/c1-1.webp",
-                "assets/images/commissions/ZiziV2/c1-2.webp",
-                "assets/images/commissions/ZiziV2/c1-3.webp",
-                "assets/images/commissions/ZiziV2/c1-4.webp"
-            ],
-            commissioner: "Eyam",
-            date: "2024-05-14"
-        }
-    ]
 };

@@ -41,7 +41,8 @@ export const resources = {
             gallery_title: "Commission Gallery",
             request_commission: "Fill out the form here",
             search_placeholder: "Search texture models...",
-            search_aria: "Search texture models"
+            search_aria: "Search texture models",
+            no_commissions: "No commissions available for this model.",
         }
     },
     zh: {
@@ -82,7 +83,8 @@ export const resources = {
             gallery_title: "委託作品集",
             request_commission: "填寫表單",
             search_placeholder: "搜尋紋理模型...",
-            search_aria: "搜尋紋理模型"
+            search_aria: "搜尋紋理模型",
+            no_commissions: "這模型沒有的委託作品。",
         }
     }
 };

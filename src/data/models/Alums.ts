@@ -7,12 +7,4 @@ export const Alums: TextureModel = {
     officialLink: "https://mofumofumotimoti.booth.pm/items/2425466",
     categories: ["Dragon", "Furry"],
     featured: false,
-    commissions: [
-        {
-            id: "c1",
-            images: [],
-            commissioner: "Zug 嚕谷",
-            date: "2021-02-16"
-        }
-    ]
 };

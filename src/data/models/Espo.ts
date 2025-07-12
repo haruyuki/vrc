@@ -7,15 +7,4 @@ export const Espo: TextureModel = {
     officialLink: "https://milkpot1001.booth.pm/items/2656435",
     categories: ["Dog", "Furry"],
     featured: false,
-    commissions: [
-        {
-            id: "c1",
-            images: [
-                "assets/images/commissions/Espo/c1-1.webp",
-                "assets/images/commissions/Espo/c1-2.webp",
-            ],
-            commissioner: "Zug 嚕谷",
-            date: "2021-09-11"
-        }
-    ]
 };
