@@ -15,6 +15,7 @@ interface RawCommissionData {
   hasImage4: boolean;
 }
 
+// Fetches commission data from the Google Sheet and parses it into RawCommissionData[]
 export async function fetchCommissionData(): Promise<RawCommissionData[]> {
   try {
     const response = await fetch(SHEET_URL, {
@@ -27,12 +28,16 @@ export async function fetchCommissionData(): Promise<RawCommissionData[]> {
     }
     const csvText = await response.text();
     if (!csvText || csvText.trim().length === 0) return [];
+
+    // Parse CSV using PapaParse
     const parsed = Papa.parse<Record<string, never>>(csvText, {
       header: true,
       skipEmptyLines: true,
       dynamicTyping: true,
     });
     if (!parsed.data || !Array.isArray(parsed.data) || parsed.data.length === 0) return [];
+
+    // Convert parsed rows to RawCommissionData objects
     return parsed.data.reduce<RawCommissionData[]>((acc, row) => {
       if (row["ID"] && row["Model Name"]) {
         acc.push({
@@ -54,28 +59,37 @@ export async function fetchCommissionData(): Promise<RawCommissionData[]> {
   }
 }
 
+// Helper to format date from 'DD/MM/YYYY' to 'YYYY-MM-DD'
+function formatDate(date?: string): string {
+  if (date && date.includes('/')) {
+    const [day, month, year] = date.split('/');
+    return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+  }
+  return date || '';
+}
+
+// Helper to build image paths for a commission
+function buildImagePaths(modelName: string, commissionId: string, hasImages: boolean[]): string[] {
+  const modelDir = modelName.replace(/\s+/g, '');
+  return hasImages
+    .map((hasImg, idx) =>
+      hasImg ? `assets/images/commissions/${modelDir}/${commissionId}-${idx + 1}.webp` : null
+    )
+    .filter(Boolean) as string[];
+}
+
+// Processes raw commission data into a record grouped by model name
 export function processCommissionData(rawData: RawCommissionData[]): Record<string, Commission[]> {
   const modelCommissions: Record<string, Commission[]> = {};
   if (!rawData || !Array.isArray(rawData)) return {};
+
   for (const rawCommission of rawData) {
     try {
       const { id, date, commissioner, modelName, hasImage1, hasImage2, hasImage3, hasImage4 } = rawCommission;
-      let formattedDate: string;
-      if (date && date.includes('/')) {
-        const [day, month, year] = date.split('/');
-        formattedDate = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
-      } else {
-        formattedDate = date || '';
-      }
+      const formattedDate = formatDate(date);
       const idParts = id.split('/');
       const commissionId = idParts.length > 1 ? idParts[idParts.length - 1] : id;
-      const modelDir = modelName.replace(/\s+/g, '');
-      const images = [
-        hasImage1 ? `assets/images/commissions/${modelDir}/${commissionId}-1.webp` : null,
-        hasImage2 ? `assets/images/commissions/${modelDir}/${commissionId}-2.webp` : null,
-        hasImage3 ? `assets/images/commissions/${modelDir}/${commissionId}-3.webp` : null,
-        hasImage4 ? `assets/images/commissions/${modelDir}/${commissionId}-4.webp` : null
-      ].filter(Boolean) as string[];
+      const images = buildImagePaths(modelName, commissionId, [hasImage1, hasImage2, hasImage3, hasImage4]);
       const commission: Commission = {
         id: commissionId,
         images,
@@ -88,6 +102,8 @@ export function processCommissionData(rawData: RawCommissionData[]): Record<stri
       console.error('Error processing commission:', rawCommission, error);
     }
   }
+
+  // Sort commissions for each model by date (descending)
   for (const modelName in modelCommissions) {
     modelCommissions[modelName].sort((a, b) => {
       if (!a.date) return 1;
@@ -101,11 +117,13 @@ export function processCommissionData(rawData: RawCommissionData[]): Record<stri
 // Store processed commissions in memory for easy access
 let commissionsByModel: Record<string, Commission[]> = {};
 
+// Initializes the commissionsByModel cache
 export async function initializeCommissions() {
   const rawData = await fetchCommissionData();
   commissionsByModel = processCommissionData(rawData);
 }
 
+// Retrieves all commissions for a given model
 export function getCommissionsForModel(modelName: string): Commission[] {
   return commissionsByModel[modelName] || [];
 }

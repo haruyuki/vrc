@@ -11,6 +11,7 @@ interface FadeInProps extends MotionProps {
   'aria-label'?: string;
 }
 
+// FadeIn: Animates children with a fade and optional vertical movement
 export const FadeIn: React.FC<FadeInProps> = ({
   children,
   delay = 0,
@@ -38,6 +39,7 @@ interface ScaleOnHoverProps extends MotionProps {
   className?: string;
 }
 
+// ScaleOnHover: Scales children on hover and tap
 export const ScaleOnHover: React.FC<ScaleOnHoverProps> = ({
   children,
   scale = 1.05,
@@ -63,6 +65,7 @@ interface AnimatedContainerProps extends MotionProps {
   className?: string;
 }
 
+// AnimatedContainer: Animates a group of children with staggered entrance
 export const AnimatedContainer: React.FC<AnimatedContainerProps> = ({
   children,
   staggerChildren = 0.1,
@@ -97,6 +100,7 @@ interface AnimatedItemProps extends MotionProps {
   className?: string;
 }
 
+// AnimatedItem: Animates a single child with fade and upward movement
 export const AnimatedItem: React.FC<AnimatedItemProps> = ({
   children,
   className = '',
