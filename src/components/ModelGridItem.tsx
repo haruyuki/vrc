@@ -1,10 +1,9 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 import { TextureModel } from '../data/models';
-import { bookVariants } from '../styles/animations';
 import { useTranslation } from 'react-i18next';
 import { ModelModalWrapper } from './ModelModalWrapper.tsx';
+import { MotionBookCard } from './animations/AnimationComponents';
 
 interface ModelProps {
   model: TextureModel;
@@ -21,11 +20,10 @@ export const ModelGridItem: React.FC<ModelProps> = ({ model }) => {
     <ModelModalWrapper
       model={model}
       renderContent={(_isOpen, handleClick, handleKeyDown) => (
-        <motion.div
+        <MotionBookCard
           key="card"
           className="relative w-full cursor-pointer group"
           layoutId={`book-${model.modelName}`}
-          variants={bookVariants}
           whileHover="hover"
           onClick={handleClick}
           onKeyDown={handleKeyDown}
@@ -89,7 +87,7 @@ export const ModelGridItem: React.FC<ModelProps> = ({ model }) => {
               {t('book.clickToOpen', 'Click to open')}
             </div>
           </div>
-        </motion.div>
+        </MotionBookCard>
       )}
     />
   );

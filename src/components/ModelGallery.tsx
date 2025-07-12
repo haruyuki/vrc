@@ -1,9 +1,8 @@
 import React, { memo } from 'react';
-import { motion } from 'framer-motion';
 import { ModelGridItem } from './ModelGridItem.tsx';
 import { ModelListItem } from './ModelListItem.tsx';
 import { TextureModel } from '../data/models';
-import { containerVariants, cardVariants } from '../styles/animations';
+import { MotionContainer, MotionCard } from './animations/AnimationComponents';
 
 interface ModelGallery {
   models: TextureModel[];
@@ -22,39 +21,21 @@ const CarouselComponent: React.FC<ModelGallery> = ({ models, viewMode }) => {
   }
 
   return viewMode === 'grid' ? (
-    <motion.div
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-      className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
-    >
+    <MotionContainer className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
       {models.map((model) => (
-        <motion.div
-          key={model.modelName}
-          variants={cardVariants}
-          className="flex justify-center"
-        >
+        <MotionCard key={model.modelName} className="flex justify-center">
           <ModelGridItem model={model} />
-        </motion.div>
+        </MotionCard>
       ))}
-    </motion.div>
+    </MotionContainer>
   ) : (
-    <motion.div
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-      className="flex flex-col gap-3"
-    >
+    <MotionContainer className="flex flex-col gap-3">
       {models.map((model) => (
-        <motion.div
-          key={model.modelName}
-          variants={cardVariants}
-          className="w-full"
-        >
+        <MotionCard key={model.modelName} className="w-full">
           <ModelListItem model={model} />
-        </motion.div>
+        </MotionCard>
       ))}
-    </motion.div>
+    </MotionContainer>
   );
 };
 

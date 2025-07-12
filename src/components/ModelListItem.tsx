@@ -1,11 +1,10 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Star, ExternalLink } from 'lucide-react';
 import { TextureModel } from '../data/models';
-import { bookVariants } from '../styles/animations';
 import { useTranslation } from '../hooks/useTranslation';
 import { ModelModalWrapper } from './ModelModalWrapper.tsx';
 import { getCommissionsForModel } from '../services/googleSheets';
+import { MotionBookCard } from './animations/AnimationComponents';
 
 interface ModelListItemProps {
   model: TextureModel;
@@ -19,11 +18,10 @@ export const ModelListItem: React.FC<ModelListItemProps> = ({ model }) => {
     <ModelModalWrapper
       model={model}
       renderContent={(_isOpen, handleItemClick, handleKeyDown) => (
-        <motion.div
+        <MotionBookCard
           key="list-item"
           className="relative w-full cursor-pointer group"
           layoutId={`book-${model.modelName}`}
-          variants={bookVariants}
           whileHover="hover"
           onClick={handleItemClick}
           onKeyDown={handleKeyDown}
@@ -95,7 +93,7 @@ export const ModelListItem: React.FC<ModelListItemProps> = ({ model }) => {
               {t('book.clickToOpen')}
             </div>
           </div>
-        </motion.div>
+        </MotionBookCard>
       )}
     />
   );

@@ -1,5 +1,6 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, HTMLAttributes } from 'react';
 import { motion, MotionProps } from 'framer-motion';
+import { containerVariants, cardVariants, bookVariants } from '../../styles/animations';
 
 interface FadeInProps extends MotionProps {
   children: ReactNode;
@@ -56,7 +57,7 @@ export const ScaleOnHover: React.FC<ScaleOnHoverProps> = ({
       {children}
     </motion.div>
   );
-};
+}
 
 interface AnimatedContainerProps extends MotionProps {
   children: ReactNode;
@@ -118,4 +119,45 @@ export const AnimatedItem: React.FC<AnimatedItemProps> = ({
       {children}
     </motion.div>
   );
-};
+}
+
+// AnimatedContainer for grid/list wrappers with variants
+export const MotionContainer: React.FC<React.PropsWithChildren<{ className?: string } & MotionProps>> = ({ children, className = '', ...props }) => (
+  <motion.div
+    variants={containerVariants}
+    initial="hidden"
+    animate="visible"
+    className={className}
+    {...props}
+  >
+    {children}
+  </motion.div>
+);
+
+// AnimatedCard for grid/list items with cardVariants
+export const MotionCard: React.FC<React.PropsWithChildren<{ className?: string } & MotionProps>> = ({ children, className = '', ...props }) => (
+  <motion.div
+    variants={cardVariants}
+    className={className}
+    {...props}
+  >
+    {children}
+  </motion.div>
+);
+
+// AnimatedBookCard for ModelGridItem/ModelListItem with bookVariants
+export const MotionBookCard: React.FC<React.PropsWithChildren<{
+  className?: string;
+  layoutId?: string;
+  whileHover?: string;
+} & MotionProps & HTMLAttributes<HTMLDivElement>>> = ({ children, className = '', layoutId, whileHover = 'hover', ...props }) => (
+  <motion.div
+    variants={bookVariants}
+    layoutId={layoutId}
+    whileHover={whileHover}
+    className={className}
+    {...props}
+  >
+    {children}
+  </motion.div>
+);
