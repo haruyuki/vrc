@@ -69,11 +69,12 @@ export function processCommissionData(rawData: RawCommissionData[]): Record<stri
       }
       const idParts = id.split('/');
       const commissionId = idParts.length > 1 ? idParts[idParts.length - 1] : id;
+      const modelDir = modelName.replace(/\s+/g, '');
       const images = [
-        hasImage1 ? `assets/images/commissions/${modelName}/${commissionId}-1.webp` : null,
-        hasImage2 ? `assets/images/commissions/${modelName}/${commissionId}-2.webp` : null,
-        hasImage3 ? `assets/images/commissions/${modelName}/${commissionId}-3.webp` : null,
-        hasImage4 ? `assets/images/commissions/${modelName}/${commissionId}-4.webp` : null
+        hasImage1 ? `assets/images/commissions/${modelDir}/${commissionId}-1.webp` : null,
+        hasImage2 ? `assets/images/commissions/${modelDir}/${commissionId}-2.webp` : null,
+        hasImage3 ? `assets/images/commissions/${modelDir}/${commissionId}-3.webp` : null,
+        hasImage4 ? `assets/images/commissions/${modelDir}/${commissionId}-4.webp` : null
       ].filter(Boolean) as string[];
       const commission: Commission = {
         id: commissionId,
