@@ -1,4 +1,4 @@
-import React, { ReactNode, HTMLAttributes } from 'react';
+import React, { ReactNode, HTMLAttributes, useMemo } from 'react';
 import { motion, MotionProps } from 'framer-motion';
 import { containerVariants, cardVariants, bookVariants } from '../../styles/animations';
 
@@ -67,25 +67,27 @@ interface AnimatedContainerProps extends MotionProps {
 }
 
 // AnimatedContainer: Animates a group of children with staggered entrance
-export const AnimatedContainer: React.FC<AnimatedContainerProps> = ({
+export const AnimatedContainer: React.FC<AnimatedContainerProps> = React.memo(({
   children,
   staggerChildren = 0.1,
   delayChildren = 0.2,
   className = '',
   ...motionProps
 }) => {
+  const variants = useMemo(() => ({
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren,
+        delayChildren,
+      },
+    },
+  }), [staggerChildren, delayChildren]);
+
   return (
     <motion.div
-      variants={{
-        hidden: { opacity: 0 },
-        visible: {
-          opacity: 1,
-          transition: {
-            staggerChildren,
-            delayChildren,
-          },
-        },
-      }}
+      variants={variants}
       initial="hidden"
       animate="visible"
       className={className}
@@ -94,7 +96,7 @@ export const AnimatedContainer: React.FC<AnimatedContainerProps> = ({
       {children}
     </motion.div>
   );
-};
+});
 
 interface AnimatedItemProps extends MotionProps {
   children: ReactNode;
@@ -102,7 +104,7 @@ interface AnimatedItemProps extends MotionProps {
 }
 
 // AnimatedItem: Animates a single child with fade and upward movement
-export const AnimatedItem: React.FC<AnimatedItemProps> = ({
+export const AnimatedItem: React.FC<AnimatedItemProps> = React.memo(({
   children,
   className = '',
   ...motionProps
@@ -119,10 +121,10 @@ export const AnimatedItem: React.FC<AnimatedItemProps> = ({
       {children}
     </motion.div>
   );
-}
+});
 
 // AnimatedContainer for grid/list wrappers with variants
-export const MotionContainer: React.FC<React.PropsWithChildren<{ className?: string } & MotionProps>> = ({ children, className = '', ...props }) => (
+export const MotionContainer: React.FC<React.PropsWithChildren<{ className?: string } & MotionProps>> = React.memo(({ children, className = '', ...props }) => (
   <motion.div
     variants={containerVariants}
     initial="hidden"
@@ -132,10 +134,10 @@ export const MotionContainer: React.FC<React.PropsWithChildren<{ className?: str
   >
     {children}
   </motion.div>
-);
+));
 
 // AnimatedCard for grid/list items with cardVariants
-export const MotionCard: React.FC<React.PropsWithChildren<{ className?: string } & MotionProps>> = ({ children, className = '', ...props }) => (
+export const MotionCard: React.FC<React.PropsWithChildren<{ className?: string } & MotionProps>> = React.memo(({ children, className = '', ...props }) => (
   <motion.div
     variants={cardVariants}
     className={className}
@@ -143,7 +145,7 @@ export const MotionCard: React.FC<React.PropsWithChildren<{ className?: string }
   >
     {children}
   </motion.div>
-);
+));
 
 // AnimatedBookCard for ModelGridCard/ModelListItem with bookVariants
 export const MotionBookCard: React.FC<React.PropsWithChildren<{
