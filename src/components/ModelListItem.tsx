@@ -3,16 +3,15 @@ import { Star, ExternalLink } from 'lucide-react';
 import { TextureModel } from '../data/models';
 import { useTranslation } from '../hooks/useTranslation';
 import { ModelModalWrapper } from './ModelModalWrapper.tsx';
-import { getCommissionsForModel } from '../services/commissionData.ts';
 import { MotionBookCard } from './animations/AnimationComponents';
 
 interface ModelListItemProps {
   model: TextureModel;
+  commissionCount?: number;
 }
 
-export const ModelListItem: React.FC<ModelListItemProps> = ({ model }) => {
+export const ModelListItem: React.FC<ModelListItemProps> = ({ model, commissionCount = 0 }) => {
   const { t } = useTranslation();
-  const commissions = getCommissionsForModel(model.constName);
 
   return (
     <ModelModalWrapper
@@ -58,7 +57,7 @@ export const ModelListItem: React.FC<ModelListItemProps> = ({ model }) => {
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-xs text-amber-600 dark:text-amber-400">
-                    {commissions.length} {commissions.length === 1
+                    {commissionCount} {commissionCount === 1
                       ? t('book.commission')
                       : t('book.commissions')}
                   </span>
