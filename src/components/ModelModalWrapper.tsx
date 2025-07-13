@@ -1,4 +1,4 @@
-import React, { useState, lazy, Suspense, useCallback, ReactNode } from 'react';
+import React, { useState, lazy, Suspense, useCallback, ReactNode, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import { TextureModel } from '../data/models';
@@ -14,6 +14,12 @@ interface ModelBaseProps {
 export const ModelModalWrapper: React.FC<ModelBaseProps> = ({ model, renderContent }) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, []);
+
   const handleItemClick = useCallback(() => {
     document.body.style.overflow = 'hidden';
     setIsOpen(true);
@@ -27,11 +33,11 @@ export const ModelModalWrapper: React.FC<ModelBaseProps> = ({ model, renderConte
   const handleKeyDown = useCallback((event: React.KeyboardEvent) => {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
-      setIsOpen(true);
+      handleItemClick();
     } else if (event.key === 'Escape' && isOpen) {
-      setIsOpen(false);
+      handleClose();
     }
-  }, [isOpen]);
+  }, [isOpen, handleItemClick, handleClose]);
 
   // SkeletonLoader for Suspense fallback
   const SkeletonLoader: React.FC = () => (
