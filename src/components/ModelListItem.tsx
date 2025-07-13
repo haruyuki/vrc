@@ -16,7 +16,6 @@ export const ModelListItem: React.FC<ModelListItemProps> = ({ model, commissionC
   return (
     <ModelModalWrapper
       model={model}
-      constName={model.constName}
       renderContent={(_isOpen, handleItemClick, handleKeyDown) => (
         <MotionBookCard
           key="list-item"

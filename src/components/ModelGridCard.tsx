@@ -19,7 +19,6 @@ export const ModelGridCard: React.FC<ModelProps> = ({ model }) => {
   return (
     <ModelModalWrapper
       model={model}
-      constName={model.constName}
       renderContent={(_isOpen, handleClick, handleKeyDown) => (
         <MotionBookCard
           key="card"
