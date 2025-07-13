@@ -1,8 +1,8 @@
-import { resources } from '../i18n';
 import { availableTags } from '../data/tags';
+import { resources } from '../i18n';
 
 // Define a literal type for all available tags
-export type TagKey = typeof availableTags[number];
+export type TagKey = (typeof availableTags)[number];
 
 // Extract the type of the English translations
 type TranslationResources = typeof resources.en.translation;
@@ -32,7 +32,8 @@ export type FooterTranslations = {
 export type BookTranslationKey = keyof TranslationResources['book'];
 export type TagTranslationKey = TagKey;
 export type ResultTranslationKey = keyof TranslationResources['results'];
-export type CommissionTranslationKey = keyof TranslationResources['commissions'];
+export type CommissionTranslationKey =
+  keyof TranslationResources['commissions'];
 export type FooterTranslationKey = keyof TranslationResources['footer'];
 
 // Create a type for all translation keys with proper nesting

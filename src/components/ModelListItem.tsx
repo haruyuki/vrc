@@ -10,7 +10,10 @@ interface ModelListItemProps {
   commissionCount?: number;
 }
 
-export const ModelListItem: React.FC<ModelListItemProps> = ({ model, commissionCount = 0 }) => {
+export const ModelListItem: React.FC<ModelListItemProps> = ({
+  model,
+  commissionCount = 0,
+}) => {
   const { t } = useTranslation();
 
   return (
@@ -32,7 +35,11 @@ export const ModelListItem: React.FC<ModelListItemProps> = ({ model, commissionC
           <div className="relative w-full h-full rounded-lg shadow-md group-hover:shadow-xl transition-shadow duration-300 overflow-hidden bg-white/80 dark:bg-gray-900/80 flex items-center">
             <div
               className="h-full"
-              style={{ width: '6px', minWidth: '6px', backgroundColor: model.spineColor }}
+              style={{
+                width: '6px',
+                minWidth: '6px',
+                backgroundColor: model.spineColor,
+              }}
             />
 
             <div className="flex-shrink-0 w-20 h-20 overflow-hidden">
@@ -56,7 +63,8 @@ export const ModelListItem: React.FC<ModelListItemProps> = ({ model, commissionC
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-xs text-amber-600 dark:text-amber-400">
-                    {commissionCount} {commissionCount === 1
+                    {commissionCount}{' '}
+                    {commissionCount === 1
                       ? t('book.commission')
                       : t('book.commissions')}
                   </span>
@@ -66,7 +74,7 @@ export const ModelListItem: React.FC<ModelListItemProps> = ({ model, commissionC
                     rel="noopener noreferrer"
                     className="flex items-center gap-1 hover:text-amber-200 transition-colors bg-black/20 px-2 py-1 text-xs rounded-full text-amber-700 dark:text-amber-300"
                     aria-label={`View ${model.modelName} official page`}
-                    onClick={e => e.stopPropagation()}
+                    onClick={(e) => e.stopPropagation()}
                   >
                     <ExternalLink className="w-3 h-3" />
                     {t('book.officialLink')}

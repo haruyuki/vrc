@@ -10,5 +10,5 @@ createRoot(document.getElementById('root')!).render(
     <CommissionLoadingProvider>
       <App />
     </CommissionLoadingProvider>
-  </StrictMode>
+  </StrictMode>,
 );

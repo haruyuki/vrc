@@ -8,7 +8,10 @@ interface SearchBarProps {
   onSearchChange: (term: string) => void;
 }
 
-export const SearchBar: React.FC<SearchBarProps> = ({ searchTerm, onSearchChange }) => {
+export const SearchBar: React.FC<SearchBarProps> = ({
+  searchTerm,
+  onSearchChange,
+}) => {
   const { t } = useTranslation();
   const [inputValue, setInputValue] = useState(searchTerm);
   const debouncedSearchTerm = useDebounce(inputValue, 300); // 300ms delay

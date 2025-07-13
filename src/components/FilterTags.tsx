@@ -9,7 +9,11 @@ interface FilterTagsProps {
   viewToggleButton?: React.ReactNode;
 }
 
-export const FilterTags: React.FC<FilterTagsProps> = ({ selectedTags, onTagToggle, viewToggleButton }) => {
+export const FilterTags: React.FC<FilterTagsProps> = ({
+  selectedTags,
+  onTagToggle,
+  viewToggleButton,
+}) => {
   const { t } = useTranslation();
   const selectedTag = selectedTags[0] || 'All';
 
@@ -41,7 +45,7 @@ export const FilterTags: React.FC<FilterTagsProps> = ({ selectedTags, onTagToggl
           </motion.button>
         );
       }),
-    [selectedTag, onTagToggle, t]
+    [selectedTag, onTagToggle, t],
   );
 
   return (

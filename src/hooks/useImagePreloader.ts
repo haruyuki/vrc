@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 interface UseImagePreloaderOptions {
   priority?: boolean;
@@ -13,7 +13,7 @@ interface UseImagePreloaderOptions {
  */
 export function useImagePreloader(
   images: string[],
-  options: UseImagePreloaderOptions = {}
+  options: UseImagePreloaderOptions = {},
 ) {
   const { priority = false, threshold = 2 } = options;
   const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
@@ -24,36 +24,39 @@ export function useImagePreloader(
     return new Promise((resolve, reject) => {
       const img = new Image();
       img.onload = () => {
-        setLoadedImages(prev => new Set([...prev, src]));
+        setLoadedImages((prev) => new Set([...prev, src]));
         resolve();
       };
       img.onerror = () => {
-        setFailedImages(prev => new Set([...prev, src]));
+        setFailedImages((prev) => new Set([...prev, src]));
         reject(new Error(`Failed to load image: ${src}`));
       };
       img.src = src;
     });
   }, []);
 
-  const preloadImages = useCallback(async (imagesToLoad: string[]) => {
-    if (imagesToLoad.length === 0) return;
+  const preloadImages = useCallback(
+    async (imagesToLoad: string[]) => {
+      if (imagesToLoad.length === 0) return;
 
-    setIsLoading(true);
+      setIsLoading(true);
 
-    // Load images in batches to avoid overwhelming the browser
-    const batchSize = priority ? imagesToLoad.length : threshold;
-    for (let i = 0; i < imagesToLoad.length; i += batchSize) {
-      const batch = imagesToLoad.slice(i, i + batchSize);
-      await Promise.allSettled(batch.map(preloadImage));
+      // Load images in batches to avoid overwhelming the browser
+      const batchSize = priority ? imagesToLoad.length : threshold;
+      for (let i = 0; i < imagesToLoad.length; i += batchSize) {
+        const batch = imagesToLoad.slice(i, i + batchSize);
+        await Promise.allSettled(batch.map(preloadImage));
 
-      // Small delay between batches for non-priority loading
-      if (!priority && i + batchSize < imagesToLoad.length) {
-        await new Promise(resolve => setTimeout(resolve, 100));
+        // Small delay between batches for non-priority loading
+        if (!priority && i + batchSize < imagesToLoad.length) {
+          await new Promise((resolve) => setTimeout(resolve, 100));
+        }
       }
-    }
 
-    setIsLoading(false);
-  }, [priority, threshold, preloadImage]);
+      setIsLoading(false);
+    },
+    [priority, threshold, preloadImage],
+  );
 
   useEffect(() => {
     if (images.length > 0) {
@@ -67,6 +70,6 @@ export function useImagePreloader(
     isLoading,
     preloadImages,
     isImageLoaded: (src: string) => loadedImages.has(src),
-    isImageFailed: (src: string) => failedImages.has(src)
+    isImageFailed: (src: string) => failedImages.has(src),
   };
 }

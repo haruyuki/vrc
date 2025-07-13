@@ -1,17 +1,35 @@
-import React, { useState, lazy, Suspense, useCallback, ReactNode, useEffect } from 'react';
+import React, {
+  useState,
+  lazy,
+  Suspense,
+  useCallback,
+  ReactNode,
+  useEffect,
+} from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import { TextureModel } from '../data/models';
 import { fullScreenVariants } from '../styles/animations';
 
-const ModelDetailView = lazy(() => import('./ModelDetailView.tsx').then(module => ({ default: module.ModelDetailView })));
+const ModelDetailView = lazy(() =>
+  import('./ModelDetailView.tsx').then((module) => ({
+    default: module.ModelDetailView,
+  })),
+);
 
 interface ModelBaseProps {
   model: TextureModel;
-  renderContent: (isOpen: boolean, handleClick: () => void, handleKeyDown: (event: React.KeyboardEvent) => void) => ReactNode;
+  renderContent: (
+    isOpen: boolean,
+    handleClick: () => void,
+    handleKeyDown: (event: React.KeyboardEvent) => void,
+  ) => ReactNode;
 }
 
-export const ModelModalWrapper: React.FC<ModelBaseProps> = ({ model, renderContent }) => {
+export const ModelModalWrapper: React.FC<ModelBaseProps> = ({
+  model,
+  renderContent,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -30,27 +48,36 @@ export const ModelModalWrapper: React.FC<ModelBaseProps> = ({ model, renderConte
     setIsOpen(false);
   }, []);
 
-  const handleKeyDown = useCallback((event: React.KeyboardEvent) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault();
-      handleItemClick();
-    } else if (event.key === 'Escape' && isOpen) {
-      handleClose();
-    }
-  }, [isOpen, handleItemClick, handleClose]);
+  const handleKeyDown = useCallback(
+    (event: React.KeyboardEvent) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        handleItemClick();
+      } else if (event.key === 'Escape' && isOpen) {
+        handleClose();
+      }
+    },
+    [isOpen, handleItemClick, handleClose],
+  );
 
   // SkeletonLoader for Suspense fallback
   const SkeletonLoader: React.FC = () => (
     <div className="flex flex-col h-full p-6 bg-white dark:bg-gray-900 animate-pulse">
       <div className="h-8 w-1/3 bg-amber-200 dark:bg-gray-800 rounded mb-6" />
       <div className="flex gap-2 mb-6">
-        {[1,2,3].map(i => (
-          <div key={i} className="h-6 w-20 bg-amber-100 dark:bg-gray-700 rounded-full" />
+        {[1, 2, 3].map((i) => (
+          <div
+            key={i}
+            className="h-6 w-20 bg-amber-100 dark:bg-gray-700 rounded-full"
+          />
         ))}
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 flex-1">
         {[...Array(4)].map((_, i) => (
-          <div key={i} className="h-40 bg-amber-100 dark:bg-gray-800 rounded-lg" />
+          <div
+            key={i}
+            className="h-40 bg-amber-100 dark:bg-gray-800 rounded-lg"
+          />
         ))}
       </div>
     </div>
@@ -86,7 +113,7 @@ export const ModelModalWrapper: React.FC<ModelBaseProps> = ({ model, renderConte
               animate="visible"
               exit="hidden"
               style={{ pointerEvents: 'auto' }}
-              onClick={e => e.stopPropagation()}
+              onClick={(e) => e.stopPropagation()}
             >
               <button
                 onClick={handleClose}

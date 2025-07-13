@@ -9,7 +9,9 @@ interface CommissionCardProps {
   commission: Commission;
 }
 
-export const CommissionCard: React.FC<CommissionCardProps> = ({ commission }) => {
+export const CommissionCard: React.FC<CommissionCardProps> = ({
+  commission,
+}) => {
   const [currentImgIdx, setCurrentImgIdx] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const { t } = useTranslation();
@@ -17,17 +19,17 @@ export const CommissionCard: React.FC<CommissionCardProps> = ({ commission }) =>
   // Memoize limited images to prevent unnecessary re-renders
   const displayImages = useMemo(
     () => commission.images.slice(0, 4),
-    [commission.images]
+    [commission.images],
   );
 
   // Use the image preloader hook for better loading experience
   const {
     isImageLoaded,
     isImageFailed,
-    isLoading: isPreloading
+    isLoading: isPreloading,
   } = useImagePreloader(displayImages, {
     priority: false, // Not priority since these are secondary content
-    threshold: 2 // Load 2 images at a time to balance performance
+    threshold: 2, // Load 2 images at a time to balance performance
   });
 
   React.useEffect(() => {
@@ -44,8 +46,10 @@ export const CommissionCard: React.FC<CommissionCardProps> = ({ commission }) =>
   }, [isHovered, displayImages.length]);
 
   // Show loading state for the current image if it's not loaded yet
-  const currentImageLoaded = displayImages.length > 0 && isImageLoaded(displayImages[currentImgIdx]);
-  const currentImageFailed = displayImages.length > 0 && isImageFailed(displayImages[currentImgIdx]);
+  const currentImageLoaded =
+    displayImages.length > 0 && isImageLoaded(displayImages[currentImgIdx]);
+  const currentImageFailed =
+    displayImages.length > 0 && isImageFailed(displayImages[currentImgIdx]);
 
   return (
     <AnimatedItem className="bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-amber-100 dark:border-gray-800">
@@ -58,7 +62,9 @@ export const CommissionCard: React.FC<CommissionCardProps> = ({ commission }) =>
           <div className="w-full h-full flex flex-col items-center justify-center bg-amber-50 dark:bg-gray-800 text-amber-300 dark:text-amber-500">
             <ImageOff className="w-12 h-12 mb-2" />
             <span className="text-xs text-amber-400 dark:text-amber-500">
-              {displayImages.length === 0 ? t('commissions.noImage') : 'Image failed to load'}
+              {displayImages.length === 0
+                ? t('commissions.noImage')
+                : 'Image failed to load'}
             </span>
           </div>
         ) : (
@@ -66,7 +72,9 @@ export const CommissionCard: React.FC<CommissionCardProps> = ({ commission }) =>
             {/* Loading skeleton for current image */}
             {!currentImageLoaded && (
               <div className="w-full h-full bg-amber-100 dark:bg-gray-700 animate-pulse flex items-center justify-center">
-                <div className="text-amber-400 dark:text-amber-500 text-xs">Loading...</div>
+                <div className="text-amber-400 dark:text-amber-500 text-xs">
+                  Loading...
+                </div>
               </div>
             )}
 
@@ -77,7 +85,9 @@ export const CommissionCard: React.FC<CommissionCardProps> = ({ commission }) =>
                 src={img}
                 alt={`${t('commissions.by')} ${commission.commissioner}`}
                 className={`w-full h-full object-cover absolute top-0 left-0 transition-opacity duration-700 ${
-                  imgIdx === currentImgIdx && isImageLoaded(img) && !isImageFailed(img)
+                  imgIdx === currentImgIdx &&
+                  isImageLoaded(img) &&
+                  !isImageFailed(img)
                     ? 'opacity-100 z-10'
                     : 'opacity-0 z-0'
                 }`}
@@ -95,8 +105,8 @@ export const CommissionCard: React.FC<CommissionCardProps> = ({ commission }) =>
               <div
                 key={imgIdx}
                 className={`w-5 h-2 rounded-full transition-colors duration-300 ${
-                  imgIdx === currentImgIdx 
-                    ? 'bg-white/80' 
+                  imgIdx === currentImgIdx
+                    ? 'bg-white/80'
                     : isImageLoaded(displayImages[imgIdx])
                       ? 'bg-black/40'
                       : 'bg-gray-400/40' // Different color for unloaded images

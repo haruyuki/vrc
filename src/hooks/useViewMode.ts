@@ -20,6 +20,6 @@ export function useViewMode(initialMode: ViewMode = 'grid'): UseViewModeReturn {
     viewMode,
     toggleViewMode,
     isGridMode: viewMode === 'grid',
-    isListMode: viewMode === 'list'
+    isListMode: viewMode === 'list',
   };
 }

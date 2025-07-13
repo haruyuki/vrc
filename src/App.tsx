@@ -8,11 +8,14 @@ import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { CommissionInfo } from './components/CommissionInfo';
 import { ErrorBoundary } from './components/ErrorBoundary';
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from '@vercel/analytics/react';
 import { darkBackground, lightBackground } from './styles/backgrounds';
 import { LayoutGrid, List } from 'lucide-react';
 import { useViewMode } from './hooks/useViewMode';
-import { FadeIn, ScaleOnHover } from './components/animations/AnimationComponents';
+import {
+  FadeIn,
+  ScaleOnHover,
+} from './components/animations/AnimationComponents';
 import { initializeCommissions } from './services/commissionData.ts';
 import { useCommissionLoading } from './context/CommissionLoadingContext';
 
@@ -43,7 +46,9 @@ export const App: React.FC = () => {
         console.log('Commission data loaded successfully');
       } catch (error) {
         console.error('Error loading commission data:', error);
-        setInitError('Failed to load commission data. Some features may be limited.');
+        setInitError(
+          'Failed to load commission data. Some features may be limited.',
+        );
       } finally {
         setIsLoadingCommissions(false);
       }
@@ -72,7 +77,9 @@ export const App: React.FC = () => {
       filtered = filtered.filter(
         (model) =>
           model.modelName.toLowerCase().includes(searchLower) ||
-          model.categories.some((cat) => cat.toLowerCase().includes(searchLower))
+          model.categories.some((cat) =>
+            cat.toLowerCase().includes(searchLower),
+          ),
       );
     }
 
@@ -132,7 +139,12 @@ export const App: React.FC = () => {
           )}
 
           {/* Header */}
-          <Header onToggleLanguage={toggleLanguage} currentLanguage={i18n.language} onToggleDarkMode={handleDarkModeToggle} isDarkMode={isDarkMode} />
+          <Header
+            onToggleLanguage={toggleLanguage}
+            currentLanguage={i18n.language}
+            onToggleDarkMode={handleDarkModeToggle}
+            isDarkMode={isDarkMode}
+          />
 
           {/* Main Content */}
           <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -141,7 +153,10 @@ export const App: React.FC = () => {
 
             {/* Search and Filters */}
             <FadeIn delay={0.4}>
-              <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} />
+              <SearchBar
+                searchTerm={searchTerm}
+                onSearchChange={setSearchTerm}
+              />
               <FilterTags
                 selectedTags={selectedTags}
                 onTagToggle={handleTagToggle}
@@ -167,8 +182,8 @@ export const App: React.FC = () => {
             {/* Results Counter */}
             <FadeIn delay={0.6} className="text-center mb-8">
               <p className="text-amber-700 dark:text-amber-400">
-                {t('results.showing')} <span className="font-semibold">{filteredModels.length}</span>
-                {' '}
+                {t('results.showing')}{' '}
+                <span className="font-semibold">{filteredModels.length}</span>{' '}
                 {filteredModels.length === 1
                   ? t('results.model')
                   : t('results.models')}
@@ -188,4 +203,4 @@ export const App: React.FC = () => {
       </div>
     </ErrorBoundary>
   );
-}
+};

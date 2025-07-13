@@ -44,7 +44,8 @@ export class ErrorBoundary extends Component<Props, State> {
               Something went wrong
             </h2>
             <p className="text-amber-700 dark:text-amber-300 mb-6">
-              We encountered an unexpected error. Please refresh the page to try again.
+              We encountered an unexpected error. Please refresh the page to try
+              again.
             </p>
             <button
               onClick={() => window.location.reload()}

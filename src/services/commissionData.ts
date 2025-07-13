@@ -1,5 +1,4 @@
-import { Commission } from '../data/models';
-import { textureModelMap } from '../data/models';
+import { Commission, textureModelMap } from '../data/models';
 
 interface RawCommissionData {
   id: string;
@@ -17,10 +16,12 @@ export async function fetchCommissionData(): Promise<RawCommissionData[]> {
   try {
     const response = await fetch('/api/commissions', {
       cache: 'no-store',
-      headers: { 'Accept': 'application/json' }
+      headers: { Accept: 'application/json' },
     });
     if (!response.ok) {
-      console.error(`Failed to fetch commission data: ${response.status} ${response.statusText}`);
+      console.error(
+        `Failed to fetch commission data: ${response.status} ${response.statusText}`,
+      );
       return [];
     }
     const data = await response.json();
@@ -28,16 +29,16 @@ export async function fetchCommissionData(): Promise<RawCommissionData[]> {
 
     // Convert API rows to RawCommissionData objects
     return data.reduce<RawCommissionData[]>((acc, row) => {
-      if (row["ID"] && row["Model Name"]) {
+      if (row['ID'] && row['Model Name']) {
         acc.push({
-          id: row["ID"],
-          date: row["Date"] || '',
-          commissioner: row["Commissioner"] || '',
-          modelName: row["Model Name"],
-          hasImage1: !!row["IMG 1"],
-          hasImage2: !!row["IMG 2"],
-          hasImage3: !!row["IMG 3"],
-          hasImage4: !!row["IMG 4"]
+          id: row['ID'],
+          date: row['Date'] || '',
+          commissioner: row['Commissioner'] || '',
+          modelName: row['Model Name'],
+          hasImage1: !!row['IMG 1'],
+          hasImage2: !!row['IMG 2'],
+          hasImage3: !!row['IMG 3'],
+          hasImage4: !!row['IMG 4'],
         });
       }
       return acc;
@@ -58,34 +59,57 @@ function formatDate(date?: string): string {
 }
 
 // Helper to build image paths for a commission
-function buildImagePaths(modelName: string, commissionId: string, hasImages: boolean[]): string[] {
+function buildImagePaths(
+  modelName: string,
+  commissionId: string,
+  hasImages: boolean[],
+): string[] {
   const modelDir = modelName.replace(/\s+/g, '');
   return hasImages
     .map((hasImg, idx) =>
-      hasImg ? `assets/images/commissions/${modelDir}/${commissionId}-${idx + 1}.webp` : null
+      hasImg
+        ? `assets/images/commissions/${modelDir}/${commissionId}-${idx + 1}.webp`
+        : null,
     )
     .filter(Boolean) as string[];
 }
 
 // Processes raw commission data into a record grouped by model name
-export function processCommissionData(rawData: RawCommissionData[]): Record<string, Commission[]> {
+export function processCommissionData(
+  rawData: RawCommissionData[],
+): Record<string, Commission[]> {
   const modelCommissions: Record<string, Commission[]> = {};
   if (!rawData || !Array.isArray(rawData)) return {};
 
   for (const rawCommission of rawData) {
     try {
-      const { id, date, commissioner, modelName, hasImage1, hasImage2, hasImage3, hasImage4 } = rawCommission;
+      const {
+        id,
+        date,
+        commissioner,
+        modelName,
+        hasImage1,
+        hasImage2,
+        hasImage3,
+        hasImage4,
+      } = rawCommission;
       // Only process if the modelName exists in textureModelMap
       if (!textureModelMap[modelName]) continue;
       const formattedDate = formatDate(date);
       const idParts = id.split('/');
-      const commissionId = idParts.length > 1 ? idParts[idParts.length - 1] : id;
-      const images = buildImagePaths(modelName, commissionId, [hasImage1, hasImage2, hasImage3, hasImage4]);
+      const commissionId =
+        idParts.length > 1 ? idParts[idParts.length - 1] : id;
+      const images = buildImagePaths(modelName, commissionId, [
+        hasImage1,
+        hasImage2,
+        hasImage3,
+        hasImage4,
+      ]);
       const commission: Commission = {
         id: commissionId,
         images,
         commissioner: commissioner || 'Unknown',
-        date: formattedDate
+        date: formattedDate,
       };
       if (!modelCommissions[modelName]) modelCommissions[modelName] = [];
       modelCommissions[modelName].push(commission);

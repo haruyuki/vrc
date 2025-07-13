@@ -17,7 +17,7 @@ const CarouselComponent: React.FC<ModelGallery> = ({ models, viewMode }) => {
         ...model,
         commissionCount: getCommissionsForModel(model.constName).length,
       })),
-    [models]
+    [models],
   );
 
   if (models.length === 0) {

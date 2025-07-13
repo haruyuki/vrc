@@ -11,7 +11,10 @@ interface ModelDetailViewProps {
   isVisible: boolean;
 }
 
-export const ModelDetailView: React.FC<ModelDetailViewProps> = ({ model, isVisible }) => {
+export const ModelDetailView: React.FC<ModelDetailViewProps> = ({
+  model,
+  isVisible,
+}) => {
   const { t } = useTranslation();
   const { isLoadingCommissions } = useCommissionLoading();
 
@@ -28,7 +31,9 @@ export const ModelDetailView: React.FC<ModelDetailViewProps> = ({ model, isVisib
         {/* Header */}
         <div className="flex items-start justify-between">
           <div>
-            <h2 className="text-3xl font-bold text-amber-900 dark:text-amber-100 mb-2">{model.modelName}</h2>
+            <h2 className="text-3xl font-bold text-amber-900 dark:text-amber-100 mb-2">
+              {model.modelName}
+            </h2>
           </div>
         </div>
 
@@ -54,13 +59,18 @@ export const ModelDetailView: React.FC<ModelDetailViewProps> = ({ model, isVisib
               {t('loading')}
             </div>
           ) : commissions.length > 0 ? (
-            <AnimatedContainer className="grid grid-cols-1 md:grid-cols-2 gap-4" staggerChildren={0.05}>
+            <AnimatedContainer
+              className="grid grid-cols-1 md:grid-cols-2 gap-4"
+              staggerChildren={0.05}
+            >
               {commissions.map((commission) => (
                 <CommissionCard commission={commission} key={commission.id} />
               ))}
             </AnimatedContainer>
           ) : (
-            <p className="text-amber-700 dark:text-amber-400">{t('no_commissions')}</p>
+            <p className="text-amber-700 dark:text-amber-400">
+              {t('no_commissions')}
+            </p>
           )}
         </div>
       </div>
