@@ -56,7 +56,7 @@ export const ModelGridItem: React.FC<ModelProps> = ({ model }) => {
                 style={{ backgroundColor: model.spineColor }}
               >
                 <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-bold text-white text-left text-shadow mb-0">
+                  <h3 className="text-lg font-bold text-white text-left text-shadow mb-0 truncate" style={{ maxWidth: '65%' }}>
                     {model.modelName}
                   </h3>
                   <a
