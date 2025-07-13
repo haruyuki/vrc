@@ -18,6 +18,7 @@ import { Alums } from "./models/Alums.ts";
 import { Espo } from "./models/Espo.ts";
 import { Foshunia } from "./models/Foshunia.ts";
 import { JinxedFox } from "./models/JinxedFox.ts";
+import {ChibiNovaPup} from "./models/ChibiNovaPup.ts";
 
 export interface Commission {
     id: string;
@@ -42,6 +43,7 @@ export const textureModels: TextureModel[] = [
     Alums,
     Asty,
     ChibiNovabeast,
+    ChibiNovaPup,
     Crook,
     Espo,
     Foshunia,
