@@ -1,10 +1,10 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import Papa from 'papaparse';
+import * as Papa from 'papaparse';
 
 const SPREADSHEET_ID = process.env.VITE_SPREADSHEET_ID;
 const SHEET_URL = `https://docs.google.com/spreadsheets/d/e/${SPREADSHEET_ID}/pub?output=csv`;
 
-export default async function handler(
+module.exports = async function handler(
   _req: VercelRequest,
   res: VercelResponse,
 ) {
