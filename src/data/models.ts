@@ -19,6 +19,7 @@ import { Espo } from "./models/Espo.ts";
 import { Foshunia } from "./models/Foshunia.ts";
 import { JinxedFox } from "./models/JinxedFox.ts";
 import {ChibiNovaPup} from "./models/ChibiNovaPup.ts";
+import {Flat2} from "./models/Flat2.ts";
 
 export interface Commission {
     id: string;
@@ -46,6 +47,7 @@ export const textureModels: TextureModel[] = [
     ChibiNovaPup,
     Crook,
     Espo,
+    Flat2,
     Foshunia,
     JinxedFox,
     Jiro,
