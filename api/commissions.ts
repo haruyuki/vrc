@@ -4,7 +4,7 @@ import * as Papa from 'papaparse';
 const SPREADSHEET_ID = process.env.VITE_SPREADSHEET_ID;
 const SHEET_URL = `https://docs.google.com/spreadsheets/d/e/${SPREADSHEET_ID}/pub?output=csv`;
 
-module.exports = async function handler(
+export default async function handler(
   _req: VercelRequest,
   res: VercelResponse,
 ) {
