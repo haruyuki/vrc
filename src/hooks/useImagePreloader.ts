@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 interface UseImagePreloaderOptions {
   priority?: boolean;
@@ -20,7 +20,7 @@ export function useImagePreloader(
   const [failedImages, setFailedImages] = useState<Set<string>>(new Set());
   const [isLoading, setIsLoading] = useState(false);
 
-  const preloadImage = (src: string): Promise<void> => {
+  const preloadImage = useCallback((src: string): Promise<void> => {
     return new Promise((resolve, reject) => {
       const img = new Image();
       img.onload = () => {
@@ -33,9 +33,9 @@ export function useImagePreloader(
       };
       img.src = src;
     });
-  };
+  }, []);
 
-  const preloadImages = async (imagesToLoad: string[]) => {
+  const preloadImages = useCallback(async (imagesToLoad: string[]) => {
     if (imagesToLoad.length === 0) return;
 
     setIsLoading(true);
@@ -53,13 +53,13 @@ export function useImagePreloader(
     }
 
     setIsLoading(false);
-  };
+  }, [priority, threshold, preloadImage]);
 
   useEffect(() => {
     if (images.length > 0) {
       preloadImages(images);
     }
-  }, [images.join(',')]); // Re-run when image array changes
+  }, [images, preloadImages]); // Re-run when image array changes
 
   return {
     loadedImages,
