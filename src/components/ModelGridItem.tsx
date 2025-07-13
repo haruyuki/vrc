@@ -7,20 +7,19 @@ import { MotionBookCard } from './animations/AnimationComponents';
 
 interface ModelProps {
   model: TextureModel;
-  constName: string;
 }
 
 const ExternalLinkIcon: React.FC = () => (
   <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 13v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2h6m5-3h3m0 0v3m0-3L10 14" /></svg>
 );
 
-export const ModelGridItem: React.FC<ModelProps> = ({ model, constName }) => {
+export const ModelGridItem: React.FC<ModelProps> = ({ model }) => {
   const { t } = useTranslation();
 
   return (
     <ModelModalWrapper
       model={model}
-      constName={constName}
+      constName={model.constName}
       renderContent={(_isOpen, handleClick, handleKeyDown) => (
         <MotionBookCard
           key="card"

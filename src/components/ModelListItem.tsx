@@ -8,16 +8,16 @@ import { MotionBookCard } from './animations/AnimationComponents';
 
 interface ModelListItemProps {
   model: TextureModel;
-  constName: string;
 }
 
-export const ModelListItem: React.FC<ModelListItemProps> = ({ model, constName }) => {
+export const ModelListItem: React.FC<ModelListItemProps> = ({ model }) => {
   const { t } = useTranslation();
-  const commissions = getCommissionsForModel(constName);
+  const commissions = getCommissionsForModel(model.constName);
 
   return (
     <ModelModalWrapper
       model={model}
+      constName={model.constName}
       renderContent={(_isOpen, handleItemClick, handleKeyDown) => (
         <MotionBookCard
           key="list-item"

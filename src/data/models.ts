@@ -29,6 +29,7 @@ export interface Commission {
 }
 
 export interface TextureModel {
+    constName: string;
     modelName: string;
     coverImage: string;
     spineColor: string;
@@ -37,53 +38,38 @@ export interface TextureModel {
     featured: boolean;
 }
 
-
-export const textureModels: TextureModel[] = [
-    Akami,
-    Alfie,
-    Alums,
-    Asty,
-    ChibiNovabeast,
-    ChibiNovaPup,
-    Crook,
-    Espo,
-    Flat2,
-    Foshunia,
-    JinxedFox,
-    Jiro,
-    Kankitsu,
-    Kokotora,
-    Lana,
-    Lars,
-    Nyaruku,
-    Regulus2,
-    Rigaro,
-    SharatNEW,
-    Wako,
-    ZiziV2
-];
-
-export const textureModelMap: Record<string, TextureModel> = {
-    Akami,
-    Alfie,
-    Alums,
-    Asty,
-    ChibiNovabeast,
-    ChibiNovaPup,
-    Crook,
-    Espo,
-    Flat2,
-    Foshunia,
-    JinxedFox,
-    Jiro,
-    Kankitsu,
-    Kokotora,
-    Lana,
-    Lars,
-    Nyaruku,
-    Regulus2,
-    Rigaro,
-    SharatNEW,
-    Wako,
-    ZiziV2
+// Build a map of all imported models
+const modelObjectMap = {
+  Akami,
+  Alfie,
+  Alums,
+  Asty,
+  ChibiNovabeast,
+  ChibiNovaPup,
+  Crook,
+  Espo,
+  Flat2,
+  Foshunia,
+  JinxedFox,
+  Jiro,
+  Kankitsu,
+  Kokotora,
+  Lana,
+  Lars,
+  Nyaruku,
+  Regulus2,
+  Rigaro,
+  SharatNEW,
+  Wako,
+  ZiziV2
 };
+
+// Generate textureModels and textureModelMap from the imported models
+export const textureModels: TextureModel[] = Object.entries(modelObjectMap).map(([constName, model]) => ({
+  ...model,
+  constName
+}));
+
+export const textureModelMap: Record<string, TextureModel> = Object.fromEntries(
+  textureModels.map(model => [model.constName, model])
+);

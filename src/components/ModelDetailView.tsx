@@ -9,10 +9,9 @@ import { Commission } from '../data/models';
 interface GalleryViewProps {
   model: TextureModel;
   isVisible: boolean;
-  constName: string;
 }
 
-export const ModelDetailView: React.FC<GalleryViewProps> = ({ model, isVisible, constName }) => {
+export const ModelDetailView: React.FC<GalleryViewProps> = ({ model, isVisible }) => {
   const { t } = useTranslation();
   const [commissions, setCommissions] = React.useState<Commission[]>([]);
   const [isLoading, setIsLoading] = React.useState(false);
@@ -22,7 +21,7 @@ export const ModelDetailView: React.FC<GalleryViewProps> = ({ model, isVisible, 
     let isMounted = true;
     if (isVisible && model) {
       setIsLoading(true);
-      Promise.resolve(getCommissionsForModel(constName)).then((data) => {
+      Promise.resolve(getCommissionsForModel(model.constName)).then((data) => {
         if (isMounted) {
           setCommissions(data);
           setIsLoading(false);
@@ -30,7 +29,7 @@ export const ModelDetailView: React.FC<GalleryViewProps> = ({ model, isVisible, 
       });
     }
     return () => { isMounted = false; };
-  }, [isVisible, model, constName]);
+  }, [isVisible, model]);
 
   if (!isVisible) return null;
 
