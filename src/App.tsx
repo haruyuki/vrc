@@ -43,7 +43,6 @@ export const App: React.FC = () => {
         setIsLoadingCommissions(true);
         setInitError(null);
         await initializeCommissions();
-        console.log('Commission data loaded successfully');
       } catch (error) {
         console.error('Error loading commission data:', error);
         setInitError(
