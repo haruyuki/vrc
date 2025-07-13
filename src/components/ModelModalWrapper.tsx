@@ -4,15 +4,14 @@ import { X } from 'lucide-react';
 import { TextureModel } from '../data/models';
 import { fullScreenVariants } from '../styles/animations';
 
-const GalleryView = lazy(() => import('./ModelDetailView.tsx').then(module => ({ default: module.ModelDetailView })));
+const ModelDetailView = lazy(() => import('./ModelDetailView.tsx').then(module => ({ default: module.ModelDetailView })));
 
 interface ModelBaseProps {
   model: TextureModel;
-  constName: string;
   renderContent: (isOpen: boolean, handleClick: () => void, handleKeyDown: (event: React.KeyboardEvent) => void) => ReactNode;
 }
 
-export const ModelModalWrapper: React.FC<ModelBaseProps> = ({ model, constName, renderContent }) => {
+export const ModelModalWrapper: React.FC<ModelBaseProps> = ({ model, renderContent }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleItemClick = useCallback(() => {
@@ -33,6 +32,23 @@ export const ModelModalWrapper: React.FC<ModelBaseProps> = ({ model, constName, 
       setIsOpen(false);
     }
   }, [isOpen]);
+
+  // SkeletonLoader for Suspense fallback
+  const SkeletonLoader: React.FC = () => (
+    <div className="flex flex-col h-full p-6 bg-white dark:bg-gray-900 animate-pulse">
+      <div className="h-8 w-1/3 bg-amber-200 dark:bg-gray-800 rounded mb-6" />
+      <div className="flex gap-2 mb-6">
+        {[1,2,3].map(i => (
+          <div key={i} className="h-6 w-20 bg-amber-100 dark:bg-gray-700 rounded-full" />
+        ))}
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 flex-1">
+        {[...Array(4)].map((_, i) => (
+          <div key={i} className="h-40 bg-amber-100 dark:bg-gray-800 rounded-lg" />
+        ))}
+      </div>
+    </div>
+  );
 
   return (
     <>
@@ -73,8 +89,8 @@ export const ModelModalWrapper: React.FC<ModelBaseProps> = ({ model, constName, 
               >
                 <X className="w-6 h-6 text-amber-900 dark:text-amber-100" />
               </button>
-              <Suspense fallback={<div className="flex items-center justify-center h-full">Loading...</div>}>
-                <GalleryView model={model} isVisible={isOpen} constName={constName} />
+              <Suspense fallback={<SkeletonLoader />}>
+                <ModelDetailView model={model} isVisible={isOpen} />
               </Suspense>
             </motion.div>
           </motion.div>

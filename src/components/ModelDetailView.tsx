@@ -7,12 +7,12 @@ import { AnimatedContainer } from './animations/AnimationComponents';
 import { Commission } from '../data/models';
 import { useCommissionLoading } from '../context/CommissionLoadingContext';
 
-interface GalleryViewProps {
+interface ModelDetailViewProps {
   model: TextureModel;
   isVisible: boolean;
 }
 
-export const ModelDetailView: React.FC<GalleryViewProps> = ({ model, isVisible }) => {
+export const ModelDetailView: React.FC<ModelDetailViewProps> = ({ model, isVisible }) => {
   const { t } = useTranslation();
   const [commissions, setCommissions] = React.useState<Commission[]>([]);
   const { isLoadingCommissions } = useCommissionLoading();
