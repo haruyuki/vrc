@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, useCallback } from 'react';
 import { Carousel } from './components/ModelGallery.tsx';
 import { SearchBar } from './components/SearchBar';
 import { FilterTags } from './components/FilterTags';
@@ -40,20 +40,22 @@ export const App: React.FC = () => {
         console.log('Commission data loaded successfully');
       } catch (error) {
         console.error('Error loading commission data:', error);
+        // TODO: Add user-facing error notification
       } finally {
         setIsLoadingCommissions(false);
       }
     };
 
-    loadCommissionData().catch(() => {});
+    loadCommissionData();
   }, [setIsLoadingCommissions]);
 
   useEffect(() => {
+    const htmlElement = document.documentElement;
     if (isDarkMode) {
-      document.documentElement.classList.add('dark');
+      htmlElement.classList.add('dark');
       localStorage.setItem('theme', 'dark');
     } else {
-      document.documentElement.classList.remove('dark');
+      htmlElement.classList.remove('dark');
       localStorage.setItem('theme', 'light');
     }
   }, [isDarkMode]);
@@ -88,16 +90,19 @@ export const App: React.FC = () => {
     });
   }, [searchTerm, selectedTags]);
 
-  const handleTagToggle = (tag: string) => {
+  const handleTagToggle = useCallback((tag: string) => {
     setSelectedTags([tag]);
-  };
+  }, []);
 
   // Language toggle handler
-  const toggleLanguage = () => {
-    i18n.changeLanguage(i18n.language === 'en' ? 'zh' : 'en').catch(() => {});
-  };
+  const toggleLanguage = useCallback(() => {
+    const newLang = i18n.language === 'en' ? 'zh' : 'en';
+    i18n.changeLanguage(newLang).catch(console.error);
+  }, [i18n]);
 
-  const handleDarkModeToggle = () => setIsDarkMode((prev) => !prev);
+  const handleDarkModeToggle = useCallback(() => {
+    setIsDarkMode((prev) => !prev);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-800">
