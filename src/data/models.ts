@@ -62,3 +62,28 @@ export const textureModels: TextureModel[] = [
     Wako,
     ZiziV2
 ];
+
+export const textureModelMap: Record<string, TextureModel> = {
+    Akami,
+    Alfie,
+    Alums,
+    Asty,
+    ChibiNovabeast,
+    ChibiNovaPup,
+    Crook,
+    Espo,
+    Flat2,
+    Foshunia,
+    JinxedFox,
+    Jiro,
+    Kankitsu,
+    Kokotora,
+    Lana,
+    Lars,
+    Nyaruku,
+    Regulus2,
+    Rigaro,
+    SharatNEW,
+    Wako,
+    ZiziV2
+};

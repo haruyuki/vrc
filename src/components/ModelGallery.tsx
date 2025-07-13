@@ -1,12 +1,17 @@
 import React, { memo } from 'react';
 import { ModelGridItem } from './ModelGridItem.tsx';
 import { ModelListItem } from './ModelListItem.tsx';
-import { TextureModel } from '../data/models';
+import { TextureModel, textureModelMap } from '../data/models';
 import { MotionContainer, MotionCard } from './animations/AnimationComponents';
 
 interface ModelGallery {
   models: TextureModel[];
   viewMode: 'grid' | 'list';
+}
+
+// Helper to get const name from model object
+function getConstName(model: TextureModel): string | undefined {
+  return Object.entries(textureModelMap).find(([, value]) => value === model)?.[0];
 }
 
 const CarouselComponent: React.FC<ModelGallery> = ({ models, viewMode }) => {
@@ -22,19 +27,25 @@ const CarouselComponent: React.FC<ModelGallery> = ({ models, viewMode }) => {
 
   return viewMode === 'grid' ? (
     <MotionContainer className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-      {models.map((model) => (
-        <MotionCard key={model.modelName} className="flex justify-center">
-          <ModelGridItem model={model} />
-        </MotionCard>
-      ))}
+      {models.map((model) => {
+        const constName = getConstName(model);
+        return (
+          <MotionCard key={constName} className="flex justify-center">
+            <ModelGridItem model={model} constName={constName} />
+          </MotionCard>
+        );
+      })}
     </MotionContainer>
   ) : (
     <MotionContainer className="flex flex-col gap-3">
-      {models.map((model) => (
-        <MotionCard key={model.modelName} className="w-full">
-          <ModelListItem model={model} />
-        </MotionCard>
-      ))}
+      {models.map((model) => {
+        const constName = getConstName(model);
+        return (
+          <MotionCard key={constName} className="w-full">
+            <ModelListItem model={model} constName={constName} />
+          </MotionCard>
+        );
+      })}
     </MotionContainer>
   );
 };

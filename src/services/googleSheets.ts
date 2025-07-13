@@ -1,4 +1,5 @@
 import { Commission } from '../data/models';
+import { textureModelMap } from '../data/models';
 import Papa from 'papaparse';
 
 const SPREADSHEET_ID = import.meta.env.VITE_SPREADSHEET_ID;
@@ -86,6 +87,8 @@ export function processCommissionData(rawData: RawCommissionData[]): Record<stri
   for (const rawCommission of rawData) {
     try {
       const { id, date, commissioner, modelName, hasImage1, hasImage2, hasImage3, hasImage4 } = rawCommission;
+      // Only process if the modelName exists in textureModelMap
+      if (!textureModelMap[modelName]) continue;
       const formattedDate = formatDate(date);
       const idParts = id.split('/');
       const commissionId = idParts.length > 1 ? idParts[idParts.length - 1] : id;
@@ -125,5 +128,7 @@ export async function initializeCommissions() {
 
 // Retrieves all commissions for a given model
 export function getCommissionsForModel(modelName: string): Commission[] {
+  // Only return commissions if the modelName exists in textureModelMap
+  if (!textureModelMap[modelName]) return [];
   return commissionsByModel[modelName] || [];
 }

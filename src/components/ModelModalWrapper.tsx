@@ -8,10 +8,11 @@ const GalleryView = lazy(() => import('./ModelDetailView.tsx').then(module => ({
 
 interface ModelBaseProps {
   model: TextureModel;
+  constName: string;
   renderContent: (isOpen: boolean, handleClick: () => void, handleKeyDown: (event: React.KeyboardEvent) => void) => ReactNode;
 }
 
-export const ModelModalWrapper: React.FC<ModelBaseProps> = ({ model, renderContent }) => {
+export const ModelModalWrapper: React.FC<ModelBaseProps> = ({ model, constName, renderContent }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleItemClick = useCallback(() => {
@@ -73,7 +74,7 @@ export const ModelModalWrapper: React.FC<ModelBaseProps> = ({ model, renderConte
                 <X className="w-6 h-6 text-amber-900 dark:text-amber-100" />
               </button>
               <Suspense fallback={<div className="flex items-center justify-center h-full">Loading...</div>}>
-                <GalleryView model={model} isVisible={isOpen} />
+                <GalleryView model={model} isVisible={isOpen} constName={constName} />
               </Suspense>
             </motion.div>
           </motion.div>
