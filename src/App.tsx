@@ -13,6 +13,7 @@ import { LayoutGrid, List } from 'lucide-react';
 import { useViewMode } from './hooks/useViewMode';
 import { FadeIn, ScaleOnHover } from './components/animations/AnimationComponents';
 import { initializeCommissions } from './services/commissionData.ts';
+import { useCommissionLoading } from './context/CommissionLoadingContext';
 
 export const App: React.FC = () => {
   const { i18n, t } = useTranslation();
@@ -28,7 +29,7 @@ export const App: React.FC = () => {
     }
     return true;
   });
-  const [, setIsLoadingCommissions] = useState(true);
+  const { setIsLoadingCommissions } = useCommissionLoading();
 
   // Fetch commission data from Google Sheets when the app loads
   useEffect(() => {
@@ -45,7 +46,7 @@ export const App: React.FC = () => {
     };
 
     loadCommissionData().catch(() => {});
-  }, []);
+  }, [setIsLoadingCommissions]);
 
   useEffect(() => {
     if (isDarkMode) {
@@ -101,7 +102,7 @@ export const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-800">
       {/* Background Texture */}
-      <div 
+      <div
         className="fixed inset-0 opacity-5 pointer-events-none dark:opacity-10"
         style={{
           backgroundImage: isDarkMode ? darkBackground : lightBackground,

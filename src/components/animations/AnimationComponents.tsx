@@ -145,7 +145,7 @@ export const MotionCard: React.FC<React.PropsWithChildren<{ className?: string }
   </motion.div>
 );
 
-// AnimatedBookCard for ModelGridItem/ModelListItem with bookVariants
+// AnimatedBookCard for ModelGridCard/ModelListItem with bookVariants
 export const MotionBookCard: React.FC<React.PropsWithChildren<{
   className?: string;
   layoutId?: string;

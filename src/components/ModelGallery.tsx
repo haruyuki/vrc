@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { ModelGridItem } from './ModelGridItem.tsx';
+import { ModelGridCard } from './ModelGridCard.tsx';
 import { ModelListItem } from './ModelListItem.tsx';
 import { TextureModel } from '../data/models';
 import { MotionContainer, MotionCard } from './animations/AnimationComponents';
@@ -24,7 +24,7 @@ const CarouselComponent: React.FC<ModelGallery> = ({ models, viewMode }) => {
     <MotionContainer className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
       {models.map((model) => (
         <MotionCard key={model.constName} className="flex justify-center">
-          <ModelGridItem model={model} />
+          <ModelGridCard model={model} />
         </MotionCard>
       ))}
     </MotionContainer>

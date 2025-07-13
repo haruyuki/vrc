@@ -5,6 +5,7 @@ import { CommissionCard } from './CommissionCard';
 import { useTranslation } from '../hooks/useTranslation';
 import { AnimatedContainer } from './animations/AnimationComponents';
 import { Commission } from '../data/models';
+import { useCommissionLoading } from '../context/CommissionLoadingContext';
 
 interface GalleryViewProps {
   model: TextureModel;
@@ -14,22 +15,32 @@ interface GalleryViewProps {
 export const ModelDetailView: React.FC<GalleryViewProps> = ({ model, isVisible }) => {
   const { t } = useTranslation();
   const [commissions, setCommissions] = React.useState<Commission[]>([]);
-  const [isLoading, setIsLoading] = React.useState(false);
+  const { isLoadingCommissions } = useCommissionLoading();
 
-  // Fetch commissions for this specific model
+  // Track local loading state for commissions fetch
+  const [isFetchingCommissions, setIsFetchingCommissions] = React.useState(false);
+
+  // Fetch commissions for this specific model, but only after global commissions are loaded
   React.useEffect(() => {
     let isMounted = true;
-    if (isVisible && model) {
-      setIsLoading(true);
+    if (isVisible && model && !isLoadingCommissions) {
+      setIsFetchingCommissions(true);
       Promise.resolve(getCommissionsForModel(model.constName)).then((data) => {
         if (isMounted) {
           setCommissions(data);
-          setIsLoading(false);
+          setIsFetchingCommissions(false);
         }
       });
     }
+    if (!isVisible) {
+      setCommissions([]);
+      setIsFetchingCommissions(false);
+    }
     return () => { isMounted = false; };
-  }, [isVisible, model]);
+  }, [isVisible, model, isLoadingCommissions]);
+
+  // isLoading is true if either global or local commissions are loading
+  const loading = isLoadingCommissions || isFetchingCommissions;
 
   if (!isVisible) return null;
 
@@ -60,7 +71,7 @@ export const ModelDetailView: React.FC<GalleryViewProps> = ({ model, isVisible }
           <h3 className="text-lg font-semibold text-amber-900 dark:text-amber-100 mb-4">
             {t('gallery_title')} ({commissions.length})
           </h3>
-          {isLoading ? (
+          {loading ? (
             <div className="flex items-center justify-center py-12 text-amber-700 dark:text-amber-400">
               {t('loading')}
             </div>
