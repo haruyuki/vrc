@@ -3,7 +3,7 @@ import { Star, ExternalLink } from 'lucide-react';
 import { TextureModel } from '../data/models';
 import { useTranslation } from '../hooks/useTranslation';
 import { ModelModalWrapper } from './ModelModalWrapper.tsx';
-import { getCommissionsForModel } from '../services/googleSheets';
+import { getCommissionsForModel } from '../services/commissionData.ts';
 import { MotionBookCard } from './animations/AnimationComponents';
 
 interface ModelListItemProps {

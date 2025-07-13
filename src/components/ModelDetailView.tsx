@@ -1,6 +1,6 @@
 import React from 'react';
 import { TextureModel } from '../data/models';
-import { getCommissionsForModel } from '../services/googleSheets';
+import { getCommissionsForModel } from '../services/commissionData.ts';
 import { CommissionCard } from './CommissionCard';
 import { useTranslation } from '../hooks/useTranslation';
 import { AnimatedContainer } from './animations/AnimationComponents';

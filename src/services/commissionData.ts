@@ -1,9 +1,5 @@
 import { Commission } from '../data/models';
 import { textureModelMap } from '../data/models';
-import Papa from 'papaparse';
-
-const SPREADSHEET_ID = import.meta.env.VITE_SPREADSHEET_ID;
-const SHEET_URL = `https://docs.google.com/spreadsheets/d/e/${SPREADSHEET_ID}/pub?output=csv`;
 
 interface RawCommissionData {
   id: string;
@@ -16,30 +12,22 @@ interface RawCommissionData {
   hasImage4: boolean;
 }
 
-// Fetches commission data from the Google Sheet and parses it into RawCommissionData[]
+// Fetches commission data from the serverless API and parses it into RawCommissionData[]
 export async function fetchCommissionData(): Promise<RawCommissionData[]> {
   try {
-    const response = await fetch(SHEET_URL, {
+    const response = await fetch('/api/commissions', {
       cache: 'no-store',
-      headers: { 'Accept': 'text/csv' }
+      headers: { 'Accept': 'application/json' }
     });
     if (!response.ok) {
-      console.error(`Failed to fetch spreadsheet data: ${response.status} ${response.statusText}`);
+      console.error(`Failed to fetch commission data: ${response.status} ${response.statusText}`);
       return [];
     }
-    const csvText = await response.text();
-    if (!csvText || csvText.trim().length === 0) return [];
+    const data = await response.json();
+    if (!data || !Array.isArray(data) || data.length === 0) return [];
 
-    // Parse CSV using PapaParse
-    const parsed = Papa.parse<Record<string, never>>(csvText, {
-      header: true,
-      skipEmptyLines: true,
-      dynamicTyping: true,
-    });
-    if (!parsed.data || !Array.isArray(parsed.data) || parsed.data.length === 0) return [];
-
-    // Convert parsed rows to RawCommissionData objects
-    return parsed.data.reduce<RawCommissionData[]>((acc, row) => {
+    // Convert API rows to RawCommissionData objects
+    return data.reduce<RawCommissionData[]>((acc, row) => {
       if (row["ID"] && row["Model Name"]) {
         acc.push({
           id: row["ID"],
@@ -54,9 +42,9 @@ export async function fetchCommissionData(): Promise<RawCommissionData[]> {
       }
       return acc;
     }, []);
-  } catch (error) {
-    console.error('Error fetching commission data:', error);
-    throw error;
+  } catch (err) {
+    console.error('Error fetching commission data:', err);
+    return [];
   }
 }
 

@@ -12,7 +12,7 @@ import { darkBackground, lightBackground } from './styles/backgrounds';
 import { LayoutGrid, List } from 'lucide-react';
 import { useViewMode } from './hooks/useViewMode';
 import { FadeIn, ScaleOnHover } from './components/animations/AnimationComponents';
-import { initializeCommissions } from './services/googleSheets';
+import { initializeCommissions } from './services/commissionData.ts';
 
 export const App: React.FC = () => {
   const { i18n, t } = useTranslation();
