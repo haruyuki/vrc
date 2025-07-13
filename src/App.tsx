@@ -7,6 +7,7 @@ import { useTranslation } from './hooks/useTranslation';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { CommissionInfo } from './components/CommissionInfo';
+import { ErrorBoundary } from './components/ErrorBoundary';
 import { Analytics } from "@vercel/analytics/react";
 import { darkBackground, lightBackground } from './styles/backgrounds';
 import { LayoutGrid, List } from 'lucide-react';
@@ -30,17 +31,19 @@ export const App: React.FC = () => {
     return true;
   });
   const { setIsLoadingCommissions } = useCommissionLoading();
+  const [initError, setInitError] = useState<string | null>(null);
 
   // Fetch commission data from Google Sheets when the app loads
   useEffect(() => {
     const loadCommissionData = async () => {
       try {
         setIsLoadingCommissions(true);
+        setInitError(null);
         await initializeCommissions();
         console.log('Commission data loaded successfully');
       } catch (error) {
         console.error('Error loading commission data:', error);
-        // TODO: Add user-facing error notification
+        setInitError('Failed to load commission data. Some features may be limited.');
       } finally {
         setIsLoadingCommissions(false);
       }
@@ -105,69 +108,84 @@ export const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-800">
-      {/* Background Texture */}
-      <div
-        className="fixed inset-0 opacity-5 pointer-events-none dark:opacity-10"
-        style={{
-          backgroundImage: isDarkMode ? darkBackground : lightBackground,
-        }}
-      />
-      <div className="relative z-10">
-        {/* Header */}
-        <Header onToggleLanguage={toggleLanguage} currentLanguage={i18n.language} onToggleDarkMode={handleDarkModeToggle} isDarkMode={isDarkMode} />
+    <ErrorBoundary>
+      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-800">
+        {/* Background Texture */}
+        <div
+          className="fixed inset-0 opacity-5 pointer-events-none dark:opacity-10"
+          style={{
+            backgroundImage: isDarkMode ? darkBackground : lightBackground,
+          }}
+        />
+        <div className="relative z-10">
+          {/* Error notification */}
+          {initError && (
+            <div className="bg-yellow-100 dark:bg-yellow-900/30 border-l-4 border-yellow-500 p-4 mb-4">
+              <div className="flex">
+                <div className="ml-3">
+                  <p className="text-sm text-yellow-700 dark:text-yellow-200">
+                    {initError}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
 
-        {/* Main Content */}
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          {/* Commission Info Section */}
-          <CommissionInfo />
+          {/* Header */}
+          <Header onToggleLanguage={toggleLanguage} currentLanguage={i18n.language} onToggleDarkMode={handleDarkModeToggle} isDarkMode={isDarkMode} />
 
-          {/* Search and Filters */}
-          <FadeIn delay={0.4}>
-            <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} />
-            <FilterTags
-              selectedTags={selectedTags}
-              onTagToggle={handleTagToggle}
-              viewToggleButton={
-                <ScaleOnHover>
-                  <button
-                    onClick={toggleViewMode}
-                    className="p-2 rounded-md focus:outline-none focus:ring-0 active:outline-none outline-none"
-                    aria-label={`Switch to ${viewMode === 'grid' ? 'list' : 'grid'} view`}
-                    style={{ WebkitTapHighlightColor: 'transparent' }}
-                  >
-                    {viewMode === 'grid' ? (
-                      <List className="h-5 w-5 text-amber-700 dark:text-amber-400" />
-                    ) : (
-                      <LayoutGrid className="h-5 w-5 text-amber-700 dark:text-amber-400" />
-                    )}
-                  </button>
-                </ScaleOnHover>
-              }
-            />
-          </FadeIn>
+          {/* Main Content */}
+          <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            {/* Commission Info Section */}
+            <CommissionInfo />
 
-          {/* Results Counter */}
-          <FadeIn delay={0.6} className="text-center mb-8">
-            <p className="text-amber-700 dark:text-amber-400">
-              {t('results.showing')} <span className="font-semibold">{filteredModels.length}</span>
-              {' '}
-              {filteredModels.length === 1
-                ? t('results.model')
-                : t('results.models')}
-            </p>
-          </FadeIn>
+            {/* Search and Filters */}
+            <FadeIn delay={0.4}>
+              <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} />
+              <FilterTags
+                selectedTags={selectedTags}
+                onTagToggle={handleTagToggle}
+                viewToggleButton={
+                  <ScaleOnHover>
+                    <button
+                      onClick={toggleViewMode}
+                      className="p-2 rounded-md focus:outline-none focus:ring-0 active:outline-none outline-none"
+                      aria-label={`Switch to ${viewMode === 'grid' ? 'list' : 'grid'} view`}
+                      style={{ WebkitTapHighlightColor: 'transparent' }}
+                    >
+                      {viewMode === 'grid' ? (
+                        <List className="h-5 w-5 text-amber-700 dark:text-amber-400" />
+                      ) : (
+                        <LayoutGrid className="h-5 w-5 text-amber-700 dark:text-amber-400" />
+                      )}
+                    </button>
+                  </ScaleOnHover>
+                }
+              />
+            </FadeIn>
 
-          {/* Carousel */}
-          <FadeIn delay={0.8} y={20}>
-            <Carousel models={filteredModels} viewMode={viewMode} />
-          </FadeIn>
-        </main>
+            {/* Results Counter */}
+            <FadeIn delay={0.6} className="text-center mb-8">
+              <p className="text-amber-700 dark:text-amber-400">
+                {t('results.showing')} <span className="font-semibold">{filteredModels.length}</span>
+                {' '}
+                {filteredModels.length === 1
+                  ? t('results.model')
+                  : t('results.models')}
+              </p>
+            </FadeIn>
 
-        {/* Footer */}
-        <Footer />
+            {/* Carousel */}
+            <FadeIn delay={0.8} y={20}>
+              <Carousel models={filteredModels} viewMode={viewMode} />
+            </FadeIn>
+          </main>
+
+          {/* Footer */}
+          <Footer />
+        </div>
+        <Analytics />
       </div>
-      <Analytics />
-    </div>
+    </ErrorBoundary>
   );
 }
