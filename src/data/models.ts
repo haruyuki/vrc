@@ -15,6 +15,7 @@ import { Kokotora } from './models/Kokotora.ts';
 import { Lana } from './models/Lana.ts';
 import { Lars } from './models/Lars.ts';
 import { Nyaruku } from './models/Nyaruku.ts';
+import { PolyPutty } from "./models/PolyPutty.ts";
 import { Regulus2 } from './models/Regulus2.ts';
 import { Rigaro } from './models/Rigaro.ts';
 import { SharatNEW } from './models/SharatNEW.ts';
@@ -57,6 +58,7 @@ const modelObjectMap = {
   Lana,
   Lars,
   Nyaruku,
+  PolyPutty,
   Regulus2,
   Rigaro,
   SharatNEW,
