@@ -4,6 +4,7 @@ import { ModelListItem } from './ModelListItem.tsx';
 import { TextureModel } from '../data/models';
 import { MotionContainer, MotionCard } from './animations/AnimationComponents';
 import { getCommissionsForModel } from '../services/commissionData.ts';
+import { useCommissionLoading } from '../context/CommissionLoadingContext';
 
 interface ModelGallery {
   models: TextureModel[];
@@ -11,13 +12,15 @@ interface ModelGallery {
 }
 
 const CarouselComponent: React.FC<ModelGallery> = ({ models, viewMode }) => {
+  const { isLoadingCommissions } = useCommissionLoading();
+
   const modelsWithCommissionCounts = useMemo(
     () =>
       models.map((model) => ({
         ...model,
         commissionCount: getCommissionsForModel(model.constName).length,
       })),
-    [models],
+    [models, isLoadingCommissions],
   );
 
   if (models.length === 0) {

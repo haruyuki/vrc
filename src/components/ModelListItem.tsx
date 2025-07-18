@@ -62,12 +62,14 @@ export const ModelListItem: React.FC<ModelListItemProps> = ({
                   )}
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-xs text-amber-600 dark:text-amber-400">
-                    {commissionCount}{' '}
-                    {commissionCount === 1
-                      ? t('book.commission')
-                      : t('book.commissions')}
-                  </span>
+                  {commissionCount > 0 && (
+                    <span className="text-xs text-amber-600 dark:text-amber-400">
+                      {commissionCount}{' '}
+                      {commissionCount === 1
+                        ? t('book.commission')
+                        : t('book.commissions')}
+                    </span>
+                  )}
                   <a
                     href={model.officialLink}
                     target="_blank"
