@@ -14,6 +14,7 @@ import { Kankitsu } from './models/Kankitsu.ts';
 import { Kokotora } from './models/Kokotora.ts';
 import { Lana } from './models/Lana.ts';
 import { Lars } from './models/Lars.ts';
+import { Lupi } from './models/Lupi.ts';
 import { Nyaruku } from './models/Nyaruku.ts';
 import { PolyPutty } from "./models/PolyPutty.ts";
 import { Regulus2 } from './models/Regulus2.ts';
@@ -57,6 +58,7 @@ const modelObjectMap = {
   Kokotora,
   Lana,
   Lars,
+  Lupi,
   Nyaruku,
   PolyPutty,
   Regulus2,
