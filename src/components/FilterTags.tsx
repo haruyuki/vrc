@@ -6,13 +6,11 @@ import { availableTags, tagColors } from '../data/tags';
 interface FilterTagsProps {
   selectedTags: string[];
   onTagToggle: (tag: string) => void;
-  viewToggleButton?: React.ReactNode;
 }
 
 export const FilterTags: React.FC<FilterTagsProps> = ({
   selectedTags,
   onTagToggle,
-  viewToggleButton,
 }) => {
   const { t } = useTranslation();
   const selectedTag = selectedTags[0] || 'All';
@@ -49,18 +47,10 @@ export const FilterTags: React.FC<FilterTagsProps> = ({
   );
 
   return (
-    <div className="relative flex flex-wrap mb-8">
-      {/* Left side placeholder for balance */}
-      <div className="w-10 flex-none" />
-
+    <div className={`flex flex-wrap mb-8 justify-center`}>
       {/* Centered tags */}
-      <div className="flex-1 flex flex-wrap justify-center gap-2">
+      <div className="flex flex-wrap justify-center gap-2">
         {tagButtons}
-      </div>
-
-      {/* Right side toggle button */}
-      <div className="w-10 flex-none flex justify-end items-center">
-        {viewToggleButton}
       </div>
     </div>
   );

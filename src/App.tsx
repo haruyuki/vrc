@@ -10,11 +10,9 @@ import { CommissionInfo } from './components/CommissionInfo';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { Analytics } from '@vercel/analytics/react';
 import { darkBackground, lightBackground } from './styles/backgrounds';
-import { LayoutGrid, List } from 'lucide-react';
 import { useViewMode } from './hooks/useViewMode';
 import {
   FadeIn,
-  ScaleOnHover,
 } from './components/animations/AnimationComponents';
 import { initializeCommissions } from './services/commissionData.ts';
 import { useCommissionLoading } from './context/CommissionLoadingContext';
@@ -23,7 +21,7 @@ export const App: React.FC = () => {
   const { i18n, t } = useTranslation();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTags, setSelectedTags] = useState<string[]>(['All']);
-  const { viewMode, toggleViewMode } = useViewMode('grid');
+  const { viewMode } = useViewMode();
   const [isDarkMode, setIsDarkMode] = useState(() => {
     if (typeof window !== 'undefined') {
       const stored = localStorage.getItem('theme');
@@ -159,22 +157,7 @@ export const App: React.FC = () => {
               <FilterTags
                 selectedTags={selectedTags}
                 onTagToggle={handleTagToggle}
-                viewToggleButton={
-                  <ScaleOnHover>
-                    <button
-                      onClick={toggleViewMode}
-                      className="p-2 rounded-md focus:outline-none focus:ring-0 active:outline-none outline-none"
-                      aria-label={`Switch to ${viewMode === 'grid' ? 'list' : 'grid'} view`}
-                      style={{ WebkitTapHighlightColor: 'transparent' }}
-                    >
-                      {viewMode === 'grid' ? (
-                        <List className="h-5 w-5 text-amber-700 dark:text-amber-400" />
-                      ) : (
-                        <LayoutGrid className="h-5 w-5 text-amber-700 dark:text-amber-400" />
-                      )}
-                    </button>
-                  </ScaleOnHover>
-                }
+                viewToggleButton={null}
               />
             </FadeIn>
 
