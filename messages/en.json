@@ -1,0 +1,35 @@
+{
+  "Header": {
+    "title": "Haru VRC Model Texture Commissions"
+  },
+  "Home": {
+    "title": "Completed Works",
+    "description": "This site showcases my completed VRC commission works of various models. You can click into each model to view the commissioned retexture work that was done. If you are interested in commissioning, please fill out the form on the bottom of the page.",
+    "errorTitle": "Error Loading Data",
+    "retry": "Retry",
+    "loading": "Loading commission data...",
+    "latestCommission": "Latest commission: {date}",
+    "noCommissionData": "No commission data available",
+    "buttonTitle": "Ready to Commission?",
+    "buttonDescription": "If you are interested in commissioning a custom texture for your VRChat avatar, please fill out the form below. I will review your request and get back to you as soon as possible.",
+    "buttonButton": "Commission Form"
+  },
+  "RecentUpdates": {
+    "title": "Recent Updates",
+    "addedCommission": "Added new {modelName} commission"
+  },
+  "Footer": {
+    "copyright": "© 2025 HaruStar. All rights reserved.",
+    "modelDisclaimer": "Model images used are owned by their respective owners."
+  },
+  "ModelModal": {
+    "noCommissions": "No commissions found for this model yet.",
+    "officialLink": "View Official Model Page"
+  },
+  "ModelCard": {
+    "viewOfficialPage": "Official"
+  },
+  "Pagination": {
+    "showingModels": "Showing {start}-{end} of {total} models"
+  }
+}

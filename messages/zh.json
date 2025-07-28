@@ -1,0 +1,35 @@
+{
+  "Header": {
+    "title": "哈魯VRC模型上色委託單"
+  },
+  "Home": {
+    "title": "已完成作品",
+    "description": "這個網站展示了我完成的各種 VRC 模型塗裝委託作品。你可以點擊每個模型，查看對應的塗裝成果。如果你有興趣委託，請填寫頁面底部的表單。",
+    "errorTitle": "載入資料時發生錯誤",
+    "retry": "重試",
+    "loading": "正在載入委託資料...",
+    "latestCommission": "最新委託：{date}",
+    "noCommissionData": "沒有委託資料",
+    "buttonTitle": "準備委託了嗎？",
+    "buttonDescription": "如果您有興趣委託VRChat虛擬角色的自訂材質，請填寫下方表單。我會審核您的需求並盡快回覆。",
+    "buttonButton": "填寫表單"
+  },
+  "RecentUpdates": {
+    "title": "近期更新",
+    "addedCommission": "新增{modelName}委託"
+  },
+  "Footer": {
+    "copyright": "© 2025 HaruStar. 版權所有。",
+    "modelDisclaimer": "使用的模型圖片歸各自所有者所有。"
+  },
+  "ModelModal": {
+    "noCommissions": "此模型尚未有委託紀錄。",
+    "officialLink": "官方連結"
+  },
+  "ModelCard": {
+    "viewOfficialPage": "官方連結"
+  },
+  "Pagination": {
+    "showingModels": "顯示第 {start}-{end} 項，共 {total} 個模型"
+  }
+}
