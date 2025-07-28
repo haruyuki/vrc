@@ -9,6 +9,7 @@ import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 import { getUserLocaleFromCookie } from '@/utils/getUserLocaleFromCookie';
+import Image from 'next/image';
 
 function useLoadingAnimation(loading: boolean) {
   const [animationState, setAnimationState] = useState<'loading' | 'completed'>('loading');
@@ -126,12 +127,12 @@ export default function Home() {
             transition={{ delay: 0.2 }}
           >
             <div className="relative overflow-hidden">
-              <img
-                src="/assets/images/showcase.webp"
-                alt="Showcase of VRChat model textures created by Haru"
-                className="mx-auto h-auto max-h-96 w-full object-contain"
-                loading="lazy"
-              />
+                <Image
+                    src="/assets/images/showcase.webp"
+                    alt="Showcase of VRChat model textures created by Haru"
+                    className="mx-auto h-auto max-h-96 w-full object-contain"
+                    loading="lazy"
+                />
             </div>
           </motion.div>
 

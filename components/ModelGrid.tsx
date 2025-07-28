@@ -77,7 +77,7 @@ export default function ModelGrid({ models, showCommissionerCounts = true }: Mod
     const maxVisibleButtons = 5;
 
     let startPage = Math.max(1, currentPage - Math.floor(maxVisibleButtons / 2));
-    let endPage = Math.min(totalPages, startPage + maxVisibleButtons - 1);
+    const endPage = Math.min(totalPages, startPage + maxVisibleButtons - 1);
 
     // Adjust startPage if we're near the end
     if (endPage - startPage + 1 < maxVisibleButtons) {

@@ -19,7 +19,7 @@ function generateTextureImages(
   const baseUrl = `/assets/images/commissions/${modelName}`;
 
   return Object.entries(imageFlags).reduce<Commissioner['textureImages']>(
-    (images, [key, hasImage], index) => {
+    (images, [, hasImage], index) => {
       if (hasImage) {
         const imageNumber = index + 1;
         images.push({
