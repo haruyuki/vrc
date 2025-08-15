@@ -132,6 +132,8 @@ export default function Home() {
                     alt="Showcase of VRChat model textures created by Haru"
                     className="mx-auto h-auto max-h-96 w-full object-contain"
                     loading="lazy"
+                    width={2425}
+                    height={1068}
                 />
             </div>
           </motion.div>
