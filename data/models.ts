@@ -2,6 +2,7 @@ import { Akami } from './models/Akami';
 import { Alfie } from './models/Alfie';
 import { Alums } from './models/Alums';
 import { Asty } from './models/Asty';
+import { Chibigen } from '@/data/models/Chibigen';
 import { ChibiNovabeast } from './models/ChibiNovabeast';
 import { ChibiNovaPup } from './models/ChibiNovaPup';
 import { Crook } from './models/Crook';
@@ -21,7 +22,7 @@ import { Regulus2 } from './models/Regulus2';
 import { Rigaro } from './models/Rigaro';
 import { SharatNEW } from './models/SharatNEW';
 import { Wako } from './models/Wako';
-import {Yue} from "@/data/models/Yue";
+import { Yue } from '@/data/models/Yue';
 import { ZiziV2 } from './models/ZiziV2';
 import { ModelMetadata } from '@/types';
 
@@ -31,6 +32,7 @@ export const modelRegistry: Record<string, ModelMetadata> = {
   [Alfie.dbName]: Alfie,
   [Alums.dbName]: Alums,
   [Asty.dbName]: Asty,
+  [Chibigen.dbName]: Chibigen,
   [ChibiNovabeast.dbName]: ChibiNovabeast,
   [ChibiNovaPup.dbName]: ChibiNovaPup,
   [Crook.dbName]: Crook,
