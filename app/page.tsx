@@ -127,14 +127,14 @@ export default function Home() {
             transition={{ delay: 0.2 }}
           >
             <div className="relative overflow-hidden">
-                <Image
-                    src="/assets/images/showcase.webp"
-                    alt="Showcase of VRChat model textures created by Haru"
-                    className="mx-auto h-auto max-h-96 w-full object-contain"
-                    loading="lazy"
-                    width={2425}
-                    height={1068}
-                />
+              <Image
+                src="/assets/images/showcase.webp"
+                alt="Showcase of VRChat model textures created by Haru"
+                className="mx-auto h-auto max-h-96 w-full object-contain"
+                loading="lazy"
+                width={2425}
+                height={1068}
+              />
             </div>
           </motion.div>
 
