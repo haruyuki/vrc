@@ -1,29 +1,30 @@
-import { Akami } from './models/Akami';
-import { Alfie } from './models/Alfie';
-import { Alums } from './models/Alums';
-import { Asty } from './models/Asty';
+import { Akami } from '@/data/models/Akami';
+import { Alfie } from '@/data/models/Alfie';
+import { Alums } from '@/data/models/Alums';
+import { Asty } from '@/data/models/Asty';
 import { Chibigen } from '@/data/models/Chibigen';
-import { ChibiNovabeast } from './models/ChibiNovabeast';
-import { ChibiNovaPup } from './models/ChibiNovaPup';
-import { Crook } from './models/Crook';
-import { Espo } from './models/Espo';
-import { Flat2 } from './models/Flat2';
-import { Foshunia } from './models/Foshunia';
-import { JinxedFox } from './models/JinxedFox';
-import { Jiro } from './models/Jiro';
-import { Kankitsu } from './models/Kankitsu';
-import { Kokotora } from './models/Kokotora';
-import { Lana } from './models/Lana';
-import { Lars } from './models/Lars';
-import { Lupi } from './models/Lupi';
-import { Nyaruku } from './models/Nyaruku';
-import { PolyPutty } from './models/PolyPutty';
-import { Regulus2 } from './models/Regulus2';
-import { Rigaro } from './models/Rigaro';
-import { SharatNEW } from './models/SharatNEW';
-import { Wako } from './models/Wako';
+import { ChibiNovabeast } from '@/data/models/ChibiNovabeast';
+import { ChibiNovaPup } from '@/data/models/ChibiNovaPup';
+import { Crook } from '@/data/models/Crook';
+import { Espo } from '@/data/models/Espo';
+import { Flat2 } from '@/data/models/Flat2';
+import { Foshunia } from '@/data/models/Foshunia';
+import { JinxedFox } from '@/data/models/JinxedFox';
+import { Jiro } from '@/data/models/Jiro';
+import { Kankitsu } from '@/data/models/Kankitsu';
+import { Kokotora } from '@/data/models/Kokotora';
+import { Lana } from '@/data/models/Lana';
+import { Lars } from '@/data/models/Lars';
+import { Lupi } from '@/data/models/Lupi';
+import { Nyaruku } from '@/data/models/Nyaruku';
+import { PolyPutty } from '@/data/models/PolyPutty';
+import { Radlus } from "@/data/models/Radlus";
+import { Regulus2 } from '@/data/models/Regulus2';
+import { Rigaro } from '@/data/models/Rigaro';
+import { SharatNEW } from '@/data/models/SharatNEW';
+import { Wako } from '@/data/models/Wako';
 import { Yue } from '@/data/models/Yue';
-import { ZiziV2 } from './models/ZiziV2';
+import { ZiziV2 } from '@/data/models/ZiziV2';
 import { ModelMetadata } from '@/types';
 
 // Create a centralized model registry using dbName as the key
@@ -48,6 +49,7 @@ export const modelRegistry: Record<string, ModelMetadata> = {
   [Lupi.dbName]: Lupi,
   [Nyaruku.dbName]: Nyaruku,
   [PolyPutty.dbName]: PolyPutty,
+  [Radlus.dbName]: Radlus,
   [Regulus2.dbName]: Regulus2,
   [Rigaro.dbName]: Rigaro,
   [SharatNEW.dbName]: SharatNEW,
