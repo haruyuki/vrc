@@ -20,7 +20,7 @@ import { Nyaruku } from '@/data/models/Nyaruku';
 import { PolyPutty } from '@/data/models/PolyPutty';
 import { Radlus } from "@/data/models/Radlus";
 import { Regulus2 } from '@/data/models/Regulus2';
-import {Rem} from "@/data/models/Rem";
+import { Rem } from "@/data/models/Rem";
 import { Rigaro } from '@/data/models/Rigaro';
 import { SharatNEW } from '@/data/models/SharatNEW';
 import { Wako } from '@/data/models/Wako';
