@@ -13,6 +13,7 @@ import { JinxedFox } from '@/data/models/JinxedFox';
 import { Jiro } from '@/data/models/Jiro';
 import { Kankitsu } from '@/data/models/Kankitsu';
 import { Kokotora } from '@/data/models/Kokotora';
+import { Korone } from "@/data/models/Korone";
 import { Lana } from '@/data/models/Lana';
 import { Lars } from '@/data/models/Lars';
 import { Lupi } from '@/data/models/Lupi';
@@ -45,6 +46,7 @@ export const modelRegistry: Record<string, ModelMetadata> = {
   [Jiro.dbName]: Jiro,
   [Kankitsu.dbName]: Kankitsu,
   [Kokotora.dbName]: Kokotora,
+  [Korone.dbName]: Korone,
   [Lana.dbName]: Lana,
   [Lars.dbName]: Lars,
   [Lupi.dbName]: Lupi,
