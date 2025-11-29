@@ -24,6 +24,7 @@ import { Regulus2 } from '@/data/models/Regulus2';
 import { Rem } from "@/data/models/Rem";
 import { Rigaro } from '@/data/models/Rigaro';
 import { SharatNEW } from '@/data/models/SharatNEW';
+import { Sora } from "@/data/models/Sora";
 import { Wako } from '@/data/models/Wako';
 import { Yue } from '@/data/models/Yue';
 import { ZiziV2 } from '@/data/models/ZiziV2';
@@ -57,6 +58,7 @@ export const modelRegistry: Record<string, ModelMetadata> = {
   [Rem.dbName]: Rem,
   [Rigaro.dbName]: Rigaro,
   [SharatNEW.dbName]: SharatNEW,
+  [Sora.dbName]: Sora,
   [Wako.dbName]: Wako,
   [Yue.dbName]: Yue,
   [ZiziV2.dbName]: ZiziV2,
