@@ -34,52 +34,42 @@ export function useCommissionData() {
 
     let totalCommissions = 0;
     let latestDate: Date | null = null;
-    const modelLatestDates: { modelName: string; date: Date }[] = [];
+    const allUpdates: { modelName: string; date: Date }[] = [];
 
     for (const modelData of data) {
       totalCommissions += modelData.commissions.length;
 
-      if (modelData.commissions.length === 0) continue;
-
-      let modelLatestDate: Date | null = null;
+      const metadata = getModelMetadataByDbName(modelData.modelName);
+      const displayName = metadata?.modelName || modelData.modelName;
 
       for (const commission of modelData.commissions) {
         const commissionDate = new Date(commission.commissionDate.split('/').reverse().join('-'));
 
-        if (!modelLatestDate || commissionDate > modelLatestDate) {
-          modelLatestDate = commissionDate;
-        }
-
         if (!latestDate || commissionDate > latestDate) {
           latestDate = commissionDate;
         }
-      }
 
-      if (modelLatestDate) {
-        const metadata = getModelMetadataByDbName(modelData.modelName);
-        const displayName = metadata?.modelName || modelData.modelName;
-
-        modelLatestDates.push({
+        allUpdates.push({
           modelName: displayName,
-          date: modelLatestDate,
+          date: commissionDate,
         });
       }
     }
 
-    const recentModelUpdates = modelLatestDates
-      .sort((a, b) => b.date.getTime() - a.date.getTime())
-      .slice(0, 5)
-      .map(({ modelName, date }) => ({
-        date: date.toISOString().split('T')[0].replace(/-/g, '/'), // Use a slash date format (YYYY/MM/DD)
-        modelName,
-      }));
+    const recentModelUpdates = allUpdates
+    .sort((a, b) => b.date.getTime() - a.date.getTime())
+    .slice(0, 5)
+    .map(({ modelName, date }) => ({
+      date: date.toISOString().split('T')[0].replace(/-/g, '/'),
+      modelName,
+    }));
 
     return {
       totalCommissions,
       totalModels: data.length,
       latestCommissionDate: latestDate
         ? latestDate.toISOString().split('T')[0].replace(/-/g, '/')
-        : null, // Use slash date format
+        : null,
       recentModelUpdates,
     };
   }, []);
@@ -87,11 +77,11 @@ export function useCommissionData() {
   const stats =
     commissions.length === 0
       ? {
-          totalCommissions: 0,
-          totalModels: 0,
-          latestCommissionDate: null,
-          recentModelUpdates: [],
-        }
+        totalCommissions: 0,
+        totalModels: 0,
+        latestCommissionDate: null,
+        recentModelUpdates: [],
+      }
       : calculateStats(commissions);
 
   useEffect(() => {
@@ -107,13 +97,15 @@ export function useCommissionData() {
       const response = await fetch('/api/commissions');
 
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        setError(`HTTP error! status: ${response.status}`);
+        return;
       }
 
       const result: ApiResponse = await response.json();
 
       if (!result.success) {
-        throw new Error('API returned unsuccessful response');
+        setError('API returned unsuccessful response');
+        return;
       }
 
       setCommissions(result.data);
