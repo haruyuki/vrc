@@ -2,6 +2,7 @@ import { Akami } from '@/data/models/Akami';
 import { Alfie } from '@/data/models/Alfie';
 import { Alums } from '@/data/models/Alums';
 import { Asty } from '@/data/models/Asty';
+import { ChezzPuff } from "@/data/models/ChezzPuff";
 import { Chibigen } from '@/data/models/Chibigen';
 import { ChibiNovabeast } from '@/data/models/ChibiNovabeast';
 import { ChibiNovaPup } from '@/data/models/ChibiNovaPup';
@@ -36,6 +37,7 @@ export const modelRegistry: Record<string, ModelMetadata> = {
   [Alfie.dbName]: Alfie,
   [Alums.dbName]: Alums,
   [Asty.dbName]: Asty,
+  [ChezzPuff.dbName]: ChezzPuff,
   [Chibigen.dbName]: Chibigen,
   [ChibiNovabeast.dbName]: ChibiNovabeast,
   [ChibiNovaPup.dbName]: ChibiNovaPup,
