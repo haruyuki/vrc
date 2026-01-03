@@ -2,7 +2,7 @@ export const Rui = {
   modelName: 'Rui',
   dbName: 'Rui',
   coverImage:
-    'https://booth.pximg.net/0df4f4ed-8ca6-4469-ba1f-24516e72a2ef/i/2422017/fbb2be24-4017-4dc5-a857-d4993bef5f1b.png',
+    'https://booth.pximg.net/843257c7-cd2a-431b-931e-9ef2108c48cf/i/4803440/2c68ee06-8b16-43e1-bf2a-9395f4597ca5.png',
   bgColor: '#dedde3',
   officialLink: 'https://d0ggybag.booth.pm/items/4803440',
   featured: false,
