@@ -10,6 +10,7 @@ import { Crook } from '@/data/models/Crook';
 import { Espo } from '@/data/models/Espo';
 import { Flat2 } from '@/data/models/Flat2';
 import { Foshunia } from '@/data/models/Foshunia';
+import { HARO } from "@/data/models/HARO";
 import { JinxedFox } from '@/data/models/JinxedFox';
 import { Jiro } from '@/data/models/Jiro';
 import { Kankitsu } from '@/data/models/Kankitsu';
@@ -25,6 +26,7 @@ import { Radlus } from "@/data/models/Radlus";
 import { Regulus2 } from '@/data/models/Regulus2';
 import { Rem } from "@/data/models/Rem";
 import { Rigaro } from '@/data/models/Rigaro';
+import { Rosune } from "@/data/models/Rosune";
 import { Rui } from "@/data/models/Rui";
 import { SharatNEW } from '@/data/models/SharatNEW';
 import { Sora } from "@/data/models/Sora";
@@ -47,6 +49,7 @@ export const modelRegistry: Record<string, ModelMetadata> = {
   [Espo.dbName]: Espo,
   [Flat2.dbName]: Flat2,
   [Foshunia.dbName]: Foshunia,
+  [HARO.dbName]: HARO,
   [JinxedFox.dbName]: JinxedFox,
   [Jiro.dbName]: Jiro,
   [Kankitsu.dbName]: Kankitsu,
@@ -62,6 +65,7 @@ export const modelRegistry: Record<string, ModelMetadata> = {
   [Regulus2.dbName]: Regulus2,
   [Rem.dbName]: Rem,
   [Rigaro.dbName]: Rigaro,
+  [Rosune.dbName]: Rosune,
   [Rui.dbName]: Rui,
   [SharatNEW.dbName]: SharatNEW,
   [Sora.dbName]: Sora,
