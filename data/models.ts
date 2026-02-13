@@ -7,6 +7,7 @@ import { Chibigen } from '@/data/models/Chibigen';
 import { ChibiNovabeast } from '@/data/models/ChibiNovabeast';
 import { ChibiNovaPup } from '@/data/models/ChibiNovaPup';
 import { Crook } from '@/data/models/Crook';
+import { DaifukuDragon } from "@/data/models/DaifukuDragon";
 import { Espo } from '@/data/models/Espo';
 import { Fenrir } from "@/data/models/Fenrir";
 import { Flat2 } from '@/data/models/Flat2';
@@ -48,6 +49,7 @@ export const modelRegistry: Record<string, ModelMetadata> = {
   [ChibiNovabeast.dbName]: ChibiNovabeast,
   [ChibiNovaPup.dbName]: ChibiNovaPup,
   [Crook.dbName]: Crook,
+  [DaifukuDragon.dbName]: DaifukuDragon,
   [Espo.dbName]: Espo,
   [Fenrir.dbName]: Fenrir,
   [Flat2.dbName]: Flat2,
