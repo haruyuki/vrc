@@ -9,6 +9,7 @@ import { ChibiNovaPup } from '@/data/models/ChibiNovaPup';
 import { CryingDog } from "@/data/models/CryingDog";
 import { DaifukuDragon } from "@/data/models/DaifukuDragon";
 import { Espo } from '@/data/models/Espo';
+import { Fenolto } from "@/data/models/Fenolto";
 import { Fenrir } from "@/data/models/Fenrir";
 import { Flat2 } from '@/data/models/Flat2';
 import { Foshunia } from '@/data/models/Foshunia';
@@ -51,6 +52,7 @@ export const modelRegistry: Record<string, ModelMetadata> = {
   [CryingDog.dbName]: CryingDog,
   [DaifukuDragon.dbName]: DaifukuDragon,
   [Espo.dbName]: Espo,
+  [Fenolto.dbName]: Fenolto,
   [Fenrir.dbName]: Fenrir,
   [Flat2.dbName]: Flat2,
   [Foshunia.dbName]: Foshunia,
