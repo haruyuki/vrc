@@ -22,6 +22,7 @@ import { Kokotora } from '@/data/models/Kokotora';
 import { Korone } from "@/data/models/Korone";
 import { Lana } from '@/data/models/Lana';
 import { Lars } from '@/data/models/Lars';
+import { LIBEOS } from "@/data/models/LIBEOS";
 import { LuluJuvenile } from "@/data/models/LuluJuvenile";
 import { Lupi } from '@/data/models/Lupi';
 import { Nyaruku } from '@/data/models/Nyaruku';
@@ -65,6 +66,7 @@ export const modelRegistry: Record<string, ModelMetadata> = {
   [Korone.dbName]: Korone,
   [Lana.dbName]: Lana,
   [Lars.dbName]: Lars,
+  [LIBEOS.dbName]: LIBEOS,
   [LuluJuvenile.dbName]: LuluJuvenile,
   [Lupi.dbName]: Lupi,
   [Nyaruku.dbName]: Nyaruku,
