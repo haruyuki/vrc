@@ -36,6 +36,7 @@ import { Rui } from "@/data/models/Rui";
 import { SharatNEW } from '@/data/models/SharatNEW';
 import { Sora } from "@/data/models/Sora";
 import { Wako } from '@/data/models/Wako';
+import { WEISSPHER } from "@/data/models/WEISSPHER";
 import { Yue } from '@/data/models/Yue';
 import { ZiziV2 } from '@/data/models/ZiziV2';
 import { ModelMetadata } from '@/types';
@@ -80,6 +81,7 @@ export const modelRegistry: Record<string, ModelMetadata> = {
   [SharatNEW.dbName]: SharatNEW,
   [Sora.dbName]: Sora,
   [Wako.dbName]: Wako,
+  [WEISSPHER.dbName]: WEISSPHER,
   [Yue.dbName]: Yue,
   [ZiziV2.dbName]: ZiziV2,
 };
