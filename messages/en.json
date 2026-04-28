@@ -4,6 +4,7 @@
   },
   "Home": {
     "title": "Completed Works",
+    "searchPlaceholder": "Search models...",
     "description": "This site showcases my completed VRC commission works of various models. You can click into each model to view the commissioned retexture work that was done. If you are interested in commissioning, please fill out the form on the bottom of the page.",
     "errorTitle": "Error Loading Data",
     "retry": "Retry",

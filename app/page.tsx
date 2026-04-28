@@ -75,6 +75,8 @@ export default function Home() {
   const tFooter = useTranslations('Footer');
   const animationState = useLoadingAnimation(loading);
 
+  const [searchQuery, setSearchQuery] = useState('');
+
   const latestCommissionDate = stats?.latestCommissionDate || null;
   const recentModelUpdates = stats?.recentModelUpdates || [];
 
@@ -97,6 +99,13 @@ export default function Home() {
     window.location.reload();
   }, []);
 
+  // Filter models by search query (case-insensitive, partial match)
+  const filteredModels = models.filter((model: any) => {
+    if (!searchQuery) return true;
+    if (!model?.modelName) return false;
+    return model.modelName.toLowerCase().includes(searchQuery.toLowerCase());
+  });
+
   // Early return for error state
   if (error) {
     return <ErrorDisplay error={error} onRetry={handleRetry} />;
@@ -113,9 +122,21 @@ export default function Home() {
             <p className="mx-auto max-w-2xl text-lg text-slate-300">{t('description')}</p>
           </div>
 
+          {/* Search Bar */}
+          <div className="mb-8 flex justify-center">
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={e => setSearchQuery(e.target.value)}
+              placeholder={t('searchPlaceholder', { defaultValue: 'Search models...' })}
+              className="w-full max-w-md rounded-lg border border-slate-700 bg-slate-800 px-4 py-2 text-white placeholder-slate-400 focus:border-blue-500 focus:outline-none"
+              aria-label="Search models"
+            />
+          </div>
+
           <ProgressBar animationState={animationState} statusText={statusText} />
 
-          <ModelGrid models={models} showCommissionerCounts={!loading} />
+          <ModelGrid models={filteredModels} showCommissionerCounts={!loading} />
 
           <RecentUpdates updates={recentModelUpdates} isLoading={loading} />
 
