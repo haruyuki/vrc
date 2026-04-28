@@ -14,7 +14,8 @@ interface ModelGridProps {
 }
 
 export default function ModelGrid({ models, showCommissionerCounts = true }: ModelGridProps) {
-  const [selectedModel, setSelectedModel] = useState<Model | null>(null);
+  const [selectedModelId, setSelectedModelId] = useState<string | null>(null);
+  const selectedModel = selectedModelId ? models.find((m) => m.id === selectedModelId) || null : null;
   const [currentPage, setCurrentPage] = useState(1);
   const modelsPerPage = 16;
   const t = useTranslations('Pagination');
@@ -42,13 +43,8 @@ export default function ModelGrid({ models, showCommissionerCounts = true }: Mod
     }
   }, [selectedModel]);
 
-  const handleModelSelect = (model: Model) => {
-    setSelectedModel(model);
-  };
-
-  const handleModalClose = () => {
-    setSelectedModel(null);
-  };
+  const handleModelSelect = (model: Model) => { setSelectedModelId(model.id); };
+  const handleModalClose = () => { setSelectedModelId(null); };
 
   const handlePageChange = (page: number) => {
     // Store the current scroll position relative to the pagination controls
