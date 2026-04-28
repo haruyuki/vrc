@@ -24,11 +24,12 @@ const formatDate = (dateString: string) => {
 export default function CommissionerCard({ commissioner, index }: CommissionerCardProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
+  const [userSelected, setUserSelected] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    // Only start cycling if there are multiple images and user is hovering
-    if (isHovering && commissioner.textureImages.length > 1) {
+    // Only start cycling if there are multiple images, user is hovering, and user has not manually selected
+    if (isHovering && commissioner.textureImages.length > 1 && !userSelected) {
       intervalRef.current = setInterval(() => {
         setCurrentImageIndex((prev) => (prev + 1) % commissioner.textureImages.length);
       }, 1500); // Change image every 1500ms
@@ -37,7 +38,10 @@ export default function CommissionerCard({ commissioner, index }: CommissionerCa
         clearInterval(intervalRef.current);
         intervalRef.current = null;
       }
-      setCurrentImageIndex(0); // Reset to first image when not hovering
+      if (!isHovering) {
+        setCurrentImageIndex(0); // Reset to first image when not hovering
+        setUserSelected(false); // Reset user selection when mouse leaves
+      }
     }
 
     return () => {
@@ -45,7 +49,7 @@ export default function CommissionerCard({ commissioner, index }: CommissionerCa
         clearInterval(intervalRef.current);
       }
     };
-  }, [isHovering, commissioner.textureImages.length]);
+  }, [isHovering, commissioner.textureImages.length, userSelected]);
 
   // Safety check for an empty texture images array
   if (!commissioner.textureImages || commissioner.textureImages.length === 0) {
@@ -109,11 +113,20 @@ export default function CommissionerCard({ commissioner, index }: CommissionerCa
         {commissioner.textureImages.length > 1 && (
           <div className="absolute bottom-2 left-2 flex gap-1">
             {commissioner.textureImages.map((_, imgIndex) => (
-              <div
+              <button
                 key={imgIndex}
-                className={`h-2 w-2 rounded-full transition-all duration-300 ${
-                  imgIndex === currentImageIndex ? 'bg-white' : 'bg-white/50'
-                }`}
+                type="button"
+                aria-label={`Show image ${imgIndex + 1}`}
+                aria-pressed={imgIndex === currentImageIndex}
+                tabIndex={0}
+                className={`h-4 w-4 flex items-center justify-center rounded-full border-2 border-transparent transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/70 cursor-pointer
+                  ${imgIndex === currentImageIndex ? 'bg-white border-blue-400 shadow' : 'bg-white/50 hover:bg-white/80 hover:border-blue-300'}`}
+                style={{ minWidth: '1rem', minHeight: '1rem', padding: 0 }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setCurrentImageIndex(imgIndex);
+                  setUserSelected(true);
+                }}
               />
             ))}
           </div>
