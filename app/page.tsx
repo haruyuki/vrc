@@ -134,9 +134,9 @@ export default function Home() {
             />
           </div>
 
-          <ProgressBar animationState={animationState} statusText={statusText} />
-
           <ModelGrid models={filteredModels} showCommissionerCounts={!loading} />
+
+          <ProgressBar animationState={animationState} statusText={statusText} />
 
           <RecentUpdates updates={recentModelUpdates} isLoading={loading} />
 

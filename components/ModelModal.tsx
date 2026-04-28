@@ -26,7 +26,7 @@ export default function ModelModal({ model, onClose }: ModelModalProps) {
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
-        className="max-h-[90vh] w-full max-w-5xl overflow-y-auto rounded-2xl border border-slate-700 bg-gradient-to-br from-slate-800 to-slate-900"
+        className="max-h-[90vh] w-full max-w-7xl overflow-y-auto rounded-2xl border border-slate-700 bg-gradient-to-br from-slate-800 to-slate-900"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal header */}
