@@ -10,6 +10,7 @@ import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 import { getUserLocaleFromCookie } from '@/utils/getUserLocaleFromCookie';
 import Image from 'next/image';
+import type { Model } from '@/types';
 
 function useLoadingAnimation(loading: boolean) {
   const [animationState, setAnimationState] = useState<'loading' | 'completed'>('loading');
@@ -100,9 +101,8 @@ export default function Home() {
   }, []);
 
   // Filter models by search query (case-insensitive, partial match)
-  const filteredModels = models.filter((model: any) => {
+  const filteredModels = models.filter((model: Model) => {
     if (!searchQuery) return true;
-    if (!model?.modelName) return false;
     return model.modelName.toLowerCase().includes(searchQuery.toLowerCase());
   });
 
