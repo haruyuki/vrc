@@ -20,6 +20,8 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'Haru VRC Model Texture Commissions',
   description: 'A site to showcase completed works by Haru.',
+  keywords: ['VRChat', 'VRC', 'VRChat Model Texturing', 'Haru', 'VRChat Models', 'VRChat Texturing', 'VRChat Commissions', 'Commission'],
+  robots: 'index, follow',
   openGraph: {
     title: "Haru's VRChat Model Texturing Gallery",
     description: 'A site to showcase completed works by Haru',
