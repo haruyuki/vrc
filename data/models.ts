@@ -1,6 +1,7 @@
 import { Akami } from '@/data/models/Akami';
 import { Alfie } from '@/data/models/Alfie';
 import { Alums } from '@/data/models/Alums';
+import { Aqual } from "@/data/models/Aqual";
 import { Asty } from '@/data/models/Asty';
 import { Chalo } from "@/data/models/Chalo";
 import { ChezzPuff } from "@/data/models/ChezzPuff";
@@ -51,6 +52,7 @@ export const modelRegistry: Record<string, ModelMetadata> = {
   [Akami.dbName]: Akami,
   [Alfie.dbName]: Alfie,
   [Alums.dbName]: Alums,
+  [Aqual.dbName]: Aqual,
   [Asty.dbName]: Asty,
   [Chalo.dbName]: Chalo,
   [ChezzPuff.dbName]: ChezzPuff,
